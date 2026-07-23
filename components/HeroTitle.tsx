@@ -9,11 +9,15 @@ import styles from './HeroTitle.module.css';
  * page, so it earns a staged delivery rather than appearing all at once.
  */
 
+/**
+ * The author's Core Thesis, verbatim from her canonical brand record, broken
+ * for the display face. Everything else on the page is downstream of it.
+ */
 const LINES = [
-  { text: 'Be more', accent: false },
-  { text: 'informed.', accent: false },
-  { text: 'Do more with', accent: true },
-  { text: 'information.', accent: true },
+  { text: 'AI takes the', accent: false },
+  { text: 'what and the how.', accent: false },
+  { text: 'Leadership is', accent: true },
+  { text: 'the why and the who.', accent: true },
 ];
 
 export default function HeroTitle() {

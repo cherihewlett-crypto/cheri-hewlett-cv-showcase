@@ -61,20 +61,20 @@ const PORTABLE = [
  */
 const POV = [
   {
-    move: 'Go where it is hard',
-    body: 'The gaps worth taking are the complex, high-impact ones a person cannot reason their way through alone — too many inputs, too little time, and the answer buried across systems that were never meant to talk.',
+    move: 'Innovation is choosing the right problem',
+    body: 'Most companies are solving the wrong problems faster. AI didn’t fix that — it accelerated it. The first question is never “can we build this,” it is “is this the problem that deserves the next six months, and is it the one to solve first?”',
   },
   {
-    move: 'Make people better informed',
-    body: 'Most decisions are not limited by judgement. They are limited by what the person knew at the moment they had to decide. Closing that gap changes the decision, not just the paperwork around it.',
+    move: 'ROI is the problem solved, not the time saved',
+    body: 'Time doesn’t disappear; it gets reallocated. The real question is what caliber of quality the team operates at after the investment. This is not about working less — it is about operating differently, and smarter.',
   },
   {
-    move: 'Automate only what should be',
-    body: 'Automation earns its place on the mechanical middle — the collection, reconciliation, and chasing. What requires judgement stays with the human, better supplied than before.',
+    move: 'Trust is the real moat',
+    body: 'Everyone is asking “can AI do this?” The better question is “can we prove it did it right?” In the office of the CFO that is not a nice-to-have — it is the difference between a system people adopt and one they quietly work around.',
   },
   {
-    move: 'Elevate, do not substitute',
-    body: 'The measure is not hours removed. It is what the person can do afterwards that they could not do before. Systems that quietly deskill their users are a failure even when the metrics improve.',
+    move: 'How you treat people is the strategy',
+    body: 'Organizations don’t outperform because they obsess over customers. They outperform because they invest in the people serving them. As AI absorbs more of the execution, that becomes more of the job, not less.',
   },
 ];
 
@@ -113,19 +113,19 @@ const PRACTICE = [
  */
 const ROLES = [
   {
-    org: 'What I build',
-    title: 'Governed AI systems for work that gets audited',
-    body: 'Multi-agent orchestration with persistent memory, fail-closed tool authority, and a verification layer that recomputes state rather than trusting it. Built on Supabase, Vercel, Mem0, and MCP-based tool orchestration — the four systems above, running in production rather than sitting in a prototype folder.',
+    org: 'The differentiator',
+    title: 'Every seat in the product lifecycle',
+    body: 'Customer success, solutions consulting, product and business transformation, platform strategy. I don’t just understand the product — I understand what it feels like to implement it, sell it, support it, and bet a company’s transformation on it. Most innovation leaders talk theory. I’ve lived inside these systems, rebuilt them, and lead from that.',
   },
   {
-    org: 'Where the domain came from',
-    title: 'Two decades in enterprise software, most of it in the office of the CFO',
-    body: 'Platform and product leadership at public-company scale, including building and running a financial analytics platform line with full P&L ownership across product, engineering, go-to-market, and customer success. That is the source of the close mechanics, accounting doctrine, and audit constraints encoded in this work — it is why the consolidation engine keeps its arithmetic deterministic, and why every rule in the doctrine corpus carries a citation.',
+    org: 'The spine',
+    title: 'Air Force. Big Four. Founder. Investor. Operator.',
+    body: 'Served in the U.S. Air Force — mission first, people always. PwC and Deloitte. Founded my own CPA firm from scratch. Built a real estate portfolio over a decade of buying, renovating, and managing. Rose from customer success manager to senior executive leadership at a publicly traded fintech transforming the office of the CFO. Every chapter required learning something new from zero.',
   },
   {
-    org: 'How I work',
-    title: 'The model plans; deterministic code decides',
-    body: 'Domain rules and logic carry the weight; the model is reserved for the ambiguous middle. Capabilities are measured against their recurring cost before approval, coverage is claimed only against an enumerated inventory, and nothing closes on the builder’s own say-so.',
+    org: 'How I build',
+    title: 'Problem-led, from market friction',
+    body: 'I quantify friction and build solutions to problems others haven’t identified yet — demand-driven, not theory-driven. Strategy anchors direction, execution is in my DNA, and agility runs through both. The model plans; deterministic code decides; nothing closes on the builder’s own say-so.',
   },
 ];
 
@@ -173,20 +173,23 @@ export default function Page() {
         <main className="shell__main">
           {/* ------------------------------------------------------- hero */}
           <header className={`band band--flush ${styles.hero}`}>
-            <p className={styles.eyebrow}>Cheri Hewlett, CPA · Agentic AI, decision intelligence, the office of the CFO</p>
+            <p className={styles.eyebrow}>
+              Cheri Hewlett, CPA · Technology executive · Builder · Veteran · People first, always
+            </p>
 
             <Backdrop />
             <HeroTitle />
 
             <div className={styles.heroBody}>
               <p className="lede">
-                That is what I build for. The complex, high-impact gaps a person cannot close on their own — automate
-                what should be automated, surface what nobody had the hours to find, and put it in front of someone at
-                the moment they decide.
+                The organizations that win won’t be the ones that adopted AI fastest. They’ll be the ones that chose the
+                right problems, built systems their people could trust, and had leaders resilient enough to stay the
+                course when it got hard.
               </p>
               <p className={styles.heroSub}>
-                The figures below are not typed in. They are recomputed from the engineering record every time this page
-                builds, and labelled by how much you should trust them.
+                I don’t build theory — I build from market friction, and I build it myself. The figures below are not
+                typed in. They are recomputed from the engineering record every time this page builds, and labelled by
+                how much you should trust them.
               </p>
             </div>
 
@@ -197,7 +200,7 @@ export default function Page() {
           <section className="band" id="pov">
             <h2 className="band__label">
               <span>Point of view</span>
-              <span>what I am actually optimising for</span>
+              <span>judgment · resilience · builder</span>
             </h2>
             <div className={styles.pov}>
               {POV.map((item, i) => (
@@ -211,7 +214,8 @@ export default function Page() {
             </div>
             <Reveal delay={0.15}>
               <p className={styles.povQuote}>
-                “AI will empower those who can see the problems that matter — and are resilient enough to solve them.”
+                “The leaders who thrive in this next decade won’t simply be fluent in technology. They’ll be deeply
+                human.”
               </p>
             </Reveal>
           </section>

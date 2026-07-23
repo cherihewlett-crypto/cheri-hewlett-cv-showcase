@@ -24,13 +24,13 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Cheri Hewlett — AI-native operating executive',
+  title: 'Cheri Hewlett, CPA — Technology executive, builder, veteran',
   description:
-    'Platform executive who builds the systems. Four production AI systems — multi-agent orchestration, governed autonomy, and a verification layer — with the engineering record to check the claims against.',
+    'As AI takes on more of the what and the how, leadership becomes about the why and the who. Technology executive, builder, CPA and veteran — with four production AI systems and the engineering record to check the claims against.',
   openGraph: {
-    title: 'Cheri Hewlett — AI-native operating executive',
+    title: 'Cheri Hewlett, CPA — Technology executive, builder, veteran',
     description:
-      'Four production AI systems, built hands-on. Every headline figure on this page is recomputed from the engineering record rather than typed in.',
+      'The organizations that win won’t be the ones that adopted AI fastest — they’ll be the ones that chose the right problems. Four production AI systems, built hands-on.',
     type: 'profile',
   },
 };
