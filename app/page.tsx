@@ -180,9 +180,9 @@ export default function Page() {
 
             <div className={styles.heroBody}>
               <p className="lede">
-                I go after the complex, high-impact gaps a person cannot close on their own information — automate what
-                should be automated, surface what nobody had the hours to find, and put it in front of someone at the
-                moment they decide.
+                That is what I build for. The complex, high-impact gaps a person cannot close on their own — automate
+                what should be automated, surface what nobody had the hours to find, and put it in front of someone at
+                the moment they decide.
               </p>
               <p className={styles.heroSub}>
                 The figures below are not typed in. They are recomputed from the engineering record every time this page
