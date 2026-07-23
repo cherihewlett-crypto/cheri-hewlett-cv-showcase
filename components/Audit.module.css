@@ -1,0 +1,120 @@
+.wrap {
+  margin-block-start: clamp(3rem, 6vw, 5rem);
+  border-block-start: 1px solid var(--rail);
+}
+
+.head,
+.row {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr) 15rem 12rem;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding-block: 0.95rem;
+}
+
+.head {
+  padding-block: 0.7rem;
+  border-block-end: 1px solid var(--rail-soft);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ice);
+  opacity: 0.45;
+}
+
+/* The claim column spans value + statement, so the header has one fewer cell. */
+.head span:first-child {
+  grid-column: 1 / 3;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  border-block-end: 1px solid var(--rail-soft);
+}
+
+.value {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 78%;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+}
+
+.statement {
+  color: var(--paper);
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.source,
+.state {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+}
+
+.source {
+  color: var(--ice);
+  opacity: 0.6;
+}
+
+.state {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.glyph {
+  font-size: 0.82rem;
+}
+
+.isChecking {
+  color: var(--signal);
+  opacity: 0.75;
+}
+
+.isVerified {
+  color: var(--verified);
+}
+
+.isAttested {
+  color: var(--ice);
+  opacity: 0.75;
+}
+
+.note {
+  max-width: 62ch;
+  margin-block: 1.6rem 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ice);
+  opacity: 0.62;
+}
+
+@media (max-width: 68rem) {
+  .head {
+    display: none;
+  }
+
+  .row {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    row-gap: 0.4rem;
+  }
+
+  .source {
+    grid-column: 2;
+  }
+
+  .state {
+    grid-column: 2;
+  }
+}

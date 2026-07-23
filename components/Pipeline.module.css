@@ -1,0 +1,34 @@
+.wrap {
+  margin-block: 2.5rem 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.svg {
+  display: block;
+  min-width: 46rem;
+  width: 100%;
+  height: auto;
+}
+
+.label {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 80%;
+  font-size: 17px;
+  fill: var(--paper);
+}
+
+.note,
+.blocked {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  fill: var(--ice);
+  opacity: 0.55;
+}
+
+.blocked {
+  fill: var(--ice);
+  opacity: 0.45;
+}

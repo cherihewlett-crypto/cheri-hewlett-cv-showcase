@@ -1,0 +1,295 @@
+.shellWrap {
+  min-height: 100vh;
+}
+
+/* ------------------------------------------------------------------ hero */
+
+.hero {
+  padding-block-start: clamp(4rem, 10vh, 8rem);
+}
+
+.eyebrow {
+  margin: 0 0 clamp(1.75rem, 4vw, 3rem);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.heroAccent {
+  color: var(--signal);
+}
+
+.heroBody {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1.75rem 3rem;
+  margin-block-start: clamp(2rem, 4vw, 3rem);
+}
+
+.heroSub {
+  max-width: 46ch;
+  margin: 0;
+  align-self: end;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--ice);
+}
+
+/* -------------------------------------------------------------- portable */
+
+.portable {
+  margin-block-start: clamp(3.5rem, 7vw, 6rem);
+}
+
+.portableHead {
+  margin: 0 0 2rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.portableGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  gap: 2.25rem 3.5rem;
+}
+
+.portableItem {
+  border-block-start: 1px solid var(--rail);
+  padding-block-start: 1.1rem;
+}
+
+.portableFrom {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ice);
+  opacity: 0.5;
+}
+
+.portableName {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 84%;
+  font-size: 1.14rem;
+  line-height: 1.15;
+  color: var(--paper);
+}
+
+.portableBody {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.58;
+  color: var(--ice);
+}
+
+/* -------------------------------------------------------------- practice */
+
+.practice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  gap: 2.75rem 3.5rem;
+}
+
+.practiceItem {
+  border-block-start: 1px solid var(--rail);
+  padding-block-start: 1.15rem;
+}
+
+.practiceTitle {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 82%;
+  font-size: 1.22rem;
+  line-height: 1.1;
+  color: var(--paper);
+}
+
+.practiceBody {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--ice);
+}
+
+/* ---------------------------------------------------------------- record */
+
+.record {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.roles {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.role {
+  border-block-start: 1px solid var(--rail);
+  padding-block-start: 1.15rem;
+}
+
+.roleOrg {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.roleTitle {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 82%;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  color: var(--paper);
+}
+
+.roleBody {
+  max-width: 58ch;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: var(--ice);
+}
+
+.portrait {
+  position: sticky;
+  top: 4rem;
+  margin: 0;
+}
+
+.portraitImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rail);
+}
+
+.quote {
+  margin-block-start: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--paper);
+  border-inline-start: 2px solid var(--signal);
+  padding-inline-start: 1rem;
+}
+
+/* ----------------------------------------------------------------- talks */
+
+.talks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: 1px solid var(--rail);
+}
+
+.talk {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr) 16rem;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding-block: 1.15rem;
+  border-block-end: 1px solid var(--rail-soft);
+}
+
+.talkYear,
+.talkVenue {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--ice);
+  opacity: 0.55;
+}
+
+.talkName {
+  font-size: 1.02rem;
+  color: var(--paper);
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------- contact */
+
+.contactLede {
+  max-width: 40ch;
+  margin: 0 0 2rem;
+  font-size: var(--step-1);
+  line-height: 1.35;
+  color: var(--paper);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.link {
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--rail);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.link:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+.footer {
+  max-width: 66ch;
+  margin-block-start: clamp(4rem, 8vw, 7rem);
+  padding-block-start: 1.5rem;
+  border-block-start: 1px solid var(--rail-soft);
+}
+
+.footer p {
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  line-height: 1.75;
+  letter-spacing: 0.04em;
+  color: var(--ice);
+  opacity: 0.45;
+}
+
+/* ------------------------------------------------------------ responsive */
+
+@media (max-width: 62rem) {
+  .record {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portrait {
+    position: static;
+    max-width: 26rem;
+  }
+
+  .talk {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    row-gap: 0.35rem;
+  }
+
+  .talkVenue {
+    grid-column: 2;
+  }
+}

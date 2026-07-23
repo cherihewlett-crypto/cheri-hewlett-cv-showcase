@@ -1,0 +1,73 @@
+name: Refresh engineering record
+
+# The site's numbers are only meaningful if they stay current. This recomputes
+# them from the private repositories each night and commits the result, so the
+# published figures track reality without anyone maintaining them by hand.
+#
+# Requires a repo-scoped token in the PRIVATE_REPO_READ secret with read access
+# to the measured repositories. Without it the job is skipped rather than
+# publishing stale or partial numbers.
+
+on:
+  schedule:
+    - cron: '17 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repository
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Check out the measured repositories
+        id: sources
+        env:
+          GH_TOKEN: ${{ secrets.PRIVATE_REPO_READ }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "PRIVATE_REPO_READ is not set — skipping rather than publishing partial numbers."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          mkdir -p sources
+          for repo in team-echo innovation-hub tiger-consolidate accounting-knowledge-base; do
+            gh repo clone "cherihewlett-crypto/$repo" "sources/$repo" -- --quiet || {
+              echo "Could not read $repo — skipping the whole run so totals stay consistent."
+              echo "ready=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            }
+          done
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node
+        if: steps.sources.outputs.ready == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Recompute the record
+        if: steps.sources.outputs.ready == 'true'
+        env:
+          REPO_ROOT: ${{ github.workspace }}/sources
+          GH_TOKEN: ${{ secrets.PRIVATE_REPO_READ }}
+        run: node site/scripts/collect-proof.mjs
+
+      - name: Commit if the numbers moved
+        if: steps.sources.outputs.ready == 'true'
+        working-directory: site
+        run: |
+          git config user.name  "proof-collector"
+          git config user.email "actions@github.com"
+          if git diff --quiet -- public/proof.json; then
+            echo "No change."
+            exit 0
+          fi
+          git add public/proof.json
+          git commit -m "chore: recompute engineering record"
+          git push
