@@ -3,6 +3,19 @@
   border-inline-end: 1px solid var(--rail-soft);
 }
 
+/* Sits exactly on the rail's own border, so reading position reads as the
+   divider filling rather than as a separate widget. */
+.progress {
+  position: fixed;
+  top: 0;
+  left: calc((100vw - min(96rem, 100vw)) / 2 + var(--rail-w));
+  width: 1px;
+  height: 100vh;
+  transform-origin: top;
+  background: linear-gradient(180deg, var(--signal), var(--verified));
+  z-index: 2;
+}
+
 .sticky {
   position: sticky;
   top: 0;
@@ -94,7 +107,8 @@
 }
 
 @media (max-width: 60rem) {
-  .rail {
+  .rail,
+  .progress {
     display: none;
   }
 }

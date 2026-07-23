@@ -17,35 +17,6 @@ import styles from './Audit.module.css';
 
 const CHECK_FRAMES = ['reading git log', 'counting refs', 'excluding bots', 'reconciling'];
 
-/**
- * Numeric claims settle by counting up to their value rather than appearing.
- * The figure is being computed, so it should look computed. Values that are
- * not plain numbers ("~220", "20 yrs") are left alone — animating an
- * approximation would imply a precision it does not have.
- */
-function useCountUp(target: string, run: boolean, ms = 900) {
-  const numeric = Number(target.replace(/,/g, ''));
-  const animatable = Number.isFinite(numeric) && numeric > 0 && /^[\d,]+$/.test(target);
-  const [shown, setShown] = useState(animatable ? 0 : numeric);
-
-  useEffect(() => {
-    if (!animatable || !run) return;
-    let frame = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / ms);
-      // Ease out so the last digits settle rather than snapping.
-      setShown(Math.round(numeric * (1 - Math.pow(1 - t, 3))));
-      if (t < 1) frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [animatable, run, numeric, ms]);
-
-  if (!animatable) return target;
-  return shown.toLocaleString('en-US');
-}
-
 function Row({ claim, index, stillAt }: { claim: Claim; index: number; stillAt: string }) {
   const reduce = useReducedMotion();
   const [settled, setSettled] = useState(Boolean(reduce));
@@ -66,7 +37,6 @@ function Row({ claim, index, stillAt }: { claim: Claim; index: number; stillAt: 
   }, [index, reduce]);
 
   const verified = claim.state === 'verified';
-  const display = useCountUp(claim.value, settled && !reduce);
 
   return (
     <motion.li
@@ -75,7 +45,7 @@ function Row({ claim, index, stillAt }: { claim: Claim; index: number; stillAt: 
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.32 + index * 0.075, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <span className={styles.value}>{display}</span>
+      <span className={styles.value}>{claim.value}</span>
       <span className={styles.statement}>{claim.statement}</span>
       <span className={styles.source}>{claim.source}</span>
       <span

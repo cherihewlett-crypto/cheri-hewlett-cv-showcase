@@ -54,24 +54,6 @@ const MAP = [
       'Model and effort tiering per task class, pinned per agent, with recurring cost stated alongside benefit before a capability is approved.',
   },
   {
-    ask: 'Full product lifecycle ownership',
-    detail: 'Conception through launch and post-launch performance, not one slice of it.',
-    answer:
-      'Four systems carried personally from prototype to production, and a platform line carried commercially from zero to product-market fit across a global enterprise base.',
-  },
-  {
-    ask: 'Evidence-based go / kill gates',
-    detail: 'Stage-gate discipline that kills work honestly instead of letting it drift.',
-    answer:
-      'Phase gates that refuse to advance on assertion — each item states what was verified and how, nothing advances at medium confidence, and a portfolio cockpit runs the triage across prototypes.',
-  },
-  {
-    ask: 'Platform consolidation',
-    detail: 'Pull fragmented product lines into one coherent platform.',
-    answer:
-      'A canonical composition model enforced from day one — one record per entity, one field per concept, reusable capabilities harvested centrally rather than rebuilt per project.',
-  },
-  {
     ask: 'Hands-on credibility with engineers',
     detail: 'Lead the work without being one abstraction removed from how it is actually built.',
     answer:

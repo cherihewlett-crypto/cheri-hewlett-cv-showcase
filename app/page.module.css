@@ -5,6 +5,8 @@
 /* ------------------------------------------------------------------ hero */
 
 .hero {
+  position: relative;
+  isolation: isolate;
   padding-block-start: clamp(4rem, 10vh, 8rem);
 }
 
@@ -189,6 +191,46 @@
   color: var(--paper);
   border-inline-start: 2px solid var(--signal);
   padding-inline-start: 1rem;
+}
+
+/* --------------------------------------------------------------- writing */
+
+.writing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 2.25rem 3.5rem;
+  margin-block-end: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.piece {
+  border-block-start: 1px solid var(--rail);
+  padding-block-start: 1.1rem;
+}
+
+.pieceName {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 84%;
+  font-size: 1.22rem;
+  line-height: 1.12;
+  color: var(--paper);
+}
+
+.pieceNote {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.58;
+  color: var(--ice);
+}
+
+.talksHead {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--signal);
 }
 
 /* ----------------------------------------------------------------- talks */

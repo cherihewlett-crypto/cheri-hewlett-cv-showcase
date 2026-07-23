@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, useScroll, useSpring } from 'motion/react';
 import { useEffect, useState } from 'react';
 import styles from './Rail.module.css';
 
@@ -15,8 +14,6 @@ export type RailSection = { id: string; label: string };
 
 export default function Rail({ sections, stillAt }: { sections: RailSection[]; stillAt: string }) {
   const [active, setActive] = useState(sections[0]?.id ?? '');
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 90, damping: 24, restDelta: 0.001 });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,8 +35,6 @@ export default function Rail({ sections, stillAt }: { sections: RailSection[]; s
 
   return (
     <aside className={styles.rail} aria-label="Page sections">
-      {/* Reading position, rendered as the instrument it is. */}
-      <motion.div className={styles.progress} style={{ scaleY: progress }} aria-hidden="true" />
       <div className={styles.sticky}>
         <a className={styles.mark} href="#top">
           CH

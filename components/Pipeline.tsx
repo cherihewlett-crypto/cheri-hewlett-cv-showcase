@@ -91,17 +91,41 @@ export default function Pipeline() {
           blocked · logged · no model call
         </text>
 
-        {/* A pulse that walks the track once, when the diagram comes into view. */}
-        {play && (
-          <motion.circle
-            r="4.5"
-            cy={TRACK_Y}
-            fill="#45e0b8"
-            initial={{ cx: FIRST_X, opacity: 0 }}
-            animate={{ cx: W - FIRST_X, opacity: [0, 1, 1, 1, 0] }}
-            transition={{ duration: 2.6, delay: 0.45, ease: 'easeInOut' }}
-          />
-        )}
+        {/* Requests keep arriving, so the pulse keeps walking. Two of them,
+            offset, so the track never reads as idle. */}
+        {play &&
+          [0, 1].map((i) => (
+            <motion.g key={i}>
+              <motion.circle
+                r="9"
+                cy={TRACK_Y}
+                fill="#45e0b8"
+                initial={{ cx: FIRST_X, opacity: 0 }}
+                animate={{ cx: W - FIRST_X, opacity: [0, 0.18, 0.18, 0.18, 0] }}
+                transition={{
+                  duration: 4.2,
+                  delay: 0.45 + i * 2.1,
+                  repeat: Infinity,
+                  repeatDelay: 2.1,
+                  ease: 'linear',
+                }}
+              />
+              <motion.circle
+                r="4"
+                cy={TRACK_Y}
+                fill="#45e0b8"
+                initial={{ cx: FIRST_X, opacity: 0 }}
+                animate={{ cx: W - FIRST_X, opacity: [0, 1, 1, 1, 0] }}
+                transition={{
+                  duration: 4.2,
+                  delay: 0.45 + i * 2.1,
+                  repeat: Infinity,
+                  repeatDelay: 2.1,
+                  ease: 'linear',
+                }}
+              />
+            </motion.g>
+          ))}
 
         {STAGES.map((stage, i) => {
           const x = FIRST_X + i * GAP;

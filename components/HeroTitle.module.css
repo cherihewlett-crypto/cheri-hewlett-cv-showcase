@@ -1,0 +1,21 @@
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each line rises out of its own clipping box, so the reveal reads as type
+   being set rather than text fading in. */
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding-block-end: 0.04em;
+}
+
+.line {
+  display: block;
+  will-change: transform;
+}
+
+.accent {
+  color: var(--signal);
+}

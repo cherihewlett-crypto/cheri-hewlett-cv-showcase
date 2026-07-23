@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Audit from '@/components/Audit';
+import Backdrop from '@/components/Backdrop';
 import Enablement from '@/components/Enablement';
+import HeroTitle from '@/components/HeroTitle';
+import Lifecycle from '@/components/Lifecycle';
 import Market from '@/components/Market';
 import Pipeline from '@/components/Pipeline';
 import Rail from '@/components/Rail';
@@ -16,6 +19,7 @@ const SECTIONS = [
   { id: 'teams', label: 'Teams' },
   { id: 'enablement', label: 'Enablement' },
   { id: 'practice', label: 'Practice' },
+  { id: 'lifecycle', label: 'Prototype→scale' },
   { id: 'fit', label: 'Fit' },
   { id: 'record', label: 'Record' },
   { id: 'voice', label: 'In public' },
@@ -101,6 +105,26 @@ const ROLES = [
   },
 ];
 
+/** Written work — the point of view the systems are built out of. */
+const WRITING = [
+  {
+    name: 'Agentic AI System Design: The Full Guide',
+    note: 'Architecture, human alignment, operational governance, and deployment — the blueprint these systems were built against.',
+  },
+  {
+    name: 'The Disruption Decade',
+    note: 'What a decade of compounding disruption asks of operators, and why the durable advantage is judgement rather than tooling.',
+  },
+  {
+    name: 'Confidence That Can’t Be Shaken',
+    note: 'On resilience as an operating capability — building conviction that survives contact with a changing market.',
+  },
+  {
+    name: 'The CFO Intelligence System',
+    note: 'The commercial thesis behind applying agentic AI to the office of the CFO.',
+  },
+];
+
 const TALKS = [
   { name: 'Building with Agentic AI: A Fintech Leader’s Show & Tell', venue: 'Product Advisory Collective', year: '2026' },
   { name: 'BlackLine Investor Day', venue: 'New York', year: '2024' },
@@ -125,20 +149,15 @@ export default function Page() {
         <main className="shell__main">
           {/* ------------------------------------------------------- hero */}
           <header className={`band band--flush ${styles.hero}`}>
-            <p className={styles.eyebrow}>Cheri Hewlett, CPA — AI-native operating executive</p>
+            <p className={styles.eyebrow}>Cheri Hewlett, CPA · Agentic AI systems for work that gets audited</p>
 
-            <h1 className="display display--hero">
-              I lead the
-              <br />
-              platform.
-              <br />
-              <span className={styles.heroAccent}>And I build it.</span>
-            </h1>
+            <Backdrop />
+            <HeroTitle />
 
             <div className={styles.heroBody}>
               <p className="lede">
-                Four production AI systems — multi-agent orchestration, governed autonomy, and a verification layer —
-                designed and written hands-on, on top of two decades leading enterprise software.
+                That gap is the whole job. In the office of the CFO a confident guess is not a bad suggestion — it is a
+                reportable event. I design agentic systems that can prove what they did, and I build them myself.
               </p>
               <p className={styles.heroSub}>
                 The figures below are not typed in. They are recomputed from the engineering record every time this page
@@ -250,6 +269,21 @@ export default function Page() {
             </div>
           </section>
 
+          {/* -------------------------------------------------- lifecycle */}
+          <section className="band" id="lifecycle">
+            <h2 className="band__label">
+              <span>Prototype → scale</span>
+              <span>the whole arc</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '2.5rem' }}>
+                Product and innovation leadership is written as a lifecycle — prototype, prove, harden, scale. The
+                common gap is a leader who has lived in one or two of those stages. Here is what sits at each.
+              </p>
+            </Reveal>
+            <Lifecycle />
+          </section>
+
           {/* -------------------------------------------------------- fit */}
           <section className="band" id="fit">
             <h2 className="band__label">
@@ -307,8 +341,21 @@ export default function Page() {
           <section className="band" id="voice">
             <h2 className="band__label">
               <span>In public</span>
-              <span>talks &amp; writing</span>
+              <span>writing &amp; talks</span>
             </h2>
+
+            <div className={styles.writing}>
+              {WRITING.map((piece, i) => (
+                <Reveal key={piece.name} delay={(i % 2) * 0.06}>
+                  <article className={styles.piece}>
+                    <h3 className={styles.pieceName}>{piece.name}</h3>
+                    <p className={styles.pieceNote}>{piece.note}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+
+            <p className={styles.talksHead}>Speaking</p>
             <ul className={styles.talks}>
               {TALKS.map((talk, i) => (
                 <Reveal key={talk.name} delay={i * 0.05}>
