@@ -133,6 +133,7 @@ Built an independent AI platform focused on multi-agent orchestration, persisten
 
 - Public-safe text version: [resume/cheri-hewlett-cv.md](resume/cheri-hewlett-cv.md)
 - Publication note: [resume/README.md](resume/README.md)
+- Format/style benchmark: [Top 10 GitHub Showcase Formats](research/top-10-github-showcase-formats.md)
 
 ## Contact
 
