@@ -26,11 +26,11 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: 'Cheri Hewlett — AI-native operating executive',
   description:
-    'Platform executive who builds the systems. Enterprise P&L leadership at BlackLine, and four production AI systems built hands-on — with the engineering record to check it against.',
+    'Platform executive who builds the systems. Four production AI systems — multi-agent orchestration, governed autonomy, and a verification layer — with the engineering record to check the claims against.',
   openGraph: {
     title: 'Cheri Hewlett — AI-native operating executive',
     description:
-      'Enterprise platform leadership, and four production AI systems built hands-on. Every claim on this page is checked against a live engineering record.',
+      'Four production AI systems, built hands-on. Every headline figure on this page is recomputed from the engineering record rather than typed in.',
     type: 'profile',
   },
 };

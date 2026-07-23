@@ -52,16 +52,10 @@ const n = (v: number) => v.toLocaleString('en-US');
 
 export const claims: Claim[] = [
   {
-    value: '~220',
-    statement: 'person platform line, built from zero',
-    source: 'BlackLine · P&L ownership',
-    state: 'attested',
-  },
-  {
-    value: '100%+',
-    statement: 'YoY organic growth, three consecutive years',
-    source: 'BlackLine · reported',
-    state: 'attested',
+    value: String(proof.totals.systems),
+    statement: 'production systems, designed and built hands-on',
+    source: 'git · four private repositories',
+    state: 'verified',
   },
   {
     value: n(proof.totals.authoredCommits),
@@ -86,6 +80,12 @@ export const claims: Claim[] = [
     statement: 'database migrations under governance',
     source: 'git · supabase/migrations',
     state: 'verified',
+  },
+  {
+    value: '20 yrs',
+    statement: 'leading enterprise software, most of it in the office of the CFO',
+    source: 'career · not machine-checkable',
+    state: 'attested',
   },
 ];
 

@@ -1,19 +1,53 @@
 import Image from 'next/image';
 import Audit from '@/components/Audit';
+import Enablement from '@/components/Enablement';
+import Market from '@/components/Market';
 import Pipeline from '@/components/Pipeline';
 import Rail from '@/components/Rail';
 import Reveal from '@/components/Reveal';
 import Systems from '@/components/Systems';
+import Teams from '@/components/Teams';
 import { claims, proof, relativeAge } from '@/lib/proof';
 import styles from './page.module.css';
 
 const SECTIONS = [
   { id: 'systems', label: 'Systems' },
   { id: 'pipeline', label: 'Runtime' },
+  { id: 'teams', label: 'Teams' },
+  { id: 'enablement', label: 'Enablement' },
   { id: 'practice', label: 'Practice' },
+  { id: 'fit', label: 'Fit' },
   { id: 'record', label: 'Record' },
   { id: 'voice', label: 'In public' },
   { id: 'contact', label: 'Contact' },
+];
+
+/**
+ * Capabilities that were built for one vertical problem and turned out to
+ * generalise. Naming them separately is the difference between "I shipped a
+ * consolidation tool" and "I know which parts of it are reusable".
+ */
+const PORTABLE = [
+  {
+    name: 'AI entity matching and schema mapping',
+    from: 'Consolidation Platform',
+    body: 'Reconciling messy source structures against a target model. The same machinery applies to any migration, integration, or master-data problem.',
+  },
+  {
+    name: 'Deterministic engine under model orchestration',
+    from: 'Consolidation Platform',
+    body: 'The model chooses mapping and sequencing; the arithmetic is deterministic code with a traceable path. This is the pattern that makes AI usable where a wrong number is reportable.',
+  },
+  {
+    name: 'Citable, re-verifiable retrieval',
+    from: 'Accounting Doctrine KB',
+    body: 'Atomic rules carrying their own citations, so an answer can be walked back to source by someone who does not trust the model. Portable to law, clinical, and policy domains.',
+  },
+  {
+    name: 'Enterprise connector and activation layer',
+    from: 'Consolidation Platform',
+    body: 'Source-system connectors, import recognition, and SSO activation — the unglamorous surface area that decides whether enterprise software actually lands.',
+  },
 ];
 
 /** Implementation work that rarely survives the trip onto an executive résumé. */
@@ -44,21 +78,26 @@ const PRACTICE = [
   },
 ];
 
+/**
+ * Framed by what was built rather than by employer and title. The engineering
+ * record above does the arguing; this exists only to say where the domain
+ * knowledge inside these systems came from.
+ */
 const ROLES = [
   {
-    org: 'BlackLine',
-    title: 'SVP & Global Managing Director, Platform & Product Strategy',
-    body: 'Enterprise-wide platform and product strategy — partnering across product, engineering, and go-to-market to set platform vision, differentiation, and roadmap priorities for a public company.',
+    org: 'What I build',
+    title: 'Governed AI systems for work that gets audited',
+    body: 'Multi-agent orchestration with persistent memory, fail-closed tool authority, and a verification layer that recomputes state rather than trusting it. Built on Supabase, Vercel, Mem0, and MCP-based tool orchestration — the four systems above, running in production rather than sitting in a prototype folder.',
   },
   {
-    org: 'BlackLine',
-    title: 'VP & Head of Product, Financial Reporting Analytics',
-    body: 'Built and scaled a Financial Analytics platform line from zero to roughly 220 people with full P&L ownership across product, engineering, GTM, and customer success. Found product-market fit across a global enterprise base, expanded into large enterprise inside the first year, drove 100%+ YoY organic growth for three years, and cut midmarket time-to-value from about six months to two.',
+    org: 'Where the domain came from',
+    title: 'Two decades in enterprise software, most of it in the office of the CFO',
+    body: 'Platform and product leadership at public-company scale, including building and running a financial analytics platform line with full P&L ownership across product, engineering, go-to-market, and customer success. That is the source of the close mechanics, accounting doctrine, and audit constraints encoded in this work — it is why the consolidation engine keeps its arithmetic deterministic, and why every rule in the doctrine corpus carries a citation.',
   },
   {
-    org: 'heyEcho',
-    title: 'Founder & Architect',
-    body: 'An independent multi-agent platform built on Supabase, Vercel, Mem0, and MCP-based tool orchestration — persistent memory, governed execution, and the verification layer described above.',
+    org: 'How I work',
+    title: 'The model plans; deterministic code decides',
+    body: 'Domain rules and logic carry the weight; the model is reserved for the ambiguous middle. Capabilities are measured against their recurring cost before approval, coverage is claimed only against an enumerated inventory, and nothing closes on the builder’s own say-so.',
   },
 ];
 
@@ -98,8 +137,8 @@ export default function Page() {
 
             <div className={styles.heroBody}>
               <p className="lede">
-                Two decades in enterprise finance software, most recently running platform and product strategy for a
-                public company. Four production AI systems, written hands-on.
+                Four production AI systems — multi-agent orchestration, governed autonomy, and a verification layer —
+                designed and written hands-on, on top of two decades leading enterprise software.
               </p>
               <p className={styles.heroSub}>
                 The figures below are not typed in. They are recomputed from the engineering record every time this page
@@ -123,6 +162,36 @@ export default function Page() {
               </p>
             </Reveal>
             <Systems systems={proof.systems} />
+
+            <div className={styles.portable}>
+              <h3 className={styles.portableHead}>Built once, reusable elsewhere</h3>
+              <div className={styles.portableGrid}>
+                {PORTABLE.map((item, i) => (
+                  <Reveal key={item.name} delay={(i % 2) * 0.06}>
+                    <article className={styles.portableItem}>
+                      <p className={styles.portableFrom}>{item.from}</p>
+                      <h4 className={styles.portableName}>{item.name}</h4>
+                      <p className={styles.portableBody}>{item.body}</p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ------------------------------------------------------ teams */}
+          <section className="band" id="teams">
+            <h2 className="band__label">
+              <span>Teams</span>
+              <span>standing functions</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
+                Not one assistant with a long prompt. Named functions with duties, schedules, and escalation paths that
+                keep running when nobody is watching.
+              </p>
+            </Reveal>
+            <Teams />
           </section>
 
           {/* --------------------------------------------------- pipeline */}
@@ -138,6 +207,23 @@ export default function Page() {
               </p>
             </Reveal>
             <Pipeline />
+          </section>
+
+          {/* ------------------------------------------------- enablement */}
+          <section className="band" id="enablement">
+            <h2 className="band__label">
+              <span>Enablement</span>
+              <span>signal to implementation</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '2.5rem' }}>
+                The same five stages whether the subject is an infrastructure fault, an account drifting toward churn,
+                or an implementation running late. Deterministic rules and domain logic do the deciding; the model
+                handles the ambiguous middle. Each stage below is marked for whether it is running today or is where the
+                existing machinery extends.
+              </p>
+            </Reveal>
+            <Enablement />
           </section>
 
           {/* --------------------------------------------------- practice */}
@@ -164,11 +250,26 @@ export default function Page() {
             </div>
           </section>
 
+          {/* -------------------------------------------------------- fit */}
+          <section className="band" id="fit">
+            <h2 className="band__label">
+              <span>Fit</span>
+              <span>requirement to evidence</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '2.75rem' }}>
+                Senior AI roles are scoped in a fairly consistent vocabulary. Rather than leave the match to inference,
+                here is that vocabulary against the work that answers it.
+              </p>
+            </Reveal>
+            <Market />
+          </section>
+
           {/* ----------------------------------------------------- record */}
           <section className="band" id="record">
             <h2 className="band__label">
-              <span>Operating record</span>
-              <span>P&amp;L scope</span>
+              <span>Background</span>
+              <span>where the domain came from</span>
             </h2>
             <div className={styles.record}>
               <div className={styles.roles}>
