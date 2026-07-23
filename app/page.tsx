@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Audit from '@/components/Audit';
 import Backdrop from '@/components/Backdrop';
+import Convergence from '@/components/Convergence';
 import Enablement from '@/components/Enablement';
 import HeroTitle from '@/components/HeroTitle';
 import Lifecycle from '@/components/Lifecycle';
@@ -15,6 +16,7 @@ import styles from './page.module.css';
 
 const SECTIONS = [
   { id: 'pov', label: 'Point of view' },
+  { id: 'convergence', label: 'The four' },
   { id: 'systems', label: 'Systems' },
   { id: 'pipeline', label: 'Runtime' },
   { id: 'teams', label: 'Teams' },
@@ -220,6 +222,21 @@ export default function Page() {
             </Reveal>
           </section>
 
+          {/* ------------------------------------------------ convergence */}
+          <section className="band" id="convergence">
+            <h2 className="band__label">
+              <span>The four</span>
+              <span>domain · product · engineering · leadership</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
+                Senior AI and product roles are written asking for four things at once. Most candidates bring two. Here
+                is each one, with what backs it.
+              </p>
+            </Reveal>
+            <Convergence />
+          </section>
+
           {/* ---------------------------------------------------- systems */}
           <section className="band" id="systems">
             <h2 className="band__label">
@@ -340,12 +357,13 @@ export default function Page() {
           <section className="band" id="fit">
             <h2 className="band__label">
               <span>Fit</span>
-              <span>requirement to evidence</span>
+              <span>CPO · head of product · head of innovation · VP platform</span>
             </h2>
             <Reveal>
               <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '2.75rem' }}>
-                Senior AI roles are scoped in a fairly consistent vocabulary. Rather than leave the match to inference,
-                here is that vocabulary against the work that answers it.
+                These roles are scoped in a fairly consistent vocabulary — most often at AI-native companies, in
+                enterprise, fintech, the office of the CFO, or regulated-industry adjacency. Rather than leave the match
+                to inference, here is that vocabulary against the work that answers it.
               </p>
             </Reveal>
             <Market />
