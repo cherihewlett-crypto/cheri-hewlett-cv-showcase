@@ -10,10 +10,10 @@ import styles from './HeroTitle.module.css';
  */
 
 const LINES = [
-  { text: 'Most agents', accent: false },
-  { text: 'can act.', accent: false },
-  { text: 'Almost none', accent: true },
-  { text: 'can be trusted.', accent: true },
+  { text: 'Most AI', accent: false },
+  { text: 'supplements work.', accent: false },
+  { text: 'I build the kind', accent: true },
+  { text: 'that elevates people.', accent: true },
 ];
 
 export default function HeroTitle() {

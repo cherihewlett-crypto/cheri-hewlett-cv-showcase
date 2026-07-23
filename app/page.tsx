@@ -14,6 +14,7 @@ import { claims, proof, relativeAge } from '@/lib/proof';
 import styles from './page.module.css';
 
 const SECTIONS = [
+  { id: 'pov', label: 'Point of view' },
   { id: 'systems', label: 'Systems' },
   { id: 'pipeline', label: 'Runtime' },
   { id: 'teams', label: 'Teams' },
@@ -51,6 +52,29 @@ const PORTABLE = [
     name: 'Enterprise connector and activation layer',
     from: 'Consolidation Platform',
     body: 'Source-system connectors, import recognition, and SSO activation — the unglamorous surface area that decides whether enterprise software actually lands.',
+  },
+];
+
+/**
+ * The point of view, in four moves. This is the argument the rest of the page
+ * is evidence for — the systems are the proof, not the thesis.
+ */
+const POV = [
+  {
+    move: 'Go where it is hard',
+    body: 'The gaps worth taking are the complex, high-impact ones a person cannot reason their way through alone — too many inputs, too little time, and the answer buried across systems that were never meant to talk.',
+  },
+  {
+    move: 'Make people better informed',
+    body: 'Most decisions are not limited by judgement. They are limited by what the person knew at the moment they had to decide. Closing that gap changes the decision, not just the paperwork around it.',
+  },
+  {
+    move: 'Automate only what should be',
+    body: 'Automation earns its place on the mechanical middle — the collection, reconciliation, and chasing. What requires judgement stays with the human, better supplied than before.',
+  },
+  {
+    move: 'Elevate, do not substitute',
+    body: 'The measure is not hours removed. It is what the person can do afterwards that they could not do before. Systems that quietly deskill their users are a failure even when the metrics improve.',
   },
 ];
 
@@ -149,15 +173,16 @@ export default function Page() {
         <main className="shell__main">
           {/* ------------------------------------------------------- hero */}
           <header className={`band band--flush ${styles.hero}`}>
-            <p className={styles.eyebrow}>Cheri Hewlett, CPA · Agentic AI systems for work that gets audited</p>
+            <p className={styles.eyebrow}>Cheri Hewlett, CPA · Agentic AI, decision intelligence, the office of the CFO</p>
 
             <Backdrop />
             <HeroTitle />
 
             <div className={styles.heroBody}>
               <p className="lede">
-                That gap is the whole job. In the office of the CFO a confident guess is not a bad suggestion — it is a
-                reportable event. I design agentic systems that can prove what they did, and I build them myself.
+                I go after the complex, high-impact gaps a person cannot close on their own information — automate what
+                should be automated, surface what nobody had the hours to find, and put it in front of someone at the
+                moment they decide.
               </p>
               <p className={styles.heroSub}>
                 The figures below are not typed in. They are recomputed from the engineering record every time this page
@@ -167,6 +192,29 @@ export default function Page() {
 
             <Audit claims={claims} stillAt={stillAt} />
           </header>
+
+          {/* -------------------------------------------------------- pov */}
+          <section className="band" id="pov">
+            <h2 className="band__label">
+              <span>Point of view</span>
+              <span>what I am actually optimising for</span>
+            </h2>
+            <div className={styles.pov}>
+              {POV.map((item, i) => (
+                <Reveal key={item.move} delay={(i % 2) * 0.07}>
+                  <article className={styles.povItem}>
+                    <h3 className={styles.povMove}>{item.move}</h3>
+                    <p className={styles.povBody}>{item.body}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal delay={0.15}>
+              <p className={styles.povQuote}>
+                “AI will empower those who can see the problems that matter — and are resilient enough to solve them.”
+              </p>
+            </Reveal>
+          </section>
 
           {/* ---------------------------------------------------- systems */}
           <section className="band" id="systems">
@@ -329,8 +377,8 @@ export default function Page() {
                     priority={false}
                   />
                   <figcaption className={styles.quote}>
-                    “AI will empower those who can see the problems that matter — and are resilient enough to solve
-                    them.”
+                    Two decades finding the gaps that matter — and the last two years building the systems that close
+                    them.
                   </figcaption>
                 </figure>
               </Reveal>

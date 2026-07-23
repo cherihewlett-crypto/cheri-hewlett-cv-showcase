@@ -39,6 +39,49 @@
   color: var(--ice);
 }
 
+/* ------------------------------------------------------------------- pov */
+
+.pov {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  gap: 2.5rem 3.5rem;
+}
+
+.povItem {
+  border-block-start: 2px solid var(--signal-dim);
+  padding-block-start: 1.15rem;
+}
+
+.povMove {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 80%;
+  font-size: 1.55rem;
+  line-height: 1.05;
+  color: var(--paper);
+}
+
+.povBody {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.62;
+  color: var(--ice);
+}
+
+.povQuote {
+  max-width: 36ch;
+  margin-block: clamp(3.5rem, 7vw, 5.5rem) 0;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 82%;
+  font-size: var(--step-2);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--signal);
+  text-wrap: balance;
+}
+
 /* -------------------------------------------------------------- portable */
 
 .portable {
