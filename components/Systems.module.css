@@ -1,0 +1,74 @@
+/*
+ * Cards are separated by their own outlines rather than a background bleeding
+ * through a 1px gap. The grid rarely divides evenly, and the bleed technique
+ * turns every empty cell into a large unexplained slab.
+ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 1px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding: 1.9rem 1.7rem;
+  outline: 1px solid var(--rail-soft);
+  background: var(--abyss);
+  transition: background 0.4s var(--ease);
+}
+
+.card:hover {
+  background: var(--rail-soft);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 80%;
+  font-size: 1.45rem;
+  line-height: 1.05;
+  color: var(--paper);
+}
+
+.blurb {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ice);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-block-start: auto;
+  padding-block-start: 1.1rem;
+  border-block-start: 1px solid var(--rail-soft);
+}
+
+.chip {
+  padding: 0.28rem 0.6rem;
+  border: 1px solid var(--rail);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--signal);
+  white-space: nowrap;
+}
+
+.chip b {
+  color: var(--paper);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.span {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ice);
+  opacity: 0.5;
+}

@@ -1,0 +1,196 @@
+/*
+ * Design system.
+ *
+ * Palette is sampled from Cheri's existing speaker-brand graphics: a deep
+ * navy ground, a teal signal, and pale ice for secondary text. The teal does
+ * double duty here — in her brand it is an accent, on this site it is the
+ * colour of instrumentation, so it only ever appears on things that are
+ * measured or live.
+ *
+ * Type pairs Archivo (condensed heavy display, echoing the brand graphics)
+ * with IBM Plex Sans for reading and IBM Plex Mono for readouts. Plex reads
+ * institutional rather than startup, which is the correct register for an
+ * Office-of-the-CFO audience.
+ */
+
+:root {
+  --abyss: #04141e;
+  --hull: #0a2634;
+  --rail: #143a4b;
+  --rail-soft: #0f2e3d;
+  --signal: #17b3c7;
+  --signal-dim: #0e6d7c;
+  --verified: #45e0b8;
+  --ice: #9ec6d2;
+  --paper: #f2f9fa;
+
+  --measure: 68ch;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --rail-w: 14.5rem;
+
+  --step--1: clamp(0.78rem, 0.75rem + 0.15vw, 0.86rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+  --step-1: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
+  --step-2: clamp(1.9rem, 1.6rem + 1.4vw, 2.9rem);
+  --step-3: clamp(2.5rem, 1.9rem + 2.9vw, 4.4rem);
+  --step-4: clamp(2.9rem, 2.1rem + 4vw, 6.1rem);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--abyss);
+  color: var(--paper);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Ambient depth: a single soft teal bloom, fixed, behind everything. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 78% -8%, rgba(23, 179, 199, 0.16), transparent 62%),
+    radial-gradient(46rem 34rem at 4% 42%, rgba(14, 109, 124, 0.13), transparent 60%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------------------------------------------------------------- layout */
+
+.shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr);
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+.shell__main {
+  min-width: 0;
+  padding-inline: var(--gutter);
+  padding-block-end: 8rem;
+}
+
+.band {
+  padding-block: clamp(4.5rem, 9vw, 9rem);
+  border-block-start: 1px solid var(--rail-soft);
+}
+
+.band--flush {
+  border-block-start: 0;
+}
+
+.band__label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-block-end: 2.5rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--step--1);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.band__label span:last-child {
+  color: var(--ice);
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+}
+
+.prose {
+  max-width: var(--measure);
+  color: var(--ice);
+}
+
+/* ------------------------------------------------------------ typography */
+
+.display {
+  margin: 0;
+  font-family: var(--font-display), ui-sans-serif, sans-serif;
+  font-weight: 700;
+  font-stretch: 75%;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.display--hero {
+  font-size: var(--step-4);
+}
+
+.display--section {
+  font-size: var(--step-2);
+  line-height: 1;
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+}
+
+.lede {
+  max-width: 46ch;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  color: var(--paper);
+  text-wrap: pretty;
+}
+
+/* ---------------------------------------------------------- reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ------------------------------------------------------------- responsive */
+
+@media (max-width: 60rem) {
+  :root {
+    --rail-w: 0;
+  }
+
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

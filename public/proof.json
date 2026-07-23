@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-07-23T22:21:41.689Z",
+  "method": "Recomputed from git history across private production repositories. Authored commits exclude automated sync and merge commits. No source, paths, or proprietary detail are published.",
+  "totals": {
+    "systems": 4,
+    "authoredCommits": 6912,
+    "automatedCommits": 11954,
+    "edgeFunctions": 131,
+    "migrations": 259,
+    "tests": 107,
+    "ciGates": 11,
+    "mergedPullRequests": 1721,
+    "since": "2025-01-01"
+  },
+  "systems": [
+    {
+      "id": "team-echo",
+      "label": "Team Echo",
+      "blurb": "Multi-agent operating system with persistent memory, governed tool use, and self-verifying status.",
+      "authoredCommits": 3469,
+      "totalCommits": 16218,
+      "automatedCommits": 11945,
+      "firstCommit": "2025-01-01",
+      "lastCommit": "2026-07-23",
+      "counts": {
+        "edge functions": 131,
+        "migrations": 259,
+        "CI gates": 11,
+        "tests": 26,
+        "merged PRs": 1021
+      }
+    },
+    {
+      "id": "innovation-hub",
+      "label": "Innovation Hub",
+      "blurb": "Portfolio cockpit for prototype due diligence, roadmap prioritization, and team time allocation.",
+      "authoredCommits": 1681,
+      "totalCommits": 1921,
+      "automatedCommits": 4,
+      "firstCommit": "2025-01-01",
+      "lastCommit": "2026-07-20",
+      "counts": {
+        "tests": 49,
+        "merged PRs": 530
+      }
+    },
+    {
+      "id": "tiger-consolidate",
+      "label": "Consolidation Platform",
+      "blurb": "Financial consolidation and close engine built on the accounting doctrine corpus.",
+      "authoredCommits": 1607,
+      "totalCommits": 1642,
+      "automatedCommits": 4,
+      "firstCommit": "2025-01-01",
+      "lastCommit": "2026-07-19",
+      "counts": {
+        "tests": 29,
+        "merged PRs": 117
+      }
+    },
+    {
+      "id": "accounting-knowledge-base",
+      "label": "Accounting Doctrine KB",
+      "blurb": "Atomic US GAAP and IFRS rules with SOX-grade citability and auditor re-verifiability.",
+      "authoredCommits": 155,
+      "totalCommits": 187,
+      "automatedCommits": 1,
+      "firstCommit": "2026-04-18",
+      "lastCommit": "2026-07-19",
+      "counts": {
+        "tests": 3,
+        "merged PRs": 53
+      }
+    }
+  ]
+}
