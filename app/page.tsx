@@ -226,6 +226,26 @@ export default function Page() {
               </p>
             </div>
 
+            {/*
+              A compressed proof strip inside the first viewport. The full
+              audit below is the argument; this is the part a reader who gives
+              the page thirty seconds actually reaches, so the evidence has to
+              be visible before any scrolling happens.
+            */}
+            <ul className={styles.glance}>
+              {[
+                { v: proof.totals.authoredCommits.toLocaleString('en-US'), l: 'authored commits' },
+                { v: proof.totals.mergedPullRequests.toLocaleString('en-US'), l: 'PRs merged' },
+                { v: '302', l: 'reusable capabilities' },
+                { v: String(proof.totals.systems), l: 'systems in production' },
+              ].map((s) => (
+                <li className={styles.glanceItem} key={s.l}>
+                  <span className={styles.glanceNum}>{s.v}</span>
+                  <span className={styles.glanceLabel}>{s.l}</span>
+                </li>
+              ))}
+            </ul>
+
             <Audit claims={claims} stillAt={stillAt} />
           </header>
 

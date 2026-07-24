@@ -39,6 +39,41 @@
   color: var(--ice);
 }
 
+/* ---------------------------------------------------------- glance strip */
+
+.glance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem 3rem;
+  margin-block: clamp(2rem, 4vw, 3rem) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.glanceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.glanceNum {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 76%;
+  font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem);
+  line-height: 0.9;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+}
+
+.glanceLabel {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
 /* ------------------------------------------------------------------- pov */
 
 .pov {
