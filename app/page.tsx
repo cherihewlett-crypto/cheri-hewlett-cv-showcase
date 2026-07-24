@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Arsenal from '@/components/Arsenal';
 import Audit from '@/components/Audit';
 import Backdrop from '@/components/Backdrop';
 import Convergence from '@/components/Convergence';
@@ -18,6 +19,7 @@ const SECTIONS = [
   { id: 'pov', label: 'Point of view' },
   { id: 'convergence', label: 'The four' },
   { id: 'systems', label: 'Systems' },
+  { id: 'arsenal', label: 'Arsenal' },
   { id: 'pipeline', label: 'Runtime' },
   { id: 'teams', label: 'Teams' },
   { id: 'enablement', label: 'Enablement' },
@@ -280,6 +282,15 @@ export default function Page() {
               </p>
             </Reveal>
             <Teams />
+          </section>
+
+          {/* ---------------------------------------------------- arsenal */}
+          <section className="band" id="arsenal">
+            <h2 className="band__label">
+              <span>Arsenal</span>
+              <span>build once, reference everywhere</span>
+            </h2>
+            <Arsenal />
           </section>
 
           {/* --------------------------------------------------- pipeline */}
