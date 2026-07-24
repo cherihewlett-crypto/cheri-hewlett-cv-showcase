@@ -1,0 +1,76 @@
+.bar {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.85rem clamp(1.25rem, 4vw, 2.5rem);
+  background: color-mix(in srgb, var(--abyss) 88%, transparent);
+  backdrop-filter: blur(14px);
+  border-block-end: 1px solid var(--rail-soft);
+}
+
+.name {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 82%;
+  font-size: 1.02rem;
+  color: var(--paper);
+  white-space: nowrap;
+}
+
+.role {
+  flex: 1;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ice);
+  opacity: 0.72;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action {
+  padding: 0.42rem 0.85rem;
+  border: 1px solid var(--rail);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  white-space: nowrap;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.action:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+.primary {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+.primary:hover {
+  background: var(--signal);
+  color: var(--abyss);
+}
+
+@media (max-width: 46rem) {
+  .role {
+    display: none;
+  }
+
+  .actions {
+    margin-inline-start: auto;
+  }
+}

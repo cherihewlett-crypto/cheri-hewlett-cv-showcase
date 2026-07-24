@@ -2,11 +2,11 @@ import Image from 'next/image';
 import Arsenal from '@/components/Arsenal';
 import Audit from '@/components/Audit';
 import Backdrop from '@/components/Backdrop';
+import TopBar from '@/components/TopBar';
 import Convergence from '@/components/Convergence';
 import Enablement from '@/components/Enablement';
 import HeroTitle from '@/components/HeroTitle';
 import Lifecycle from '@/components/Lifecycle';
-import Market from '@/components/Market';
 import Pipeline from '@/components/Pipeline';
 import Rail from '@/components/Rail';
 import Reveal from '@/components/Reveal';
@@ -16,18 +16,17 @@ import { claims, proof, relativeAge } from '@/lib/proof';
 import styles from './page.module.css';
 
 const SECTIONS = [
+  { id: 'convergence', label: 'Why me' },
   { id: 'pov', label: 'Point of view' },
-  { id: 'convergence', label: 'The four' },
-  { id: 'systems', label: 'Systems' },
-  { id: 'arsenal', label: 'Arsenal' },
-  { id: 'pipeline', label: 'Runtime' },
-  { id: 'teams', label: 'Teams' },
+  { id: 'systems', label: 'What I built' },
+  { id: 'arsenal', label: 'Capabilities' },
+  { id: 'pipeline', label: 'How it works' },
+  { id: 'teams', label: 'The teams' },
   { id: 'enablement', label: 'Enablement' },
-  { id: 'practice', label: 'Practice' },
+  { id: 'practice', label: 'Engineering' },
   { id: 'lifecycle', label: 'Prototype→scale' },
-  { id: 'fit', label: 'Fit' },
-  { id: 'record', label: 'Record' },
-  { id: 'voice', label: 'In public' },
+  { id: 'record', label: 'Background' },
+  { id: 'voice', label: 'Writing & talks' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -200,6 +199,7 @@ export default function Page() {
 
   return (
     <div className={styles.shellWrap} id="top">
+      <TopBar />
       <div className="shell">
         <Rail sections={SECTIONS} stillAt={stillAt} />
 
@@ -229,6 +229,21 @@ export default function Page() {
             <Audit claims={claims} stillAt={stillAt} />
           </header>
 
+          {/* ------------------------------------------------ convergence */}
+          <section className="band" id="convergence">
+            <h2 className="band__label">
+              <span>The four</span>
+              <span>domain · product · engineering · leadership</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
+                Senior AI and product roles are written asking for four things at once. Most candidates bring two. Here
+                is each one, with what backs it.
+              </p>
+            </Reveal>
+            <Convergence />
+          </section>
+
           {/* -------------------------------------------------------- pov */}
           <section className="band" id="pov">
             <h2 className="band__label">
@@ -251,21 +266,6 @@ export default function Page() {
                 human.”
               </p>
             </Reveal>
-          </section>
-
-          {/* ------------------------------------------------ convergence */}
-          <section className="band" id="convergence">
-            <h2 className="band__label">
-              <span>The four</span>
-              <span>domain · product · engineering · leadership</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
-                Senior AI and product roles are written asking for four things at once. Most candidates bring two. Here
-                is each one, with what backs it.
-              </p>
-            </Reveal>
-            <Convergence />
           </section>
 
           {/* ---------------------------------------------------- systems */}
@@ -393,21 +393,6 @@ export default function Page() {
             <Lifecycle />
           </section>
 
-          {/* -------------------------------------------------------- fit */}
-          <section className="band" id="fit">
-            <h2 className="band__label">
-              <span>Fit</span>
-              <span>CPO · head of product · head of innovation · VP platform</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '2.75rem' }}>
-                These roles are scoped in a fairly consistent vocabulary — most often at AI-native companies, in
-                enterprise, fintech, the office of the CFO, or regulated-industry adjacency. Rather than leave the match
-                to inference, here is that vocabulary against the work that answers it.
-              </p>
-            </Reveal>
-            <Market />
-          </section>
 
           {/* ----------------------------------------------------- record */}
           <section className="band" id="record">
