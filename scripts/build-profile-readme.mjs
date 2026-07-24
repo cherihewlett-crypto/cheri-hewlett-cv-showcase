@@ -31,7 +31,7 @@ const COLLECTOR =
 
 const readme = `# Cheri Hewlett
 
-### Technology &amp; innovation executive · Builder · CPA · Veteran
+### Technology & innovation executive · Builder · CPA · Veteran
 
 **I draw the bridge from problem to solution through technology — the right solution for the
 problems that return quantifiable value and deliver real impact. Not the newest thing. The thing
@@ -82,7 +82,7 @@ Built and managed a real estate portfolio over a decade. Rose from customer succ
 executive leadership at a publicly traded fintech. I've seen the product lifecycle from every seat —
 implementing, selling, supporting, and betting a company's transformation on the product.
 
-CPA · MS Accounting · BS Accounting &amp; Computer Science · U.S. Air Force Veteran · Board Member, G.R.O.W. Foundation
+CPA · MS Accounting · BS Accounting & Computer Science · U.S. Air Force Veteran · Board Member, G.R.O.W. Foundation
 
 ## In public
 
