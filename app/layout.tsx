@@ -24,11 +24,11 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Cheri Hewlett, CPA — Technology executive, builder, veteran',
+  title: 'Cheri Hewlett — Technology & innovation executive, builder',
   description:
-    'As AI takes on more of the what and the how, leadership becomes about the why and the who. Technology executive, builder, CPA and veteran — with four production AI systems and the engineering record to check the claims against.',
+    'Technology and innovation executive who builds. Four production AI systems, built hands-on, with deep domain expertise across finance, accounting, system migration and change — and the engineering record to check every claim against.',
   openGraph: {
-    title: 'Cheri Hewlett, CPA — Technology executive, builder, veteran',
+    title: 'Cheri Hewlett — Technology & innovation executive, builder',
     description:
       'The organizations that win won’t be the ones that adopted AI fastest — they’ll be the ones that chose the right problems. Four production AI systems, built hands-on.',
     type: 'profile',

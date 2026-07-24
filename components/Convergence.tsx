@@ -17,14 +17,19 @@ import styles from './Convergence.module.css';
  * candidate in that lane lacks is what makes the convergence legible.
  */
 
+/**
+ * Domain leads with breadth (finance, accounting, migration, change, operating
+ * models) rather than "office of the CFO" — the profile is an innovative
+ * technology leader whose domain happens to run deep, not a finance executive.
+ */
 const DIMENSIONS = [
   {
-    key: 'Domain',
-    title: 'Office of the CFO',
-    credential: 'CPA · MS Accounting · two decades in enterprise finance software',
+    key: 'Domain depth',
+    title: 'Finance, accounting, and the systems that run them',
+    credential: 'CPA · MS Accounting · PwC and Deloitte · audit, close, consolidation, migration, change',
     proof:
-      'A library of accounting rules that each cite their own source, so an auditor can check any answer back to the standard it came from. It drives a close-and-consolidation engine where every number is traceable — because in this work a confident guess is a reportable event.',
-    common: 'Most AI leaders learn this domain from a customer call.',
+      'Financial close and consolidation, system migrations and go-lives, and the operating-model change around them — the work where a wrong number is a reportable event, not a bad suggestion. I turned that expertise into a library of rules that each cite their own source, so any answer can be checked back to the standard it came from.',
+    common: 'Most technology leaders have to borrow this depth. I have lived it.',
   },
   {
     key: 'Product',

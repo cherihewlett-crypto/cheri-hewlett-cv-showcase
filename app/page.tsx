@@ -210,7 +210,7 @@ export default function Page() {
           {/* ------------------------------------------------------- hero */}
           <header className={`band band--flush ${styles.hero}`}>
             <p className={styles.eyebrow}>
-              Cheri Hewlett, CPA · Technology executive · Builder · Veteran · People first, always
+              Cheri Hewlett · Technology & innovation executive · Builder · CPA · Veteran
             </p>
 
             <Backdrop />
@@ -284,7 +284,7 @@ export default function Page() {
           <section className="band" id="convergence">
             <h2 className="band__label">
               <span>The four</span>
-              <span>domain · product · engineering · leadership</span>
+              <span>innovation · engineering · domain depth · leadership</span>
             </h2>
             <Reveal>
               <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>

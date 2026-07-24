@@ -37,7 +37,7 @@ const since = new Date(`${t.since}T00:00:00Z`).toLocaleDateString('en-US', {
 
 const readme = `# Cheri Hewlett, CPA
 
-**Technology executive · Builder · Veteran · People first, always**
+**Technology & innovation executive · Builder · CPA · Veteran**
 
 > As AI takes on more of the *what* and the *how*, leadership becomes even more
 > about the *why* and the *who*. The leaders who thrive in this next decade won't
