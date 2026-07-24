@@ -7,11 +7,11 @@
 .hero {
   position: relative;
   isolation: isolate;
-  padding-block-start: clamp(4rem, 10vh, 8rem);
+  padding-block-start: clamp(2.5rem, 5vh, 4rem);
 }
 
 .eyebrow {
-  margin: 0 0 clamp(1.75rem, 4vw, 3rem);
+  margin: 0 0 clamp(1.25rem, 2.5vw, 1.9rem);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.72rem;
   letter-spacing: 0.22em;
@@ -26,8 +26,8 @@
 .heroBody {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 1.75rem 3rem;
-  margin-block-start: clamp(2rem, 4vw, 3rem);
+  gap: 1.5rem 3rem;
+  margin-block-start: clamp(1.5rem, 3vw, 2.2rem);
 }
 
 .heroSub {
@@ -45,7 +45,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.75rem 3rem;
-  margin-block: clamp(2rem, 4vw, 3rem) 0;
+  margin-block: clamp(1.5rem, 3vw, 2.2rem) 0;
   padding: 0;
   list-style: none;
 }
