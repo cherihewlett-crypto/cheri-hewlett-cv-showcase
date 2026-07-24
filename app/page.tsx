@@ -478,11 +478,16 @@ export default function Page() {
                 <a className={styles.link} href="https://linkedin.com/in/cheri-hewlett">
                   LinkedIn ↗
                 </a>
-                <a className={styles.link} href="https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase">
-                  This site&apos;s source ↗
+                {/* Public professional handle from the speaker card. Email is
+                    deliberately not published — LinkedIn is the contact route. */}
+                <a className={styles.link} href="https://x.com/cheripromo">
+                  X · @cheripromo ↗
                 </a>
                 <a className={styles.link} href="https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase/blob/main/resume/cheri-hewlett-cv.md">
                   Résumé, plain text ↗
+                </a>
+                <a className={styles.link} href="https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase">
+                  This site&apos;s source ↗
                 </a>
               </div>
             </Reveal>
