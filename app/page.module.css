@@ -74,6 +74,54 @@
   color: var(--signal);
 }
 
+.glanceGloss {
+  max-width: 20ch;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: var(--ice);
+  opacity: 0.75;
+}
+
+/* The argument of the page, given the weight of the argument of the page. */
+.verdictLead {
+  max-width: 44ch;
+  margin-block: clamp(2.5rem, 5vw, 4rem) 0;
+  padding-inline-start: 1.1rem;
+  border-inline-start: 3px solid var(--signal);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 84%;
+  font-size: var(--step-1);
+  line-height: 1.18;
+  color: var(--paper);
+  text-wrap: pretty;
+}
+
+/* The line between the executive read and the technical appendix. */
+.depth {
+  margin-block: clamp(2rem, 4vw, 3rem) 0;
+  padding-block: 2rem;
+  border-block: 1px solid var(--rail);
+}
+
+.depthLabel {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 82%;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: var(--paper);
+}
+
+.depthNote {
+  max-width: 54ch;
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--ice);
+}
+
 /* ------------------------------------------------------------------- pov */
 
 .pov {

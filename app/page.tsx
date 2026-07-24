@@ -13,7 +13,6 @@ import Pipeline from '@/components/Pipeline';
 import Rail from '@/components/Rail';
 import Reveal from '@/components/Reveal';
 import Systems from '@/components/Systems';
-import Teams from '@/components/Teams';
 import { claims, proof, relativeAge } from '@/lib/proof';
 import styles from './page.module.css';
 
@@ -24,7 +23,6 @@ const SECTIONS = [
   { id: 'arsenal', label: 'Capabilities' },
   { id: 'pipeline', label: 'How it works' },
   { id: 'operating', label: 'The agent org' },
-  { id: 'teams', label: 'The teams' },
   { id: 'enablement', label: 'Enablement' },
   { id: 'practice', label: 'Engineering' },
   { id: 'lifecycle', label: 'Prototype→scale' },
@@ -238,17 +236,31 @@ export default function Page() {
             */}
             <ul className={styles.glance}>
               {[
-                { v: proof.totals.authoredCommits.toLocaleString('en-US'), l: 'authored commits' },
-                { v: proof.totals.mergedPullRequests.toLocaleString('en-US'), l: 'PRs merged' },
-                { v: '302', l: 'reusable capabilities' },
-                { v: String(proof.totals.systems), l: 'systems in production' },
+                {
+                  v: proof.totals.authoredCommits.toLocaleString('en-US'),
+                  l: 'changes written personally',
+                  g: 'the output of a small engineering team',
+                },
+                {
+                  v: proof.totals.mergedPullRequests.toLocaleString('en-US'),
+                  l: 'pieces of work shipped',
+                  g: 'each one reviewed before it went live',
+                },
+                { v: '302', l: 'reusable building blocks', g: 'so the next project starts ahead' },
+                { v: String(proof.totals.systems), l: 'systems running in production', g: 'not prototypes' },
               ].map((s) => (
                 <li className={styles.glanceItem} key={s.l}>
                   <span className={styles.glanceNum}>{s.v}</span>
                   <span className={styles.glanceLabel}>{s.l}</span>
+                  <span className={styles.glanceGloss}>{s.g}</span>
                 </li>
               ))}
             </ul>
+
+            <p className={styles.verdictLead}>
+              Any one of these is common. Two together makes a strong hire. All four in one person is the profile these
+              roles are written for — and rarely find.
+            </p>
 
             <Audit claims={claims} stillAt={stillAt} />
           </header>
@@ -337,20 +349,15 @@ export default function Page() {
             <Operating />
           </section>
 
-          {/* ------------------------------------------------------ teams */}
-          <section className="band" id="teams">
-            <h2 className="band__label">
-              <span>Teams</span>
-              <span>standing functions</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
-                Not one assistant with a long prompt. Named functions with duties, schedules, and escalation paths that
-                keep running when nobody is watching.
-              </p>
-            </Reveal>
-            <Teams />
-          </section>
+
+          {/* ------------------------------------------------ depth divider */}
+          <div className={styles.depth} id="depth">
+            <p className={styles.depthLabel}>Everything above is the summary.</p>
+            <p className={styles.depthNote}>
+              What follows is the detail — how the systems are built and run. Useful if you want to check the work, and
+              safe to skip if you already have what you need.
+            </p>
+          </div>
 
           {/* ---------------------------------------------------- arsenal */}
           <section className="band" id="arsenal">

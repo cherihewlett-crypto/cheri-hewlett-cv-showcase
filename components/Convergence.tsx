@@ -23,7 +23,7 @@ const DIMENSIONS = [
     title: 'Office of the CFO',
     credential: 'CPA · MS Accounting · two decades in enterprise finance software',
     proof:
-      'An atomic GAAP and IFRS corpus whose rules carry citations an auditor can re-verify, driving a consolidation engine that keeps its arithmetic deterministic — because a close cannot tolerate a confident guess.',
+      'A library of accounting rules that each cite their own source, so an auditor can check any answer back to the standard it came from. It drives a close-and-consolidation engine where every number is traceable — because in this work a confident guess is a reportable event.',
     common: 'Most AI leaders learn this domain from a customer call.',
   },
   {
@@ -31,7 +31,7 @@ const DIMENSIONS = [
     title: 'Zero to one, then to scale',
     credential: 'Platform line from concept to market with full P&L ownership',
     proof:
-      'Product, engineering, go-to-market and customer success under one owner — and the lifecycle seen from every seat, including what it feels like to implement, sell, and support the thing you shipped.',
+      'Product, engineering, sales and customer success under one owner, carried commercially. I have also sat in the other seats — implementing, selling and supporting the product, which is why I know where plans meet reality.',
     common: 'Most engineers have never carried a P&L.',
   },
   {
@@ -39,7 +39,7 @@ const DIMENSIONS = [
     title: 'Hands-on, in production',
     credential: 'Self-taught in agent architectures, MCP, and Supabase',
     proof:
-      'Four systems designed and written personally — schema, routing, guardrails, evaluation, deploy pipeline. Running against real financial data, not sitting in a prototype folder.',
+      'Four systems designed and written personally, start to finish, and running against real financial data rather than sitting in a demo folder. I am not one step removed from how the thing actually works.',
     common: 'Most executives commission the build and summarise it.',
   },
   {
@@ -96,8 +96,7 @@ export default function Convergence() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
       >
-        Any one of these is common. Two together makes a strong hire. All four in one person is the profile these roles
-        are written for — and rarely find.
+        That combination is the whole argument. Everything else on this page is evidence for it.
       </motion.p>
     </div>
   );
