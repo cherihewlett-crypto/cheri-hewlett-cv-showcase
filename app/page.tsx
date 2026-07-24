@@ -21,7 +21,7 @@ const SECTIONS = [
   { id: 'pov', label: 'Point of view' },
   { id: 'systems', label: 'What I built' },
   { id: 'record', label: 'Background' },
-  { id: 'voice', label: 'Writing & talks' },
+  { id: 'voice', label: 'Speaking & writing' },
   { id: 'contact', label: 'Contact' },
   { id: 'depth', label: '— In depth —' },
   { id: 'arsenal', label: 'Capabilities' },
@@ -180,6 +180,34 @@ const FEATURED = [
     venue: 'Named presenter · reported by MarketScreener',
     note: '',
     href: 'https://www.marketscreener.com/quote/stock/BLACKLINE-INC-31740369/news/BlackLine-Investor-Day-Presentation-48410395/',
+  },
+];
+
+/** Signature speaking topics, verbatim from the speaker one-sheet. */
+const TOPICS = [
+  {
+    title: 'In a World Where Technology Is Changing Everything Else',
+    hook: 'AI is taking on more of the what and the how. So what’s left for leaders? Everything that actually matters.',
+  },
+  {
+    title: 'Innovation Is Choosing the Right Problem',
+    hook: 'Most companies are solving the wrong problems faster. AI didn’t fix that — it accelerated it.',
+  },
+  {
+    title: 'Trust Is the Real Moat in AI',
+    hook: 'Everyone’s asking “can AI do this?” The better question: “can we prove it did it right?”',
+  },
+  {
+    title: 'People First: The True Responsibility of Leadership',
+    hook: 'Organizations don’t outperform because they obsess over customers. They outperform because they invest in the people serving them.',
+  },
+  {
+    title: 'Built, Not Born: What Resilience Actually Requires',
+    hook: 'Resilience isn’t a personality trait. It’s a practice — built by surviving, rebuilding, and choosing to show up again.',
+  },
+  {
+    title: 'The Chapters You Don’t Put on Your Résumé',
+    hook: 'Your most important career chapter is probably the one you’re embarrassed to talk about.',
   },
 ];
 
@@ -372,10 +400,37 @@ export default function Page() {
           {/* ------------------------------------------------------ voice */}
           <section className="band" id="voice">
             <h2 className="band__label">
-              <span>In public</span>
-              <span>writing &amp; talks</span>
+              <span>Speaking &amp; writing</span>
+              <span>on stage, in print, on the record</span>
             </h2>
 
+            <p className={styles.talksHead}>Signature talks</p>
+            <div className={styles.topics}>
+              {TOPICS.map((t, i) => (
+                <Reveal key={t.title} delay={(i % 3) * 0.06}>
+                  <article className={styles.topic}>
+                    <span className={styles.topicNo} aria-hidden="true">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className={styles.topicTitle}>{t.title}</h3>
+                    <p className={styles.topicHook}>{t.hook}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+
+            <p className={styles.talksHead}>Recent stages</p>
+            <ul className={styles.talks}>
+              {TALKS.map((talk, i) => (
+                <Reveal key={talk.name} delay={i * 0.05} as="li" className={styles.talk}>
+                  <span className={styles.talkYear}>{talk.year}</span>
+                  <span className={styles.talkName}>{talk.name}</span>
+                  <span className={styles.talkVenue}>{talk.venue}</span>
+                </Reveal>
+              ))}
+            </ul>
+
+            <p className={styles.talksHead}>Writing</p>
             <div className={styles.writing}>
               {WRITING.map((piece, i) => (
                 <Reveal key={piece.name} delay={(i % 2) * 0.06}>
@@ -408,16 +463,6 @@ export default function Page() {
               ))}
             </div>
 
-            <p className={styles.talksHead}>Speaking</p>
-            <ul className={styles.talks}>
-              {TALKS.map((talk, i) => (
-                <Reveal key={talk.name} delay={i * 0.05} as="li" className={styles.talk}>
-                  <span className={styles.talkYear}>{talk.year}</span>
-                  <span className={styles.talkName}>{talk.name}</span>
-                  <span className={styles.talkVenue}>{talk.venue}</span>
-                </Reveal>
-              ))}
-            </ul>
           </section>
           {/* ---------------------------------------------------- contact */}
           <section className="band" id="contact">

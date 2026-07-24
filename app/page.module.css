@@ -319,6 +319,50 @@
   padding-inline-start: 1rem;
 }
 
+/* -------------------------------------------------------------- speaking */
+
+.topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem 3rem;
+  margin-block-end: clamp(3rem, 6vw, 4.5rem);
+}
+
+.topic {
+  position: relative;
+  border-block-start: 1px solid var(--rail);
+  padding-block-start: 1.15rem;
+}
+
+.topicNo {
+  display: block;
+  margin-block-end: 0.5rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--signal);
+  opacity: 0.75;
+}
+
+.topicTitle {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 82%;
+  font-size: 1.28rem;
+  line-height: 1.12;
+  color: var(--paper);
+  text-wrap: balance;
+}
+
+.topicHook {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.58;
+  color: var(--ice);
+  text-wrap: pretty;
+}
+
 /* --------------------------------------------------------------- writing */
 
 .writing {
