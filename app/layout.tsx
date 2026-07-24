@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const display = Archivo({
@@ -23,7 +24,10 @@ const mono = IBM_Plex_Mono({
   display: 'swap',
 });
 
+// metadataBase makes the generated OG/Twitter card resolve to an absolute URL,
+// which social platforms require. Update this when a custom domain is attached.
 export const metadata: Metadata = {
+  metadataBase: new URL('https://cheri-hewlett-showcase-cherihewlett-cryptos-projects.vercel.app'),
   title: 'Cheri Hewlett — Technology & innovation executive, builder',
   description:
     'I draw the bridge from problem to solution through technology — choosing the problems that return quantifiable value and deliver impact, then building the right solution for each. Technology and innovation executive with four production AI systems and the engineering record to check every claim against.',
@@ -33,12 +37,21 @@ export const metadata: Metadata = {
       'From problem to solution through technology — the right solution for the problems that return quantifiable value. Four production AI systems, built hands-on, with the receipts.',
     type: 'profile',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cheri Hewlett — Technology & innovation executive, builder',
+    description:
+      'From problem to solution through technology — the right solution for the problems that return quantifiable value.',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

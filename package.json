@@ -10,6 +10,7 @@
     "proof": "node scripts/collect-proof.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "motion": "^12.23.12",
     "next": "^15.5.4",
     "react": "^19.1.1",
