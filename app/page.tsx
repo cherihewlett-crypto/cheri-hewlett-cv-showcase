@@ -7,6 +7,8 @@ import Convergence from '@/components/Convergence';
 import Enablement from '@/components/Enablement';
 import HeroTitle from '@/components/HeroTitle';
 import Lifecycle from '@/components/Lifecycle';
+import MobileNav from '@/components/MobileNav';
+import Operating from '@/components/Operating';
 import Pipeline from '@/components/Pipeline';
 import Rail from '@/components/Rail';
 import Reveal from '@/components/Reveal';
@@ -21,6 +23,7 @@ const SECTIONS = [
   { id: 'systems', label: 'What I built' },
   { id: 'arsenal', label: 'Capabilities' },
   { id: 'pipeline', label: 'How it works' },
+  { id: 'operating', label: 'The agent org' },
   { id: 'teams', label: 'The teams' },
   { id: 'enablement', label: 'Enablement' },
   { id: 'practice', label: 'Engineering' },
@@ -200,6 +203,7 @@ export default function Page() {
   return (
     <div className={styles.shellWrap} id="top">
       <TopBar />
+      <MobileNav sections={SECTIONS} />
       <div className="shell">
         <Rail sections={SECTIONS} stillAt={stillAt} />
 
@@ -316,6 +320,21 @@ export default function Page() {
                 ))}
               </div>
             </div>
+          </section>
+
+          {/* -------------------------------------------------- operating */}
+          <section className="band" id="operating">
+            <h2 className="band__label">
+              <span>The agent org</span>
+              <span>35 agents · 16 teams · 46 scheduled jobs</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '3rem' }}>
+                Not a pile of scripts on timers. A registry of agents with tiers, named duties, and escalation paths —
+                every figure below read from the live registry and scheduler rather than from a document describing them.
+              </p>
+            </Reveal>
+            <Operating />
           </section>
 
           {/* ------------------------------------------------------ teams */}

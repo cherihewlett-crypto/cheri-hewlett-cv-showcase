@@ -1,0 +1,58 @@
+/* Only exists where the desktop rail does not. */
+.wrap {
+  display: none;
+}
+
+@media (max-width: 60rem) {
+  .wrap {
+    display: block;
+    position: fixed;
+    inset-block-end: 1rem;
+    inset-inline-end: 1rem;
+    z-index: 30;
+  }
+}
+
+.toggle {
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--signal);
+  border-radius: 999px;
+  background: var(--hull);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--signal);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.45);
+}
+
+.sheet {
+  position: absolute;
+  inset-block-end: calc(100% + 0.6rem);
+  inset-inline-end: 0;
+  min-width: 13rem;
+  max-height: 65vh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.4rem;
+  list-style: none;
+  background: var(--hull);
+  border: 1px solid var(--rail);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.5);
+}
+
+.item {
+  display: block;
+  padding: 0.62rem 0.8rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.item:hover {
+  background: var(--rail-soft);
+  color: var(--signal);
+}

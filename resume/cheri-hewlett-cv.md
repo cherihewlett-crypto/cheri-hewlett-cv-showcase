@@ -1,8 +1,15 @@
 # Cheri Hewlett, CPA
 
-**Public-safe working version of the attached CV**
+**Public-safe version.** Directional language only — no team sizes, segment revenue, or non-public
+financial detail, per public-company disclosure constraints. Private contact details are omitted;
+reach me via [LinkedIn](https://linkedin.com/in/cheri-hewlett).
 
-This file mirrors the current resume content in a format that is easier to edit for a future public repo. Private contact details are intentionally omitted from this draft.
+> As AI takes on more of the *what* and the *how*, leadership becomes even more about the *why*
+> and the *who*. The leaders who thrive won't simply be fluent in technology — they'll be deeply human.
+
+**Live engineering record:** [cheri-hewlett-showcase.vercel.app](https://cheri-hewlett-showcase-cherihewlett-cryptos-projects.vercel.app)
+— 6,912 authored commits, 1,721 merged pull requests, 302 catalogued reusable capabilities, four
+production systems. Recomputed from the repositories on every build, not typed in.
 
 ## Positioning
 
@@ -47,17 +54,17 @@ AI-native operating leader running platform lines as an operator-CEO. CPA, U.S. 
 
 #### Vice President & Head of Product, Financial Reporting Analytics
 
-- Built and scaled a new Financial Analytics platform line from 0 to ~220 people
+- Built and scaled a new Financial Analytics platform line from concept to market
 - Operated with full P&L ownership across product, engineering, GTM, and customer success
 - Defined product-market fit and value propositions across a global enterprise customer base
-- Drove 100%+ YoY organic growth across 3 years
-- Reduced midmarket time-to-value from ~6 months to ~2 months through focused roadmap sequencing, deployment blueprints, advisory boards, and partner ecosystem design
+- Drove triple-digit YoY organic growth across three consecutive years
+- Significantly reduced midmarket time-to-value through focused roadmap sequencing, deployment blueprints, advisory boards, and partner ecosystem design
 - Partnered with PE-backed portfolio companies on investor reporting and control maintenance across acquired entities
 
 #### Earlier BlackLine roles
 
 - Progressed across customer success, solutions consulting, product transformation, and product leadership
-- Developed packaged deployment blueprints and success plans that drove ~30% YoY reduction in time-to-value across projects
+- Developed packaged deployment blueprints and success plans that materially reduced time-to-value across projects
 
 ### Accounting CPA Firm — Founder & Owner
 
