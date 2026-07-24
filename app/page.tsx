@@ -16,7 +16,7 @@ import { claims, proof, relativeAge } from '@/lib/proof';
 import styles from './page.module.css';
 
 const SECTIONS = [
-  { id: 'convergence', label: 'Why me' },
+  { id: 'convergence', label: 'My moat' },
   { id: 'pov', label: 'How I think' },
   { id: 'systems', label: 'What I built' },
   { id: 'demo', label: 'See it work' },
