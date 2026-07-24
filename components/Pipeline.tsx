@@ -30,9 +30,14 @@ const GAP = (W - FIRST_X * 2) / (STAGES.length - 1);
 
 export default function Pipeline() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-18% 0px' });
+  // Node reveal happens once; the looping pulse is gated on live visibility so
+  // it stops when scrolled away. A forever-running animation off-screen burns
+  // the reader's CPU and never lets the page go idle.
+  const seen = useInView(ref, { once: true, margin: '-18% 0px' });
+  const visible = useInView(ref, { margin: '0px' });
   const reduce = useReducedMotion();
-  const play = inView && !reduce;
+  const inView = seen;
+  const play = visible && !reduce;
 
   const guardrailX = FIRST_X + GAP;
 

@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, useReducedMotion } from 'motion/react';
+import { motion, useInView, useReducedMotion } from 'motion/react';
+import { useRef } from 'react';
 import styles from './Backdrop.module.css';
 
 /**
@@ -29,12 +30,17 @@ const LIVE = [
 ];
 
 export default function Backdrop() {
+  const ref = useRef<HTMLDivElement>(null);
+  // Ambient means ambient while you can see it — not a loop that keeps running
+  // for the whole session once the hero has scrolled away.
+  const visible = useInView(ref, { margin: '0px' });
   const reduce = useReducedMotion();
+  const animate = visible && !reduce;
   const w = COLS * CELL;
   const h = ROWS * CELL;
 
   return (
-    <div className={styles.wrap} aria-hidden="true">
+    <div className={styles.wrap} aria-hidden="true" ref={ref}>
       <svg className={styles.svg} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id="scan" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={CELL * 5} y2="0">
@@ -68,12 +74,12 @@ export default function Backdrop() {
               r="3"
               fill="#17b3c7"
               initial={{ opacity: 0.15 }}
-              animate={reduce ? { opacity: 0.3 } : { opacity: [0.12, 0.85, 0.12] }}
+              animate={animate ? { opacity: [0.12, 0.85, 0.12] } : { opacity: 0.3 }}
               transition={{ duration: 3.4 + i * 0.6, repeat: Infinity, ease: 'easeInOut', delay: i * 0.45 }}
             />
           ))}
 
-          {!reduce && (
+          {animate && (
             <motion.rect
               y="0"
               width={CELL * 5}
