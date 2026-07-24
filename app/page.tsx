@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Arsenal from '@/components/Arsenal';
 import Audit from '@/components/Audit';
 import Backdrop from '@/components/Backdrop';
+import Bridge from '@/components/Bridge';
 import TopBar from '@/components/TopBar';
 import Convergence from '@/components/Convergence';
 import Enablement from '@/components/Enablement';
@@ -321,6 +322,7 @@ export default function Page() {
                 leadership to carry it to impact. Most candidates bring two. Here is each, with what backs it.
               </p>
             </Reveal>
+            <Bridge />
             <Convergence />
           </section>
           {/* -------------------------------------------------------- pov */}

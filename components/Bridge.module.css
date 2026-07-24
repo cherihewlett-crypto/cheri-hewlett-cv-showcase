@@ -1,0 +1,49 @@
+.wrap {
+  margin-block: clamp(1.5rem, 3vw, 2.5rem) clamp(3rem, 6vw, 4.5rem);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.svg {
+  display: block;
+  min-width: 44rem;
+  width: 100%;
+  height: auto;
+}
+
+.anchor {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 80%;
+  font-size: 18px;
+  fill: var(--ice);
+}
+
+.anchorEnd {
+  fill: var(--verified);
+}
+
+.anchorSub,
+.towerSub {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  fill: var(--ice);
+  opacity: 0.6;
+}
+
+.towerDim {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--signal);
+}
+
+.towerLabel {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-stretch: 82%;
+  font-size: 16px;
+  fill: var(--paper);
+}
