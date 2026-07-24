@@ -1,6 +1,9 @@
 .wrap {
   position: absolute;
-  inset: -2rem -100vw -6rem 0;
+  /* Was inset: … -100vw … which pushed the box a full viewport-width past the
+     right edge and gave the whole page horizontal scroll. Bounded to its own
+     column instead; the fade mask already handles the soft right edge. */
+  inset: -2rem 0 -6rem 0;
   z-index: -1;
   pointer-events: none;
   overflow: hidden;

@@ -57,7 +57,13 @@ body {
   font-size: var(--step-0);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+}
+
+/* Belt-and-braces against any single element (a wide SVG, an overrun grid)
+   dragging the page sideways. The body clip is the last line of defence; the
+   individual overflow fixes are the real ones. */
+html {
+  overflow-x: clip;
 }
 
 /* Ambient depth: a single soft teal bloom, fixed, behind everything. */
