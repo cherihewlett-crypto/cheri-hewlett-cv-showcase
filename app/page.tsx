@@ -20,15 +20,16 @@ const SECTIONS = [
   { id: 'convergence', label: 'Why me' },
   { id: 'pov', label: 'Point of view' },
   { id: 'systems', label: 'What I built' },
+  { id: 'record', label: 'Background' },
+  { id: 'voice', label: 'Writing & talks' },
+  { id: 'contact', label: 'Contact' },
+  { id: 'depth', label: '— In depth —' },
   { id: 'arsenal', label: 'Capabilities' },
   { id: 'pipeline', label: 'How it works' },
   { id: 'operating', label: 'The agent org' },
   { id: 'enablement', label: 'Enablement' },
   { id: 'practice', label: 'Engineering' },
   { id: 'lifecycle', label: 'Prototype→scale' },
-  { id: 'record', label: 'Background' },
-  { id: 'voice', label: 'Writing & talks' },
-  { id: 'contact', label: 'Contact' },
 ];
 
 /**
@@ -265,6 +266,20 @@ export default function Page() {
             <Audit claims={claims} stillAt={stillAt} />
           </header>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           {/* ------------------------------------------------ convergence */}
           <section className="band" id="convergence">
             <h2 className="band__label">
@@ -279,7 +294,6 @@ export default function Page() {
             </Reveal>
             <Convergence />
           </section>
-
           {/* -------------------------------------------------------- pov */}
           <section className="band" id="pov">
             <h2 className="band__label">
@@ -303,7 +317,6 @@ export default function Page() {
               </p>
             </Reveal>
           </section>
-
           {/* ---------------------------------------------------- systems */}
           <section className="band" id="systems">
             <h2 className="band__label">
@@ -318,128 +331,7 @@ export default function Page() {
             </Reveal>
             <Systems systems={proof.systems} />
 
-            <div className={styles.portable}>
-              <h3 className={styles.portableHead}>Built once, reusable elsewhere</h3>
-              <div className={styles.portableGrid}>
-                {PORTABLE.map((item, i) => (
-                  <Reveal key={item.name} delay={(i % 2) * 0.06}>
-                    <article className={styles.portableItem}>
-                      <p className={styles.portableFrom}>{item.from}</p>
-                      <h4 className={styles.portableName}>{item.name}</h4>
-                      <p className={styles.portableBody}>{item.body}</p>
-                    </article>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
           </section>
-
-          {/* -------------------------------------------------- operating */}
-          <section className="band" id="operating">
-            <h2 className="band__label">
-              <span>The agent org</span>
-              <span>35 agents · 16 teams · 46 scheduled jobs</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '3rem' }}>
-                Not a pile of scripts on timers. A registry of agents with tiers, named duties, and escalation paths —
-                every figure below read from the live registry and scheduler rather than from a document describing them.
-              </p>
-            </Reveal>
-            <Operating />
-          </section>
-
-
-          {/* ------------------------------------------------ depth divider */}
-          <div className={styles.depth} id="depth">
-            <p className={styles.depthLabel}>Everything above is the summary.</p>
-            <p className={styles.depthNote}>
-              What follows is the detail — how the systems are built and run. Useful if you want to check the work, and
-              safe to skip if you already have what you need.
-            </p>
-          </div>
-
-          {/* ---------------------------------------------------- arsenal */}
-          <section className="band" id="arsenal">
-            <h2 className="band__label">
-              <span>Arsenal</span>
-              <span>build once, reference everywhere</span>
-            </h2>
-            <Arsenal />
-          </section>
-
-          {/* --------------------------------------------------- pipeline */}
-          <section className="band" id="pipeline">
-            <h2 className="band__label">
-              <span>How it works</span>
-              <span>request lifecycle</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '58ch' }}>
-                The ordering here is the design decision. Most agent stacks classify a request first and check safety
-                afterwards — by then the model has already reasoned about it. This one refuses first.
-              </p>
-            </Reveal>
-            <Pipeline />
-          </section>
-
-          {/* ------------------------------------------------- enablement */}
-          <section className="band" id="enablement">
-            <h2 className="band__label">
-              <span>Enablement</span>
-              <span>signal to implementation</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '2.5rem' }}>
-                The same five stages whether the subject is an infrastructure fault, an account drifting toward churn,
-                or an implementation running late. Deterministic rules and domain logic do the deciding; the model
-                handles the ambiguous middle. Each stage below is marked for whether it is running today or is where the
-                existing machinery extends.
-              </p>
-            </Reveal>
-            <Enablement />
-          </section>
-
-          {/* --------------------------------------------------- practice */}
-          <section className="band" id="practice">
-            <h2 className="band__label">
-              <span>Practice</span>
-              <span>implementation detail</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
-                The work below is the kind that usually gets compressed into one line of an executive résumé. It is here
-                in full because it is the part that is hard to fake.
-              </p>
-            </Reveal>
-            <div className={styles.practice}>
-              {PRACTICE.map((item, i) => (
-                <Reveal key={item.title} delay={(i % 2) * 0.08}>
-                  <article className={styles.practiceItem}>
-                    <h3 className={styles.practiceTitle}>{item.title}</h3>
-                    <p className={styles.practiceBody}>{item.body}</p>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </section>
-
-          {/* -------------------------------------------------- lifecycle */}
-          <section className="band" id="lifecycle">
-            <h2 className="band__label">
-              <span>Prototype → scale</span>
-              <span>the whole arc</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '2.5rem' }}>
-                Product and innovation leadership is written as a lifecycle — prototype, prove, harden, scale. The
-                common gap is a leader who has lived in one or two of those stages. Here is what sits at each.
-              </p>
-            </Reveal>
-            <Lifecycle />
-          </section>
-
-
           {/* ----------------------------------------------------- record */}
           <section className="band" id="record">
             <h2 className="band__label">
@@ -477,7 +369,6 @@ export default function Page() {
               </Reveal>
             </div>
           </section>
-
           {/* ------------------------------------------------------ voice */}
           <section className="band" id="voice">
             <h2 className="band__label">
@@ -528,7 +419,6 @@ export default function Page() {
               ))}
             </ul>
           </section>
-
           {/* ---------------------------------------------------- contact */}
           <section className="band" id="contact">
             <h2 className="band__label">
@@ -552,12 +442,123 @@ export default function Page() {
               </div>
             </Reveal>
 
+          </section>
+          {/* ------------------------------------------------ depth divider */}
+          <div className={styles.depth} id="depth">
+            <p className={styles.depthLabel}>Everything above is the summary.</p>
+            <p className={styles.depthNote}>
+              What follows is the detail — how the systems are built and run. Useful if you want to check the work, and
+              safe to skip if you already have what you need.
+            </p>
+          </div>
+          {/* ---------------------------------------------------- arsenal */}
+          <section className="band" id="arsenal">
+            <h2 className="band__label">
+              <span>Arsenal</span>
+              <span>build once, reference everywhere</span>
+            </h2>
+            <Arsenal />
+            <div className={styles.portable}>
+              <h3 className={styles.portableHead}>Built once, reusable elsewhere</h3>
+              <div className={styles.portableGrid}>
+                {PORTABLE.map((item, i) => (
+                  <Reveal key={item.name} delay={(i % 2) * 0.06}>
+                    <article className={styles.portableItem}>
+                      <p className={styles.portableFrom}>{item.from}</p>
+                      <h4 className={styles.portableName}>{item.name}</h4>
+                      <p className={styles.portableBody}>{item.body}</p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+          {/* --------------------------------------------------- pipeline */}
+          <section className="band" id="pipeline">
+            <h2 className="band__label">
+              <span>How it works</span>
+              <span>request lifecycle</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '58ch' }}>
+                The ordering here is the design decision. Most agent stacks classify a request first and check safety
+                afterwards — by then the model has already reasoned about it. This one refuses first.
+              </p>
+            </Reveal>
+            <Pipeline />
+          </section>
+          {/* -------------------------------------------------- operating */}
+          <section className="band" id="operating">
+            <h2 className="band__label">
+              <span>The agent org</span>
+              <span>35 agents · 16 teams · 46 scheduled jobs</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '3rem' }}>
+                Not a pile of scripts on timers. A registry of agents with tiers, named duties, and escalation paths —
+                every figure below read from the live registry and scheduler rather than from a document describing them.
+              </p>
+            </Reveal>
+            <Operating />
+          </section>
+          {/* ------------------------------------------------- enablement */}
+          <section className="band" id="enablement">
+            <h2 className="band__label">
+              <span>Enablement</span>
+              <span>signal to implementation</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '2.5rem' }}>
+                The same five stages whether the subject is an infrastructure fault, an account drifting toward churn,
+                or an implementation running late. Deterministic rules and domain logic do the deciding; the model
+                handles the ambiguous middle. Each stage below is marked for whether it is running today or is where the
+                existing machinery extends.
+              </p>
+            </Reveal>
+            <Enablement />
+          </section>
+          {/* --------------------------------------------------- practice */}
+          <section className="band" id="practice">
+            <h2 className="band__label">
+              <span>Practice</span>
+              <span>implementation detail</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
+                The work below is the kind that usually gets compressed into one line of an executive résumé. It is here
+                in full because it is the part that is hard to fake.
+              </p>
+            </Reveal>
+            <div className={styles.practice}>
+              {PRACTICE.map((item, i) => (
+                <Reveal key={item.title} delay={(i % 2) * 0.08}>
+                  <article className={styles.practiceItem}>
+                    <h3 className={styles.practiceTitle}>{item.title}</h3>
+                    <p className={styles.practiceBody}>{item.body}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+          {/* -------------------------------------------------- lifecycle */}
+          <section className="band" id="lifecycle">
+            <h2 className="band__label">
+              <span>Prototype → scale</span>
+              <span>the whole arc</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '2.5rem' }}>
+                Product and innovation leadership is written as a lifecycle — prototype, prove, harden, scale. The
+                common gap is a leader who has lived in one or two of those stages. Here is what sits at each.
+              </p>
+            </Reveal>
+            <Lifecycle />
+          </section>
             <footer className={styles.footer}>
               <p>
                 Engineering record last recomputed {buildDate}. {proof.method}
               </p>
             </footer>
-          </section>
         </main>
       </div>
     </div>
