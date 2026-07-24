@@ -29,7 +29,7 @@ export default function TopBar() {
       </a>
       <span className={styles.role}>Technology executive · Builder · Veteran</span>
       <nav className={styles.actions}>
-        <a className={styles.action} href="/resume/cheri-hewlett-cv.md" tabIndex={shown ? 0 : -1}>
+        <a className={styles.action} href="https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase/blob/main/resume/cheri-hewlett-cv.md" tabIndex={shown ? 0 : -1}>
           Résumé
         </a>
         <a className={styles.action} href="https://linkedin.com/in/cheri-hewlett" tabIndex={shown ? 0 : -1}>

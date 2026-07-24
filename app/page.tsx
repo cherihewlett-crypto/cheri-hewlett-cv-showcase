@@ -539,7 +539,7 @@ export default function Page() {
                 <a className={styles.link} href="https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase">
                   This site&apos;s source ↗
                 </a>
-                <a className={styles.link} href="/resume/cheri-hewlett-cv.md">
+                <a className={styles.link} href="https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase/blob/main/resume/cheri-hewlett-cv.md">
                   Résumé, plain text ↗
                 </a>
               </div>
