@@ -78,16 +78,17 @@ across a team, and most candidates bring two:
 ## Background
 
 U.S. Air Force — mission first, people always. PwC and Deloitte. Founded a CPA firm from scratch.
-Built and managed a real estate portfolio over a decade. Rose from customer success to senior
-executive leadership at a publicly traded fintech. I've seen the product lifecycle from every seat —
-implementing, selling, supporting, and betting a company's transformation on the product.
+Built and managed a rental portfolio over a decade. Strategic advisor to Crux (London) on
+product-acquisition integration, and a board member of the G.R.O.W. Foundation. Rose from customer
+success to senior executive leadership at a publicly traded fintech. I've seen the product lifecycle
+from every seat — implementing, selling, supporting, and betting a company's transformation on the product.
 
-CPA · MS Accounting · BS Accounting & Computer Science · U.S. Air Force Veteran · Board Member, G.R.O.W. Foundation
+CPA (VA) · M.S. Accounting, Liberty University · B.S. Accounting & Computer Science, University of Maryland · U.S. Air Force Veteran · Los Angeles, CA
 
 ## In public
 
-Speaker — BlackLine Investor Day · SAP Sapphire, Barcelona · BeyondTheBlack · LWT Summit ·
-Product Advisory Collective. Podcast guest — *Sounds Accurate*. Writing on LinkedIn.
+Speaker — BeyondTheBlack (main stage, five consecutive years) · BlackLine Investor Day · SAP Sapphire,
+Barcelona · LWT Summit · Product Advisory Collective. Podcast guest — *Sounds Accurate*, *The Go-Live Gap*. Writing on LinkedIn.
 
 ## Elsewhere
 

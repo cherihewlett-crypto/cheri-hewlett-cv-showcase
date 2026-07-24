@@ -363,6 +363,18 @@
   text-wrap: pretty;
 }
 
+.credentials {
+  max-width: 80ch;
+  margin-block: clamp(2rem, 4vw, 3rem) 0;
+  padding-block-start: 1.5rem;
+  border-block-start: 1px solid var(--rail);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  color: var(--ice);
+}
+
 /* --------------------------------------------------------------- writing */
 
 .writing {

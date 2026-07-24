@@ -126,7 +126,7 @@ const ROLES = [
   {
     org: 'The spine',
     title: 'Air Force. Big Four. Founder. Investor. Operator.',
-    body: 'Served in the U.S. Air Force — mission first, people always. PwC and Deloitte. Founded my own CPA firm from scratch. Built a real estate portfolio over a decade of buying, renovating, and managing. Rose from customer success manager to senior executive leadership at a publicly traded fintech transforming the office of the CFO. Every chapter required learning something new from zero.',
+    body: 'Served in the U.S. Air Force — mission first, people always. PwC and Deloitte. Founded my own CPA firm serving real estate investors and small businesses. Built and managed a rental portfolio over a decade. Strategic advisor to Crux (London) on product-acquisition integration, and a board member of the G.R.O.W. Foundation. Rose from customer success manager to senior executive leadership at a publicly traded fintech. Every chapter required learning something new from zero.',
   },
   {
     org: 'How I build',
@@ -217,7 +217,7 @@ const TALKS = [
   { name: 'BlackLine Investor Day', venue: 'New York', year: '2024' },
   { name: 'SAP Sapphire', venue: 'Barcelona', year: '2024' },
   { name: 'LWT Summit', venue: 'Leading Women in Technology', year: '2024' },
-  { name: 'BeyondTheBlack', venue: 'Annual conference', year: '2022 — 2026' },
+  { name: 'BeyondTheBlack', venue: 'Main stage, five consecutive years', year: '2022 — 2026' },
 ];
 
 export default function Page() {
@@ -399,6 +399,14 @@ export default function Page() {
                 </figure>
               </Reveal>
             </div>
+
+            <Reveal delay={0.15}>
+              <p className={styles.credentials}>
+                CPA (VA) · M.S. Accounting, Liberty University · B.S. Accounting &amp; Computer Science, University of
+                Maryland · U.S. Air Force Veteran · Strategic Advisor, Crux (London) · Board Member, G.R.O.W. Foundation
+                · Los Angeles, CA
+              </p>
+            </Reveal>
           </section>
           {/* ------------------------------------------------------ voice */}
           <section className="band" id="voice">
