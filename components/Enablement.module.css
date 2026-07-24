@@ -79,7 +79,7 @@
   line-height: 1.65;
   letter-spacing: 0.03em;
   color: var(--ice);
-  opacity: 0.55;
+  opacity: 0.72;
 }
 
 @media (max-width: 46rem) {

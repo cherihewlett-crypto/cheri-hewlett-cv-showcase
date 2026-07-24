@@ -52,7 +52,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--ice);
-  opacity: 0.42;
+  opacity: 0.62;
   transition: opacity 0.3s var(--ease), color 0.3s var(--ease);
 }
 
@@ -83,7 +83,7 @@
   line-height: 1.6;
   letter-spacing: 0.08em;
   color: var(--ice);
-  opacity: 0.4;
+  opacity: 0.62;
 }
 
 .pulse {
