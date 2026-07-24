@@ -6,6 +6,7 @@ import Bridge from '@/components/Bridge';
 import TopBar from '@/components/TopBar';
 import Convergence from '@/components/Convergence';
 import Enablement from '@/components/Enablement';
+import Guardrail from '@/components/Guardrail';
 import HeroTitle from '@/components/HeroTitle';
 import Lifecycle from '@/components/Lifecycle';
 import MobileNav from '@/components/MobileNav';
@@ -21,6 +22,7 @@ const SECTIONS = [
   { id: 'convergence', label: 'Why me' },
   { id: 'pov', label: 'Point of view' },
   { id: 'systems', label: 'What I built' },
+  { id: 'demo', label: 'See it work' },
   { id: 'record', label: 'Background' },
   { id: 'voice', label: 'Speaking & writing' },
   { id: 'contact', label: 'Contact' },
@@ -361,7 +363,21 @@ export default function Page() {
               </p>
             </Reveal>
             <Systems systems={proof.systems} />
-
+          </section>
+          {/* ------------------------------------------------------- demo */}
+          <section className="band" id="demo">
+            <h2 className="band__label">
+              <span>See it work</span>
+              <span>not a description — a live artifact</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '0.5rem' }}>
+                Most of the work proves itself in numbers. This part proves itself by running. Type a request — or pick
+                one — and watch the guardrail decide. It refuses first and classifies second, which is the whole design
+                decision.
+              </p>
+            </Reveal>
+            <Guardrail />
           </section>
           {/* ----------------------------------------------------- record */}
           <section className="band" id="record">

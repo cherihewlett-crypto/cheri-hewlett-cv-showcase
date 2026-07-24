@@ -1,0 +1,169 @@
+.wrap {
+  margin-block-start: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.form {
+  margin-block-end: 1rem;
+}
+
+.label {
+  display: block;
+  margin-block-end: 0.6rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.input {
+  flex: 1 1 22rem;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  background: var(--abyss);
+  border: 1px solid var(--rail);
+  color: var(--paper);
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+}
+
+.input::placeholder {
+  color: var(--ice);
+  opacity: 0.5;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--signal);
+}
+
+.run {
+  padding: 0.85rem 1.5rem;
+  background: var(--signal);
+  border: 1px solid var(--signal);
+  color: var(--abyss);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s var(--ease);
+}
+
+.run:hover {
+  opacity: 0.85;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-end: 1.75rem;
+}
+
+.chip {
+  padding: 0.5rem 0.85rem;
+  background: transparent;
+  border: 1px solid var(--rail);
+  color: var(--ice);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.chip:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+.result {
+  padding: 1.5rem 1.6rem;
+  border: 1px solid var(--rail);
+  background: var(--rail-soft);
+}
+
+.echo {
+  margin: 0 0 1.25rem;
+  font-size: 1.02rem;
+  color: var(--paper);
+  font-style: italic;
+}
+
+.trace {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.step {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.stepDot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--rail);
+  transform: translateY(-1px);
+}
+
+.stepDot[data-on] {
+  border-color: var(--signal);
+  background: var(--signal);
+}
+
+.blockDot[data-on] {
+  border-color: #f0736b;
+  background: #f0736b;
+}
+
+.passDot[data-on] {
+  border-color: var(--verified);
+  background: var(--verified);
+}
+
+.stepName {
+  font-size: 0.95rem;
+  color: var(--paper);
+}
+
+.stepMuted {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--ice);
+  opacity: 0.75;
+}
+
+.blocked {
+  color: #f0736b;
+  font-weight: 600;
+}
+
+.passed {
+  color: var(--verified);
+  font-weight: 600;
+}
+
+.note {
+  max-width: 60ch;
+  margin-block: 1.5rem 0;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--ice);
+  opacity: 0.7;
+}
