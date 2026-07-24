@@ -24,7 +24,7 @@ const proof = JSON.parse(readFileSync(join(ROOT, 'public', 'proof.json'), 'utf8'
 const t = proof.totals;
 const n = (v) => v.toLocaleString('en-US');
 
-const SITE = 'https://cheri-hewlett-showcase-cherihewlett-cryptos-projects.vercel.app';
+const SITE = 'https://cherihewlett.dev';
 const LINKEDIN = 'https://linkedin.com/in/cheri-hewlett';
 const COLLECTOR =
   'https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase/blob/main/scripts/collect-proof.mjs';

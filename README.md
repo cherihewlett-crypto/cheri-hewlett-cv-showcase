@@ -2,7 +2,7 @@
 
 **AI-native operating executive — platform leadership with the engineering record to check it against.**
 
-### → [View the showcase](https://cheri-hewlett-showcase-cherihewlett-cryptos-projects.vercel.app)
+### → [View the showcase](https://cherihewlett.dev)
 
 ---
 
