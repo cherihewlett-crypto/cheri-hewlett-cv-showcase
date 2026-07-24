@@ -260,6 +260,23 @@
   color: var(--paper);
 }
 
+.pieceLink {
+  transition: color 0.3s var(--ease);
+}
+
+.pieceLink:hover {
+  color: var(--signal);
+}
+
+.pieceVenue {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  opacity: 0.85;
+}
+
 .pieceNote {
   margin: 0;
   font-size: 0.9rem;

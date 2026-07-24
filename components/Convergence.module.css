@@ -49,6 +49,9 @@
 
 /* What the typical candidate in this lane is missing. Set quietly — it is a
    contrast, not a swipe. */
+/* What the typical candidate in this lane is missing. Set quietly — but the
+   opacity that read as "quiet" failed contrast, so the recession comes from
+   italics and size rather than from washing the text out. */
 .common {
   margin: auto 0 0;
   padding-block-start: 0.75rem;
@@ -56,7 +59,7 @@
   line-height: 1.5;
   font-style: italic;
   color: var(--ice);
-  opacity: 0.5;
+  opacity: 0.88;
 }
 
 .merge {

@@ -133,23 +133,52 @@ const ROLES = [
   },
 ];
 
-/** Written work — the point of view the systems are built out of. */
+/**
+ * Written and recorded work. Every item links out — an unlinked title is a
+ * claim, and this page does not make claims it cannot hand you the source for.
+ */
 const WRITING = [
   {
-    name: 'Agentic AI System Design: The Full Guide',
-    note: 'Architecture, human alignment, operational governance, and deployment — the blueprint these systems were built against.',
+    name: 'People First: The True Responsibility of Leadership',
+    note: 'Organizations don’t outperform because they obsess over customers. They outperform because they invest in the people serving them.',
+    href: 'https://www.linkedin.com/pulse/people-first-true-responsibility-leadership-cheri-hewlett-cpa-7clce',
   },
   {
-    name: 'The Disruption Decade',
-    note: 'What a decade of compounding disruption asks of operators, and why the durable advantage is judgement rather than tooling.',
+    name: 'The Death of Consolidation Systems',
+    note: 'Why the platform you rely on for consolidation may be quietly costing you millions — and what the architecture should look like instead.',
+    href: 'https://www.linkedin.com/pulse/death-consolidation-systems-why-yours-might-costing-you-hewlett-cpa-ixgce',
   },
   {
-    name: 'Confidence That Can’t Be Shaken',
-    note: 'On resilience as an operating capability — building conviction that survives contact with a changing market.',
+    name: 'What’s Next After Generative AI',
+    note: 'The shift from generating text to systems that route work, retain context, and operate inside explicit boundaries.',
+    href: 'https://www.linkedin.com/pulse/whats-next-after-generative-ai-cheri-hewlett-cpa-jdplf',
   },
   {
-    name: 'The CFO Intelligence System',
-    note: 'The commercial thesis behind applying agentic AI to the office of the CFO.',
+    name: 'How Long Can Manual Processes Keep Your Business Afloat?',
+    note: 'On the compounding cost of the work everyone agrees should be automated and nobody has scheduled.',
+    href: 'https://www.linkedin.com/pulse/how-long-can-manual-processes-keep-your-business-cheri-hewlett-cpa-bhmle',
+  },
+];
+
+/** Recorded and third-party — authority someone else conferred. */
+const FEATURED = [
+  {
+    name: 'Why AI in Accounting Plays by Different Rules',
+    venue: 'Sounds Accurate — podcast guest',
+    note: 'Prediction versus precision, and why the difference decides where AI belongs in the close.',
+    href: 'https://youtu.be/H9XAoWT6Rd8',
+  },
+  {
+    name: 'AI: Redefining the Future of Finance & Accounting',
+    venue: 'BlackLine — quoted expert',
+    note: '',
+    href: 'https://www.blackline.com/blog/ai-is-redefining-the-future-of-f-and-a/',
+  },
+  {
+    name: 'Investor Day 2024 presentation',
+    venue: 'Named presenter · reported by MarketScreener',
+    note: '',
+    href: 'https://www.marketscreener.com/quote/stock/BLACKLINE-INC-31740369/news/BlackLine-Investor-Day-Presentation-48410395/',
   },
 ];
 
@@ -429,8 +458,29 @@ export default function Page() {
               {WRITING.map((piece, i) => (
                 <Reveal key={piece.name} delay={(i % 2) * 0.06}>
                   <article className={styles.piece}>
-                    <h3 className={styles.pieceName}>{piece.name}</h3>
+                    <h3 className={styles.pieceName}>
+                      <a className={styles.pieceLink} href={piece.href}>
+                        {piece.name} <span aria-hidden="true">↗</span>
+                      </a>
+                    </h3>
                     <p className={styles.pieceNote}>{piece.note}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+
+            <p className={styles.talksHead}>Recorded &amp; featured</p>
+            <div className={styles.writing}>
+              {FEATURED.map((piece, i) => (
+                <Reveal key={piece.name} delay={(i % 2) * 0.06}>
+                  <article className={styles.piece}>
+                    <h3 className={styles.pieceName}>
+                      <a className={styles.pieceLink} href={piece.href}>
+                        {piece.name} <span aria-hidden="true">↗</span>
+                      </a>
+                    </h3>
+                    <p className={styles.pieceVenue}>{piece.venue}</p>
+                    {piece.note ? <p className={styles.pieceNote}>{piece.note}</p> : null}
                   </article>
                 </Reveal>
               ))}
@@ -439,12 +489,10 @@ export default function Page() {
             <p className={styles.talksHead}>Speaking</p>
             <ul className={styles.talks}>
               {TALKS.map((talk, i) => (
-                <Reveal key={talk.name} delay={i * 0.05}>
-                  <li className={styles.talk}>
-                    <span className={styles.talkYear}>{talk.year}</span>
-                    <span className={styles.talkName}>{talk.name}</span>
-                    <span className={styles.talkVenue}>{talk.venue}</span>
-                  </li>
+                <Reveal key={talk.name} delay={i * 0.05} as="li" className={styles.talk}>
+                  <span className={styles.talkYear}>{talk.year}</span>
+                  <span className={styles.talkName}>{talk.name}</span>
+                  <span className={styles.talkVenue}>{talk.venue}</span>
                 </Reveal>
               ))}
             </ul>

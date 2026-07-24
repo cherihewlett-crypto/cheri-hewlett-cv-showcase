@@ -54,8 +54,8 @@ export default function Enablement() {
   return (
     <ol className={styles.list}>
       {STAGES.map((stage, i) => (
-        <Reveal key={stage.name} delay={Math.min(i, 4) * 0.05}>
-          <li className={styles.item}>
+        <Reveal key={stage.name} delay={Math.min(i, 4) * 0.05} as="li" className={styles.item}>
+          <>
             <span className={styles.index} aria-hidden="true">
               {String(i + 1).padStart(2, '0')}
             </span>
@@ -67,7 +67,7 @@ export default function Enablement() {
               <p className={styles.body}>{stage.body}</p>
               <p className={styles.proof}>{stage.proof}</p>
             </div>
-          </li>
+          </>
         </Reveal>
       ))}
     </ol>
