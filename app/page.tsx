@@ -5,13 +5,10 @@ import Backdrop from '@/components/Backdrop';
 import Bridge from '@/components/Bridge';
 import TopBar from '@/components/TopBar';
 import Convergence from '@/components/Convergence';
-import Enablement from '@/components/Enablement';
 import Guardrail from '@/components/Guardrail';
 import HeroTitle from '@/components/HeroTitle';
-import Lifecycle from '@/components/Lifecycle';
 import MobileNav from '@/components/MobileNav';
 import Operating from '@/components/Operating';
-import Pipeline from '@/components/Pipeline';
 import Rail from '@/components/Rail';
 import Reveal from '@/components/Reveal';
 import Systems from '@/components/Systems';
@@ -20,19 +17,13 @@ import styles from './page.module.css';
 
 const SECTIONS = [
   { id: 'convergence', label: 'Why me' },
-  { id: 'pov', label: 'Point of view' },
+  { id: 'pov', label: 'How I think' },
   { id: 'systems', label: 'What I built' },
   { id: 'demo', label: 'See it work' },
+  { id: 'scale', label: 'At scale' },
   { id: 'record', label: 'Background' },
   { id: 'voice', label: 'Speaking & writing' },
   { id: 'contact', label: 'Contact' },
-  { id: 'depth', label: '— In depth —' },
-  { id: 'arsenal', label: 'Capabilities' },
-  { id: 'pipeline', label: 'How it works' },
-  { id: 'operating', label: 'The agent org' },
-  { id: 'enablement', label: 'Enablement' },
-  { id: 'practice', label: 'Engineering' },
-  { id: 'lifecycle', label: 'Prototype→scale' },
 ];
 
 /**
@@ -83,34 +74,6 @@ const POV = [
   {
     move: 'How you treat people is the strategy',
     body: 'Organizations don’t outperform because they obsess over customers. They outperform because they invest in the people serving them. As AI absorbs more of the execution, that becomes more of the job, not less.',
-  },
-];
-
-/** Implementation work that rarely survives the trip onto an executive résumé. */
-const PRACTICE = [
-  {
-    title: 'Registry-driven agent routing',
-    body: 'Replaced a hardcoded specialist map with a routing table sourced from live agent registry records — keyword activation, context mapping, and classifier-domain composition resolved at runtime. Adding an agent is a row, not a deploy.',
-  },
-  {
-    title: 'Fail-closed authority boundaries',
-    body: 'Tool and action authority load as effective policy and are enforced at call time. When policy cannot be resolved, the action is refused rather than allowed — the failure mode is a stopped agent, never an ungoverned one.',
-  },
-  {
-    title: 'Guardrails ahead of classification',
-    body: 'Request guardrails run before model classification, so destructive and unsafe requests are refused without a model call, and every violation writes telemetry that can be audited later.',
-  },
-  {
-    title: 'Adversarial safety coverage',
-    body: 'Deterministic red-team suites across destructive actions, financial actions, impersonation, credential requests, and sensitive data — paired with true-negative checks so the classifier is measured on over-refusal too.',
-  },
-  {
-    title: 'Truthful status verification',
-    body: 'A verifier recomputes completion state from live checks instead of trusting recorded status. It detects pass-to-fail regressions, flags claim-versus-check drift, and raises an alert when a status is asserted that the evidence no longer supports.',
-  },
-  {
-    title: 'Authenticated completion gating',
-    body: 'HMAC-verified webhook processing with acceptance-proof detection, so work is marked complete only when something outside the agent confirms it happened.',
   },
 ];
 
@@ -330,7 +293,7 @@ export default function Page() {
           {/* -------------------------------------------------------- pov */}
           <section className="band" id="pov">
             <h2 className="band__label">
-              <span>Point of view</span>
+              <span>How I think</span>
               <span>judgment · resilience · builder</span>
             </h2>
             <div className={styles.pov}>
@@ -378,6 +341,38 @@ export default function Page() {
               </p>
             </Reveal>
             <Guardrail />
+          </section>
+          {/* -------------------------------------------------------- scale */}
+          <section className="band" id="scale">
+            <h2 className="band__label">
+              <span>At scale</span>
+              <span>302 reusable capabilities · a 35-agent operating team</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '3rem' }}>
+                The systems above are not one-off builds. They stand on a catalogued library of reusable capabilities,
+                and they are run by a registry of agents with tiers, duties, and escalation paths — every figure read
+                from the live registry, never typed in.
+              </p>
+            </Reveal>
+            <Arsenal />
+            <div className={styles.portable}>
+              <h3 className={styles.portableHead}>Built once, reusable elsewhere</h3>
+              <div className={styles.portableGrid}>
+                {PORTABLE.map((item, i) => (
+                  <Reveal key={item.name} delay={(i % 2) * 0.06}>
+                    <article className={styles.portableItem}>
+                      <p className={styles.portableFrom}>{item.from}</p>
+                      <h4 className={styles.portableName}>{item.name}</h4>
+                      <p className={styles.portableBody}>{item.body}</p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+            <div style={{ marginBlockStart: 'clamp(3.5rem, 7vw, 5.5rem)' }}>
+              <Operating />
+            </div>
           </section>
           {/* ----------------------------------------------------- record */}
           <section className="band" id="record">
@@ -519,117 +514,6 @@ export default function Page() {
               </div>
             </Reveal>
 
-          </section>
-          {/* ------------------------------------------------ depth divider */}
-          <div className={styles.depth} id="depth">
-            <p className={styles.depthLabel}>Everything above is the summary.</p>
-            <p className={styles.depthNote}>
-              What follows is the detail — how the systems are built and run. Useful if you want to check the work, and
-              safe to skip if you already have what you need.
-            </p>
-          </div>
-          {/* ---------------------------------------------------- arsenal */}
-          <section className="band" id="arsenal">
-            <h2 className="band__label">
-              <span>Arsenal</span>
-              <span>build once, reference everywhere</span>
-            </h2>
-            <Arsenal />
-            <div className={styles.portable}>
-              <h3 className={styles.portableHead}>Built once, reusable elsewhere</h3>
-              <div className={styles.portableGrid}>
-                {PORTABLE.map((item, i) => (
-                  <Reveal key={item.name} delay={(i % 2) * 0.06}>
-                    <article className={styles.portableItem}>
-                      <p className={styles.portableFrom}>{item.from}</p>
-                      <h4 className={styles.portableName}>{item.name}</h4>
-                      <p className={styles.portableBody}>{item.body}</p>
-                    </article>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          </section>
-          {/* --------------------------------------------------- pipeline */}
-          <section className="band" id="pipeline">
-            <h2 className="band__label">
-              <span>How it works</span>
-              <span>request lifecycle</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '58ch' }}>
-                The ordering here is the design decision. Most agent stacks classify a request first and check safety
-                afterwards — by then the model has already reasoned about it. This one refuses first.
-              </p>
-            </Reveal>
-            <Pipeline />
-          </section>
-          {/* -------------------------------------------------- operating */}
-          <section className="band" id="operating">
-            <h2 className="band__label">
-              <span>The agent org</span>
-              <span>35 agents · 16 teams · 46 scheduled jobs</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '3rem' }}>
-                Not a pile of scripts on timers. A registry of agents with tiers, named duties, and escalation paths —
-                every figure below read from the live registry and scheduler rather than from a document describing them.
-              </p>
-            </Reveal>
-            <Operating />
-          </section>
-          {/* ------------------------------------------------- enablement */}
-          <section className="band" id="enablement">
-            <h2 className="band__label">
-              <span>Enablement</span>
-              <span>signal to implementation</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '2.5rem' }}>
-                The same five stages whether the subject is an infrastructure fault, an account drifting toward churn,
-                or an implementation running late. Deterministic rules and domain logic do the deciding; the model
-                handles the ambiguous middle. Each stage below is marked for whether it is running today or is where the
-                existing machinery extends.
-              </p>
-            </Reveal>
-            <Enablement />
-          </section>
-          {/* --------------------------------------------------- practice */}
-          <section className="band" id="practice">
-            <h2 className="band__label">
-              <span>Practice</span>
-              <span>implementation detail</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
-                The work below is the kind that usually gets compressed into one line of an executive résumé. It is here
-                in full because it is the part that is hard to fake.
-              </p>
-            </Reveal>
-            <div className={styles.practice}>
-              {PRACTICE.map((item, i) => (
-                <Reveal key={item.title} delay={(i % 2) * 0.08}>
-                  <article className={styles.practiceItem}>
-                    <h3 className={styles.practiceTitle}>{item.title}</h3>
-                    <p className={styles.practiceBody}>{item.body}</p>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </section>
-          {/* -------------------------------------------------- lifecycle */}
-          <section className="band" id="lifecycle">
-            <h2 className="band__label">
-              <span>Prototype → scale</span>
-              <span>the whole arc</span>
-            </h2>
-            <Reveal>
-              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '2.5rem' }}>
-                Product and innovation leadership is written as a lifecycle — prototype, prove, harden, scale. The
-                common gap is a leader who has lived in one or two of those stages. Here is what sits at each.
-              </p>
-            </Reveal>
-            <Lifecycle />
           </section>
             <footer className={styles.footer}>
               <p>
