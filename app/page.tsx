@@ -246,9 +246,9 @@ export default function Page() {
 
             <div className={styles.heroBody}>
               <p className="lede">
-                The organizations that win won’t be the ones that adopted AI fastest. They’ll be the ones that chose the
-                right problems, built systems their people could trust, and had leaders resilient enough to stay the
-                course when it got hard.
+                I draw the bridge from problem to solution through technology — starting with the problems worth
+                solving: the ones that return quantifiable value, and deliver real impact. Then the right solution for
+                each. Not the newest thing — the thing that pays.
               </p>
               <p className={styles.heroSub}>
                 I don’t build theory — I build from market friction, and I build it myself. The figures below are not
@@ -315,9 +315,10 @@ export default function Page() {
               <span>innovation · engineering · domain depth · leadership</span>
             </h2>
             <Reveal>
-              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '3rem' }}>
-                Senior AI and product roles are written asking for four things at once. Most candidates bring two. Here
-                is each one, with what backs it.
+              <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '3rem' }}>
+                Turning a problem into a solution that returns value takes four things at once: the domain to see the
+                real problem, the judgment to choose the one worth solving, the engineering to build the answer, and the
+                leadership to carry it to impact. Most candidates bring two. Here is each, with what backs it.
               </p>
             </Reveal>
             <Convergence />
