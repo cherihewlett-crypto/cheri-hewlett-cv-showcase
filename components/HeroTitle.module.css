@@ -11,11 +11,32 @@
   padding-block-end: 0.04em;
 }
 
+/*
+ * The resting state is visible. The animation moves the line INTO that state
+ * rather than out of it, so a failed or blocked script leaves the headline
+ * readable instead of leaving an empty box.
+ */
 .line {
   display: block;
-  will-change: transform;
+  animation: rise 0.78s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(108%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .accent {
   color: var(--signal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line {
+    animation: none;
+    transform: none;
+  }
 }

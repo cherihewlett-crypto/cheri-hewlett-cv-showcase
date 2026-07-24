@@ -1,18 +1,20 @@
-'use client';
-
-import { motion, useReducedMotion } from 'motion/react';
 import styles from './HeroTitle.module.css';
-
-/**
- * The headline resolves a line at a time, with the turn — "almost none" —
- * arriving last and in the signal colour. The claim is the argument of the
- * page, so it earns a staged delivery rather than appearing all at once.
- */
 
 /**
  * The author's Core Thesis, verbatim from her canonical brand record, broken
  * for the display face. Everything else on the page is downstream of it.
+ *
+ * Deliberately a server component with a pure CSS reveal, and no JavaScript in
+ * the path. An earlier version used a JS-driven transform that started the
+ * lines translated fully out of their clipping box — which meant that until
+ * hydration ran, the most important sentence on the page rendered as blank
+ * space. A headline must never depend on a script having executed.
+ *
+ * `animation-fill-mode: both` guarantees the end state even if the animation
+ * is interrupted, and the reduced-motion query drops the movement while
+ * leaving the text exactly where it belongs.
  */
+
 const LINES = [
   { text: 'AI takes the', accent: false },
   { text: 'what and the how.', accent: false },
@@ -21,24 +23,16 @@ const LINES = [
 ];
 
 export default function HeroTitle() {
-  const reduce = useReducedMotion();
-
   return (
     <h1 className={`display display--hero ${styles.title}`}>
       {LINES.map((line, i) => (
         <span key={line.text} className={styles.lineMask}>
-          <motion.span
+          <span
             className={`${styles.line} ${line.accent ? styles.accent : ''}`}
-            initial={reduce ? false : { y: '108%' }}
-            animate={{ y: '0%' }}
-            transition={{
-              delay: 0.12 + i * 0.11,
-              duration: 0.78,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+            style={{ animationDelay: `${0.1 + i * 0.11}s` }}
           >
             {line.text}
-          </motion.span>
+          </span>
         </span>
       ))}
     </h1>
