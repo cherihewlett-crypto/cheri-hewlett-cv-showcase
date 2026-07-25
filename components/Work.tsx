@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'motion/react';
 import Clickthrough from './Clickthrough';
+import { ACQUISITION_PLAY, BUSINESS_CASE_PLAY, HEYECHO_PLAY, type Play } from './work-plays';
 import styles from './Work.module.css';
 
 /**
@@ -12,6 +13,10 @@ import styles from './Work.module.css';
  * capability is independently reusable and recognizable on its own. Each card
  * is self-contained and lands in a glance; the kind tag makes the altitude
  * clear. Grounded in real systems, client identifiers removed, rebuilt clean.
+ *
+ * The three products each carry an animated play (an anonymized walkthrough of
+ * how the system runs); those span the full row and stack first. The overlay
+ * pattern and the two reusable functions follow as glanceable cards.
  */
 
 type Kind = 'product' | 'function';
@@ -23,7 +28,7 @@ const WORK: {
   title: string;
   body: string;
   value: string;
-  flagship?: boolean;
+  play?: Play;
 }[] = [
   {
     kind: 'product',
@@ -32,7 +37,7 @@ const WORK: {
     title: 'Autonomous business-case engine',
     body: 'Give it a business question; it returns an investment-grade case — researched across independent roles, cleared against compliance and regulation, survived a safety red-team, and audited for goal completion before it ships. A guard at every stage.',
     value: 'A defensible go / no-go, not a confident guess',
-    flagship: true,
+    play: BUSINESS_CASE_PLAY,
   },
   {
     kind: 'product',
@@ -41,14 +46,7 @@ const WORK: {
     title: 'Acquisition integration & portfolio unification',
     body: 'Absorb acquisitions fast and turn a fragmented product portfolio into one seamless customer experience — the integration playbook, the common data and identity layer, and the sequencing that makes a roll-up compound instead of fragment.',
     value: 'Acquisitions that add capacity without adding chaos',
-  },
-  {
-    kind: 'function',
-    context: 'Enterprise architecture pattern',
-    industries: ['Legacy Modernization', 'Enterprise Architecture', 'AI Governance'],
-    title: 'Governed agentic overlay',
-    body: 'Put governed, auditable AI assistance on top of software that already runs — request routing, fail-closed authority, and an audit trail layered over any existing system of record, without a rebuild. The pattern for adding agents to legacy enterprise systems.',
-    value: 'AI leverage on the systems you already own',
+    play: ACQUISITION_PLAY,
   },
   {
     kind: 'product',
@@ -57,6 +55,15 @@ const WORK: {
     title: 'heyEcho — multi-agent operating system',
     body: 'Persistent cross-session memory, governed tool use, registry-driven routing, and a verification layer — the platform the rest of this site runs on. My own IP, front to back.',
     value: 'An operating system for a team of agents',
+    play: HEYECHO_PLAY,
+  },
+  {
+    kind: 'function',
+    context: 'Enterprise architecture pattern',
+    industries: ['Legacy Modernization', 'Enterprise Architecture', 'AI Governance'],
+    title: 'Governed agentic overlay',
+    body: 'Put governed, auditable AI assistance on top of software that already runs — request routing, fail-closed authority, and an audit trail layered over any existing system of record, without a rebuild. The pattern for adding agents to legacy enterprise systems.',
+    value: 'AI leverage on the systems you already own',
   },
   {
     kind: 'function',
@@ -92,7 +99,7 @@ export default function Work() {
         {WORK.map((w, i) => (
           <motion.article
             key={w.title}
-            className={`${styles.card} ${w.flagship ? styles.flagship : ''}`}
+            className={`${styles.card} ${w.play ? styles.flagship : ''}`}
             initial={reduce ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-10% 0px' }}
@@ -116,7 +123,7 @@ export default function Work() {
             <p className={styles.value}>
               <span aria-hidden="true">→</span> {w.value}
             </p>
-            {w.flagship ? <Clickthrough /> : null}
+            {w.play ? <Clickthrough label={w.play.label} stages={w.play.stages} /> : null}
           </motion.article>
         ))}
       </div>

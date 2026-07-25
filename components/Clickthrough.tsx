@@ -5,65 +5,29 @@ import { useCallback, useEffect, useState } from 'react';
 import styles from './Clickthrough.module.css';
 
 /**
- * The autonomous problem-to-delivery engine, as an animated play.
+ * An animated "play" of one system, driven entirely by the stages passed in.
  *
- * Grounded in the real pipeline — research intake → orchestrated research →
- * evidence-backed business case → compliance gate → safety red-team →
- * goal-completion audit → delivery — each stage guarded by a high-confidence
- * check. Nothing here reproduces a client artifact; it's the logic, rebuilt clean.
+ * One reusable component so every product's walkthrough shares the same
+ * behaviour and a new play is data, not code. Grounded in real logic — nothing
+ * here reproduces a client artifact; the sequences are rebuilt clean and
+ * anonymized. (The stage definitions live in ./work-plays.ts.)
  *
- * Standalone by design: this is the proof that the systems actually run, and it
- * was once silently dropped when the surrounding Selected Work section was
- * refactored into static cards. Keeping it in its own component means a future
- * edit to the card grid can't delete it again.
+ * Standalone by design: the original walkthrough was once silently dropped when
+ * the surrounding Selected Work section was refactored into static cards.
+ * Keeping the play in its own component means a future edit to the card grid
+ * can't delete it again.
  *
  * It auto-advances (an animated play, not a slideshow the reader has to drive),
  * and any manual interaction — clicking a stage, Back/Next, pause — hands control
  * to the reader. Autoplay is off entirely under prefers-reduced-motion.
  */
 
-const STAGES = [
-  {
-    key: 'Intake',
-    title: 'Research intake',
-    body: 'A problem arrives — “is this worth solving, and is it the one to solve first?” The engine frames the question and scopes the research before any answer is drafted.',
-    guard: 'scope locked',
-  },
-  {
-    key: 'Orchestrate',
-    title: 'Orchestrated research',
-    body: 'Work fans out across business, technical, and independent-review roles in parallel — each blind to the others so nothing is rubber-stamped. P0 gaps are surfaced, not buried.',
-    guard: 'roles reconciled',
-  },
-  {
-    key: 'Build',
-    title: 'Evidence-backed business case',
-    body: 'The case is assembled from collected evidence and graded — HIGH or LOW, investment-grade-ready or not. A claim with no evidence behind it is blocked, not softened.',
-    guard: 'investment-grade or reject',
-  },
-  {
-    key: 'Comply',
-    title: 'Compliance & regulatory gate',
-    body: 'The proposal is intersected against the regulatory control pack and the accounting doctrine it touches — because in this domain a confident guess is a reportable event.',
-    guard: 'control pack cleared',
-  },
-  {
-    key: 'Attack',
-    title: 'Safety red-team',
-    body: 'A deterministic adversary tries to break the recommendation — destructive paths, unsafe actions, over-claims. What survives is what ships.',
-    guard: 'adversary survived',
-  },
-  {
-    key: 'Deliver',
-    title: 'Goal-completion audit → delivery',
-    body: 'Before anything is called done, a verifier recomputes goal completion from the evidence. Only then does the finished business case and delivery plan leave the engine.',
-    guard: 'recomputed, not asserted',
-  },
-];
+export type Stage = { key: string; title: string; body: string; guard: string };
 
 const DWELL_MS = 2600;
 
-export default function Clickthrough() {
+export default function Clickthrough({ label, stages }: { label: string; stages: Stage[] }) {
+  const STAGES = stages;
   const reduce = useReducedMotion();
   const [step, setStep] = useState(0);
   // Autoplay drives the animation on load; the first manual action stops it.
@@ -85,7 +49,7 @@ export default function Clickthrough() {
   return (
     <div className={styles.through}>
       <div className={styles.railHead}>
-        <span className={styles.railLabel}>Autonomous engine — the pipeline, running</span>
+        <span className={styles.railLabel}>{label}</span>
         {!reduce && (
           <button
             type="button"
