@@ -11,6 +11,7 @@ import MobileNav from '@/components/MobileNav';
 import Operating from '@/components/Operating';
 import Rail from '@/components/Rail';
 import Reveal from '@/components/Reveal';
+import Stages from '@/components/Stages';
 import Systems from '@/components/Systems';
 import Work from '@/components/Work';
 import { claims, proof, relativeAge } from '@/lib/proof';
@@ -291,6 +292,7 @@ export default function Page() {
             </Reveal>
             <Bridge />
             <Convergence />
+            <Stages />
           </section>
           {/* -------------------------------------------------------- pov */}
           <section className="band" id="pov">
