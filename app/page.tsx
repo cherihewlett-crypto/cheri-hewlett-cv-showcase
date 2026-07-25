@@ -12,6 +12,7 @@ import Operating from '@/components/Operating';
 import Rail from '@/components/Rail';
 import Reveal from '@/components/Reveal';
 import Systems from '@/components/Systems';
+import Work from '@/components/Work';
 import { claims, proof, relativeAge } from '@/lib/proof';
 import styles from './page.module.css';
 
@@ -20,6 +21,7 @@ const SECTIONS = [
   { id: 'pov', label: 'How I think' },
   { id: 'systems', label: 'What I built' },
   { id: 'demo', label: 'See it work' },
+  { id: 'work', label: 'Selected work' },
   { id: 'scale', label: 'At scale' },
   { id: 'record', label: 'Background' },
   { id: 'voice', label: 'Speaking & writing' },
@@ -341,6 +343,14 @@ export default function Page() {
               </p>
             </Reveal>
             <Guardrail />
+          </section>
+          {/* --------------------------------------------------------- work */}
+          <section className="band" id="work">
+            <h2 className="band__label">
+              <span>Selected work</span>
+              <span>built systems, client identifiers removed</span>
+            </h2>
+            <Work />
           </section>
           {/* -------------------------------------------------------- scale */}
           <section className="band" id="scale">
