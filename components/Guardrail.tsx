@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'motion/react';
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import styles from './Guardrail.module.css';
 
 /**
@@ -57,13 +57,59 @@ export default function Guardrail() {
   const [value, setValue] = useState('');
   const [result, setResult] = useState<Result | null>(null);
   const [submitted, setSubmitted] = useState('');
+  // Bumped on every run so the cascade replays even for the same input.
+  const [runId, setRunId] = useState(0);
 
   const run = (text: string) => {
     const t = text.trim();
     if (!t) return;
     setSubmitted(t);
     setResult(evaluate(t));
+    setRunId((r) => r + 1);
   };
+
+  // The trace, as a list so each step can animate in sequence.
+  const steps: { body: ReactNode; dot?: 'blockDot' | 'passDot'; on?: boolean; muted?: boolean }[] = result
+    ? result.blocked
+      ? [
+          { body: 'Request received', on: true },
+          {
+            body: (
+              <>
+                Guardrail <b className={styles.blocked}>refused — {result.category}</b>
+              </>
+            ),
+            dot: 'blockDot',
+            on: true,
+          },
+          {
+            body: `Blocked before any model call · logged as a ${result.why} · nothing executed`,
+            muted: true,
+          },
+        ]
+      : [
+          { body: 'Request received', on: true },
+          {
+            body: (
+              <>
+                Guardrail <b className={styles.passed}>passed</b>
+              </>
+            ),
+            dot: 'passDot',
+            on: true,
+          },
+          {
+            body: (
+              <>
+                Classified → routed to <b className={styles.passed}>{result.domain}</b>
+              </>
+            ),
+            dot: 'passDot',
+            on: true,
+          },
+          { body: 'Authority checked · tagged to memory · then it runs', muted: true },
+        ]
+    : [];
 
   return (
     <div className={styles.wrap}>
@@ -111,52 +157,28 @@ export default function Guardrail() {
       {result && (
         <motion.div
           className={styles.result}
-          key={submitted}
+          key={runId}
           initial={reduce ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className={styles.echo}>“{submitted}”</p>
 
+          {/* The steps arrive one at a time, so clicking Run visibly walks the
+              request through the guardrail rather than snapping to an answer. */}
           <ol className={styles.trace}>
-            <li className={styles.step}>
-              <span className={styles.stepDot} data-on />
-              <span className={styles.stepName}>Request received</span>
-            </li>
-
-            <li className={styles.step}>
-              <span className={`${styles.stepDot} ${result.blocked ? styles.blockDot : styles.passDot}`} data-on />
-              <span className={styles.stepName}>
-                Guardrail{' '}
-                {result.blocked ? (
-                  <b className={styles.blocked}>refused — {result.category}</b>
-                ) : (
-                  <b className={styles.passed}>passed</b>
-                )}
-              </span>
-            </li>
-
-            {result.blocked ? (
-              <li className={styles.step}>
-                <span className={styles.stepDot} />
-                <span className={styles.stepMuted}>
-                  Blocked before any model call · logged as a {result.why} · nothing executed
-                </span>
-              </li>
-            ) : (
-              <>
-                <li className={styles.step}>
-                  <span className={`${styles.stepDot} ${styles.passDot}`} data-on />
-                  <span className={styles.stepName}>
-                    Classified → routed to <b className={styles.passed}>{result.domain}</b>
-                  </span>
-                </li>
-                <li className={styles.step}>
-                  <span className={styles.stepDot} />
-                  <span className={styles.stepMuted}>Authority checked · tagged to memory · then it runs</span>
-                </li>
-              </>
-            )}
+            {steps.map((step, i) => (
+              <motion.li
+                key={i}
+                className={styles.step}
+                initial={reduce ? false : { opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: reduce ? 0 : 0.25 + i * 0.55, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <span className={`${styles.stepDot} ${step.dot ? styles[step.dot] : ''}`} data-on={step.on || undefined} />
+                <span className={step.muted ? styles.stepMuted : styles.stepName}>{step.body}</span>
+              </motion.li>
+            ))}
           </ol>
         </motion.div>
       )}
