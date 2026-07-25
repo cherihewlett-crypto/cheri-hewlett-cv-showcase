@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'motion/react';
+import Clickthrough from './Clickthrough';
 import styles from './Work.module.css';
 
 /**
@@ -22,6 +23,7 @@ const WORK: {
   title: string;
   body: string;
   value: string;
+  flagship?: boolean;
 }[] = [
   {
     kind: 'product',
@@ -30,6 +32,7 @@ const WORK: {
     title: 'Autonomous business-case engine',
     body: 'Give it a business question; it returns an investment-grade case — researched across independent roles, cleared against compliance and regulation, survived a safety red-team, and audited for goal completion before it ships. A guard at every stage.',
     value: 'A defensible go / no-go, not a confident guess',
+    flagship: true,
   },
   {
     kind: 'product',
@@ -89,7 +92,7 @@ export default function Work() {
         {WORK.map((w, i) => (
           <motion.article
             key={w.title}
-            className={styles.card}
+            className={`${styles.card} ${w.flagship ? styles.flagship : ''}`}
             initial={reduce ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-10% 0px' }}
@@ -113,6 +116,7 @@ export default function Work() {
             <p className={styles.value}>
               <span aria-hidden="true">→</span> {w.value}
             </p>
+            {w.flagship ? <Clickthrough /> : null}
           </motion.article>
         ))}
       </div>

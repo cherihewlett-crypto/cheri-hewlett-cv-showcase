@@ -29,6 +29,12 @@
   background: var(--rail-soft);
 }
 
+/* The flagship card carries the animated pipeline play, so it spans the full
+   row and never shrinks to a single narrow column. */
+.flagship {
+  grid-column: 1 / -1;
+}
+
 .head {
   display: flex;
   align-items: center;
