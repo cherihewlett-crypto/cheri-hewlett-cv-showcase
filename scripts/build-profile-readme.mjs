@@ -3,11 +3,11 @@
  * Generates the GitHub profile README from the same engineering record the
  * showcase site renders from.
  *
- * Written for the recruiter's first five seconds: identity, the bridge thesis,
- * the proof numbers, and a link to the live site — all before any scrolling.
- * The work is private because it is real, so the numbers come from this
- * repository's own collector rather than a badge service that can only count
- * public commits.
+ * Visual + enriched: a branded banner (the deployed OG card), identity badges,
+ * the recomputed proof table, native Mermaid diagrams (GitHub renders these) of
+ * the four-capability moat and the idea-to-scale arc, the products/functions
+ * with industry framing, point of view, background, and speaking. Written for
+ * the recruiter's first five seconds and for machine scanners alike.
  *
  * Output: dist/profile-README.md, published to the account-named repo.
  * Usage: node scripts/build-profile-readme.mjs
@@ -28,10 +28,16 @@ const SITE = 'https://cherihewlett.dev';
 const LINKEDIN = 'https://linkedin.com/in/cheri-hewlett';
 const COLLECTOR =
   'https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase/blob/main/scripts/collect-proof.mjs';
+const badge = (label, value, color = '17b3c7') =>
+  `![${label}](https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(value)}-${color}?style=flat-square)`;
 
-const readme = `# Cheri Hewlett
+const readme = `[![Cheri Hewlett — from problem to solution through technology](${SITE}/opengraph-image)](${SITE})
+
+# Cheri Hewlett
 
 ### Technology & innovation executive · Builder · CPA · Veteran
+
+${badge('Role', 'Technology & Innovation Exec')} ${badge('CPA', 'Certified', '0e6d7c')} ${badge('U.S. Air Force', 'Veteran', '45e0b8')} ${badge('Based', 'Los Angeles', '143a4b')}
 
 **I draw the bridge from problem to solution through technology — the right solution for the
 problems that return quantifiable value and deliver real impact. Not the newest thing. The thing
@@ -52,15 +58,36 @@ Authored commits exclude ${n(t.automatedCommits)} automated sync and merge commi
 would inflate the figure ~2.3×. The [collector that produces these numbers](${COLLECTOR}) is public
 even though its inputs are not.
 
-## Why me — four things at once
+## My moat — four capabilities, rarely in one person
 
-Turning a problem into a solution that returns value takes four capabilities most people split
-across a team, and most candidates bring two:
+Turning a problem into a solution that returns value takes four things most teams split across four
+people. Most candidates bring two.
 
-- **Domain** — to see the real problem. Finance, accounting, system migrations, and the operating-model change around them, where a wrong number is a reportable event.
-- **Judgment** — to choose the one problem worth solving. Innovation is picking the right problem, not building the newest thing.
-- **Engineering** — to build the answer. Four production systems, designed and written personally.
-- **Leadership** — to carry it to impact. Every seat of the product lifecycle, and full P&L ownership at public-company scale.
+\`\`\`mermaid
+flowchart LR
+    P([Problem worth solving])
+    P --> D[Domain<br/>see the real problem]
+    P --> J[Judgment<br/>choose the one worth solving]
+    P --> E[Engineering<br/>build the answer]
+    P --> L[Leadership<br/>carry it to impact]
+    D --> V([Quantifiable value])
+    J --> V
+    E --> V
+    L --> V
+\`\`\`
+
+## Idea to scale — I've operated at every stage
+
+The rare part of a 0-to-1 leader is having actually done every stage, not one or two.
+
+\`\`\`mermaid
+flowchart LR
+    A[Idea<br/>frame the problem] --> B[Prototype<br/>build in hours]
+    B --> C[Fund<br/>investment-grade case]
+    C --> D[Build<br/>ship the system]
+    D --> E[Launch<br/>enterprise go-live]
+    E --> F[Scale<br/>0 to global, full P&L]
+\`\`\`
 
 ## What I'm building
 
@@ -68,6 +95,20 @@ across a team, and most candidates bring two:
 - **Innovation Hub** — a portfolio cockpit for prototype due diligence and roadmap prioritization: evidence-based go/kill decisions, not whoever is loudest in the room.
 - **Deterministic rules engine** — a computation engine for regulated, high-stakes numbers: the model plans, deterministic code computes, every figure traceable to source.
 - **Citable rules corpus** — atomic domain rules with source-grade citability, re-verifiable by an expert who does not trust the model.
+
+## Selected work — products and functions
+
+Shown as a product where the whole thing is the deliverable, and as a reusable function where the
+capability stands on its own. Anonymized — real systems, client identifiers removed.
+
+| Kind | Deliverable | Where it lands |
+|---|---|---|
+| **Product** | Autonomous business-case engine — idea to a funded, compliance-cleared, safety-tested case | Private Equity · Financial Services · Due Diligence |
+| **Product** | Acquisition integration & portfolio unification — absorb M&A fast, one seamless experience | Private Equity · M&A · Enterprise SaaS |
+| **Function** | Governed agentic overlay — put audited AI over any legacy system of record, no rebuild | Legacy Modernization · AI Governance |
+| **Product** | heyEcho — a multi-agent operating system (this site runs on it) | AI Platform · Agentic Systems |
+| **Function** | Truthful verification — recompute "done" from evidence, not self-report | Compliance · Audit · AI Governance |
+| **Function** | Domain-doctrine routing — route any question to the exact citable rule | Accounting · Regulatory · Compliance |
 
 ## Point of view
 
