@@ -3,77 +3,92 @@
 import styles from './Work.module.css';
 
 /**
- * Selected work — the functions, not the product.
+ * Selected work — a curated mix of products and functions.
  *
- * Charlie's framing: showcase the reusable functions, not one client-specific
- * product. Each tile below is a capability built once and reused across
- * domains — grounded in the real eval suite, with client identifiers removed.
- * They compose into the systems elsewhere on the page; shown here as the
- * agnostic building blocks they actually are.
+ * Framing decided per item: show it as a PRODUCT when the whole thing is the
+ * deliverable ("give it X, get Y"), and as a FUNCTION when the atomic
+ * capability is independently reusable and recognizable on its own. Each card
+ * is self-contained and lands in a glance; the kind tag makes the altitude
+ * clear. Grounded in real systems, client identifiers removed, rebuilt clean.
  */
 
-const FUNCTIONS = [
+type Kind = 'product' | 'function';
+
+const WORK: {
+  kind: Kind;
+  context: string;
+  title: string;
+  body: string;
+  value: string;
+}[] = [
   {
-    fn: 'Research orchestration',
-    does: 'Fans one question across business, technical, and independent-review roles in parallel — each blind to the others, so nothing gets rubber-stamped. Surfaces the P0 gaps instead of burying them.',
-    reuse: 'Any due-diligence or multi-perspective analysis',
+    kind: 'product',
+    context: 'For a global fund administrator',
+    title: 'Autonomous business-case engine',
+    body: 'Give it a business question; it returns an investment-grade case — researched across independent roles, cleared against compliance and regulation, survived a safety red-team, and audited for goal completion before it ships. A guard at every stage.',
+    value: 'A defensible go / no-go, not a confident guess',
   },
   {
-    fn: 'Evidence-backed business case',
-    does: 'Assembles a case from collected evidence and grades it — HIGH or LOW, investment-grade-ready or reject. A claim with no evidence behind it is blocked, not softened.',
-    reuse: 'Any go / no-go or funding decision',
+    kind: 'product',
+    context: 'For a highly acquisitive software company',
+    title: 'Acquisition integration & portfolio unification',
+    body: 'Absorb acquisitions fast and turn a fragmented product portfolio into one seamless customer experience — the integration playbook, the common data and identity layer, and the sequencing that makes a roll-up compound instead of fragment.',
+    value: 'Acquisitions that add capacity without adding chaos',
   },
   {
-    fn: 'Compliance & regulatory intersection',
-    does: 'Maps a proposal against the regulatory control pack and the doctrine it touches, so a recommendation arrives already checked against the rules it has to live under.',
-    reuse: 'Any regulated domain',
+    kind: 'product',
+    context: 'For an enterprise finance platform',
+    title: 'Governed AI overlay',
+    body: 'Add agentic, auditable assistance across an existing close-and-consolidation workflow without rebuilding it — routing, authority boundaries, and an audit trail layered over the system of record.',
+    value: 'AI leverage on the platform you already run',
   },
   {
-    fn: 'Domain-doctrine routing',
-    does: 'Routes a question to the exact rule or standard that governs it — citable and re-verifiable back to source by someone who does not trust the model.',
-    reuse: 'Law, clinical, policy, accounting',
+    kind: 'product',
+    context: 'Independent platform',
+    title: 'heyEcho — multi-agent operating system',
+    body: 'Persistent cross-session memory, governed tool use, registry-driven routing, and a verification layer — the platform the rest of this site runs on. My own IP, front to back.',
+    value: 'An operating system for a team of agents',
   },
   {
-    fn: 'Safety red-team',
-    does: 'A deterministic adversary attacks the recommendation — destructive paths, unsafe actions, over-claims — and measures over-refusal too. What survives is what ships.',
-    reuse: 'Any AI output that has to be trusted',
+    kind: 'function',
+    context: 'Reusable capability',
+    title: 'Truthful verification',
+    body: 'Recompute whether something is actually done from live evidence instead of trusting a status field — and flag the gap between what was claimed and what the checks support.',
+    value: 'Any workflow where “done” has to be true',
   },
   {
-    fn: 'Goal-completion audit',
-    does: 'Recomputes whether the goal is actually met from live evidence rather than trusting a status field. Catches the gap between what was claimed and what the checks support.',
-    reuse: 'Any autonomous workflow',
-  },
-  {
-    fn: 'Cross-case pattern',
-    does: 'Finds the pattern across many cases that no single case reveals — the signal that only shows up in aggregate.',
-    reuse: 'Portfolio, market, and cohort analysis',
-  },
-  {
-    fn: 'Autonomous operating loop',
-    does: 'The scheduled, unattended machinery that runs the duties on a cadence, escalates on an SLA, and keeps working when nobody is watching.',
-    reuse: 'Any standing operational capability',
+    kind: 'function',
+    context: 'Reusable capability',
+    title: 'Domain-doctrine routing',
+    body: 'Route any question to the exact rule or standard that governs it — citable and re-verifiable back to source by someone who does not trust the model.',
+    value: 'Law · clinical · policy · accounting',
   },
 ];
+
+const KIND_LABEL: Record<Kind, string> = { product: 'Product', function: 'Function' };
 
 export default function Work() {
   return (
     <div>
       <p className={styles.disclaimer}>
-        The functions, not the product. Each was built once and reused — grounded in real systems, client identifiers
-        removed, rebuilt clean rather than reproduced from any client artifact. Together they compose into the systems
-        shown elsewhere on this page.
+        Each piece is a self-contained deliverable — shown as a product where the whole thing is the value, and as a
+        reusable function where the capability stands on its own. Grounded in real systems, client identifiers removed,
+        rebuilt clean rather than reproduced from any client artifact.
       </p>
 
       <div className={styles.grid}>
-        {FUNCTIONS.map((f, i) => (
-          <article key={f.fn} className={styles.tile}>
-            <span className={styles.tileNo} aria-hidden="true">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <h3 className={styles.tileFn}>{f.fn}</h3>
-            <p className={styles.tileDoes}>{f.does}</p>
-            <p className={styles.tileReuse}>
-              <span aria-hidden="true">↻</span> {f.reuse}
+        {WORK.map((w) => (
+          <article key={w.title} className={styles.card}>
+            <div className={styles.head}>
+              <span className={`${styles.kind} ${w.kind === 'function' ? styles.kindFn : styles.kindProd}`}>
+                {KIND_LABEL[w.kind]}
+              </span>
+              <span className={styles.context}>{w.context}</span>
+            </div>
+            <h3 className={styles.title}>{w.title}</h3>
+            <p className={styles.body}>{w.body}</p>
+            <p className={styles.value}>
+              <span aria-hidden="true">→</span> {w.value}
             </p>
           </article>
         ))}

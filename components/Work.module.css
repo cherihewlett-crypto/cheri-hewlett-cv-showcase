@@ -9,58 +9,83 @@
   opacity: 0.72;
 }
 
-/* Mini function tiles — each a reusable capability, not a product. */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   gap: 1px;
 }
 
-.tile {
+.card {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  padding: 1.7rem 1.6rem;
+  gap: 0.75rem;
+  padding: 1.8rem 1.7rem;
   outline: 1px solid var(--rail-soft);
   background: var(--abyss);
   transition: background 0.3s var(--ease);
 }
 
-.tile:hover {
+.card:hover {
   background: var(--rail-soft);
 }
 
-.tileNo {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: var(--signal);
-  opacity: 0.7;
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.tileFn {
+/* The kind tag makes the altitude readable at a glance — product vs function. */
+.kind {
+  padding: 0.24rem 0.6rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+}
+
+.kindProd {
+  color: var(--signal);
+}
+
+.kindFn {
+  color: var(--verified);
+}
+
+.context {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ice);
+  opacity: 0.6;
+}
+
+.title {
   margin: 0;
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
   font-stretch: 82%;
-  font-size: 1.22rem;
-  line-height: 1.1;
+  font-size: 1.42rem;
+  line-height: 1.08;
   color: var(--paper);
 }
 
-.tileDoes {
+.body {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.58;
+  max-width: 64ch;
+  font-size: 0.93rem;
+  line-height: 1.6;
   color: var(--ice);
 }
 
-.tileReuse {
+.value {
   margin: auto 0 0;
   padding-block-start: 0.9rem;
   border-block-start: 1px solid var(--rail-soft);
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
   color: var(--signal);
 }
