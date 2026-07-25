@@ -1,5 +1,6 @@
 'use client';
 
+import { motion, useReducedMotion } from 'motion/react';
 import styles from './Work.module.css';
 
 /**
@@ -75,6 +76,7 @@ const WORK: {
 const KIND_LABEL: Record<Kind, string> = { product: 'Product', function: 'Function' };
 
 export default function Work() {
+  const reduce = useReducedMotion();
   return (
     <div>
       <p className={styles.disclaimer}>
@@ -84,8 +86,15 @@ export default function Work() {
       </p>
 
       <div className={styles.grid}>
-        {WORK.map((w) => (
-          <article key={w.title} className={styles.card}>
+        {WORK.map((w, i) => (
+          <motion.article
+            key={w.title}
+            className={styles.card}
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-10% 0px' }}
+            transition={{ duration: 0.5, delay: (i % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className={styles.head}>
               <span className={`${styles.kind} ${w.kind === 'function' ? styles.kindFn : styles.kindProd}`}>
                 {KIND_LABEL[w.kind]}
@@ -104,7 +113,7 @@ export default function Work() {
             <p className={styles.value}>
               <span aria-hidden="true">→</span> {w.value}
             </p>
-          </article>
+          </motion.article>
         ))}
       </div>
     </div>

@@ -45,10 +45,51 @@ export const metadata: Metadata = {
   },
 };
 
+// Structured data for machine readers. AI resume screeners and crawlers parse
+// schema, not animation — this lets an agent extract identity, skills, work,
+// and links cleanly, without scraping the rendered layout. Kept in sync with
+// the visible page; no employer named, consistent with the positioning.
+const PERSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Cheri Hewlett',
+  honorificSuffix: 'CPA',
+  jobTitle: 'Technology & Innovation Executive',
+  description:
+    'Technology and innovation executive who builds. Draws the bridge from problem to solution through technology — choosing the problems that return quantifiable value, then building the right solution for each.',
+  url: 'https://cherihewlett.dev',
+  sameAs: [
+    'https://linkedin.com/in/cheri-hewlett',
+    'https://github.com/cherihewlett-crypto',
+    'https://x.com/cheripromo',
+  ],
+  knowsAbout: [
+    'Agentic AI',
+    'Multi-agent orchestration',
+    'AI governance and safety',
+    'Product and platform strategy',
+    'Enterprise software',
+    'Financial reporting and the office of the CFO',
+    'System migration and change management',
+    'Private equity and due diligence',
+    'Zero-to-one product delivery and scaling',
+  ],
+  hasCredential: [
+    { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certified Public Accountant (CPA)' },
+  ],
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'University of Maryland' },
+    { '@type': 'CollegeOrUniversity', name: 'Liberty University' },
+  ],
+  veteranStatus: 'U.S. Air Force Veteran',
+  address: { '@type': 'PostalAddress', addressLocality: 'Los Angeles', addressRegion: 'CA', addressCountry: 'US' },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_LD) }} />
         {children}
         <Analytics />
       </body>
