@@ -348,7 +348,7 @@ export default function Page() {
           <section className="band" id="work">
             <h2 className="band__label">
               <span>Selected work</span>
-              <span>built systems, client identifiers removed</span>
+              <span>the functions I build — reusable, system-agnostic</span>
             </h2>
             <Work />
           </section>

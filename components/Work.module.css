@@ -1,199 +1,66 @@
 .disclaimer {
-  max-width: 62ch;
+  max-width: 64ch;
   margin: 0 0 clamp(2rem, 4vw, 3rem);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.74rem;
-  line-height: 1.6;
+  line-height: 1.7;
   letter-spacing: 0.03em;
   color: var(--ice);
-  opacity: 0.7;
+  opacity: 0.72;
 }
 
+/* Mini function tiles — each a reusable capability, not a product. */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1px;
 }
 
-.card {
+.tile {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  padding: 1.9rem 1.8rem;
+  gap: 0.65rem;
+  padding: 1.7rem 1.6rem;
   outline: 1px solid var(--rail-soft);
   background: var(--abyss);
+  transition: background 0.3s var(--ease);
 }
 
-/* The flagship spans the full width and carries the interactive clickthrough. */
-.flagship {
-  grid-column: 1 / -1;
+.tile:hover {
   background: var(--rail-soft);
-  border: 1px solid var(--rail);
-  outline: none;
 }
 
-.cardTag {
-  margin: 0;
+.tileNo {
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   color: var(--signal);
+  opacity: 0.7;
 }
 
-.cardTitle {
+.tileFn {
   margin: 0;
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
   font-stretch: 82%;
-  font-size: 1.4rem;
-  line-height: 1.08;
-  color: var(--paper);
-}
-
-.cardBody {
-  margin: 0;
-  max-width: 64ch;
-  font-size: 0.94rem;
-  line-height: 1.6;
-  color: var(--ice);
-}
-
-/* ---------------------------------------------------------- clickthrough */
-
-.through {
-  margin-block-start: 1.5rem;
-  padding-block-start: 1.5rem;
-  border-block-start: 1px solid var(--rail);
-}
-
-.rail {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1px;
-  margin-block-end: 1.5rem;
-}
-
-.node {
-  flex: 1 1 7rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.85rem 0.9rem;
-  background: var(--abyss);
-  border: none;
-  outline: 1px solid var(--rail-soft);
-  cursor: pointer;
-  text-align: left;
-  transition: background 0.25s var(--ease);
-}
-
-.node:hover {
-  background: var(--hull);
-}
-
-.nodeDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 1px solid var(--rail);
-}
-
-.nodeOn .nodeDot {
-  border-color: var(--signal);
-  background: var(--signal);
-}
-
-.nodeDone .nodeDot {
-  border-color: var(--verified);
-  background: var(--verified);
-}
-
-.nodeKey {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  color: var(--ice);
-}
-
-.nodeOn .nodeKey {
-  color: var(--signal);
-}
-
-.stage {
-  min-height: 8.5rem;
-}
-
-.stageStep {
-  margin: 0 0 0.5rem;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ice);
-  opacity: 0.6;
-}
-
-.stageTitle {
-  margin: 0 0 0.6rem;
-  font-family: var(--font-display), sans-serif;
-  font-weight: 700;
-  font-stretch: 84%;
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   line-height: 1.1;
   color: var(--paper);
 }
 
-.stageBody {
-  margin: 0 0 0.8rem;
-  max-width: 62ch;
-  font-size: 0.95rem;
-  line-height: 1.6;
+.tileDoes {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.58;
   color: var(--ice);
 }
 
-.stageGuard {
-  margin: 0;
+.tileReuse {
+  margin: auto 0 0;
+  padding-block-start: 0.9rem;
+  border-block-start: 1px solid var(--rail-soft);
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   letter-spacing: 0.04em;
-  color: var(--verified);
-}
-
-.controls {
-  display: flex;
-  gap: 0.6rem;
-  margin-block-start: 1.5rem;
-}
-
-.step {
-  padding: 0.6rem 1.15rem;
-  background: transparent;
-  border: 1px solid var(--rail);
-  color: var(--paper);
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.74rem;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
-}
-
-.step:hover:not(:disabled) {
-  border-color: var(--signal);
   color: var(--signal);
-}
-
-.step:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-
-.stepPrimary {
-  border-color: var(--signal);
-  color: var(--signal);
-}
-
-.stepPrimary:hover {
-  background: var(--signal);
-  color: var(--abyss);
 }
