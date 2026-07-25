@@ -7,13 +7,13 @@ reach me via [LinkedIn](https://linkedin.com/in/cheri-hewlett).
 > As AI takes on more of the *what* and the *how*, leadership becomes even more about the *why*
 > and the *who*. The leaders who thrive won't simply be fluent in technology — they'll be deeply human.
 
-**Live engineering record:** [cheri-hewlett-showcase.vercel.app](https://cheri-hewlett-showcase-cherihewlett-cryptos-projects.vercel.app)
-— 6,912 authored commits, 1,721 merged pull requests, 302 catalogued reusable capabilities, four
+**Live engineering record:** [cherihewlett.dev](https://cherihewlett.dev)
+— thousands of authored commits, 1,700+ merged pull requests, 302 catalogued reusable capabilities, four
 production systems. Recomputed from the repositories on every build, not typed in.
 
 ## Positioning
 
-AI-native operating leader running platform lines as an operator-CEO. CPA, U.S. Air Force veteran, and builder with two decades across audit, advisory, and enterprise platform leadership. Leads product AI enablement strategy in enterprise finance while personally building agentic AI systems through an independent platform lab.
+Technology and innovation executive who builds. CPA, U.S. Air Force veteran, and builder with two decades across audit, advisory, and enterprise platform leadership. Draws the bridge from problem to solution through technology — choosing the problems that return quantifiable value, then building the right solution for each — while personally building agentic AI systems through an independent platform lab.
 
 ## Core capabilities
 
