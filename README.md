@@ -1,8 +1,14 @@
-# Cheri Hewlett, CPA
+[![Cheri Hewlett — from problem to solution through technology](https://cherihewlett.dev/opengraph-image)](https://cherihewlett.dev)
 
-**AI-native operating executive — platform leadership with the engineering record to check it against.**
+# Cheri Hewlett
 
-### → [View the showcase](https://cherihewlett.dev)
+**Technology & innovation executive · Builder · CPA · Veteran**
+
+I draw the bridge from problem to solution through technology — the right solution for the
+problems that return quantifiable value and deliver real impact. Not the newest thing. The thing
+that pays.
+
+### → **[View the full showcase → cherihewlett.dev](https://cherihewlett.dev)**
 
 ---
 
@@ -37,16 +43,16 @@ dates only — never source, paths, commit messages, or schema detail.
 
 Four systems, all private, all running:
 
-| System | What it is |
+| System | The capability |
 |---|---|
 | **Team Echo** | Multi-agent operating system — persistent memory, governed tool use, self-verifying status |
 | **Innovation Hub** | Portfolio cockpit for prototype due diligence, roadmap prioritization, and time allocation |
-| **Consolidation Platform** | Financial consolidation and close engine built on the doctrine corpus below |
-| **Accounting Doctrine KB** | Atomic US GAAP and IFRS rules with SOX-grade citability and auditor re-verifiability |
+| **Deterministic rules engine** | A computation engine for regulated, high-stakes numbers — the model plans, deterministic code computes, every figure traceable to source |
+| **Citable rules corpus** | Atomic domain rules with source-grade citability, re-verifiable by an expert who does not trust the model |
 
-The site breaks these down further: the standing agent functions that operate them, the
-request lifecycle they share, the capabilities that turned out to be portable across
-domains, and where deterministic rules end and the model begins.
+The site breaks these down further: the reusable functions and products behind them, the
+302-capability library and the agent team that operate them, the live guardrail demo, and the
+experience across industries, use cases, and technology.
 
 ---
 
@@ -62,15 +68,14 @@ To recompute the engineering record against local checkouts:
 REPO_ROOT=/path/to/your/checkouts node scripts/collect-proof.mjs
 ```
 
-Built with Next.js and Motion. No analytics, no trackers, no third-party requests.
+Built with Next.js and Motion. Privacy-friendly analytics only — no cookies, no trackers.
 
 ---
 
 ## Also here
 
 - [Résumé, plain text](resume/cheri-hewlett-cv.md)
-- [Case studies](case-studies/) — longer-form write-ups of the work behind the site
-- [Format benchmark](research/top-10-github-showcase-formats.md) — the survey this design was measured against
+- [The GitHub profile README generator](scripts/build-profile-readme.mjs)
 
 ## Contact
 
