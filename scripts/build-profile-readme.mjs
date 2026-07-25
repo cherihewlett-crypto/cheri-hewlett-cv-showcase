@@ -110,6 +110,14 @@ capability stands on its own. Anonymized — real systems, client identifiers re
 | **Function** | Truthful verification — recompute "done" from evidence, not self-report | Compliance · Audit · AI Governance |
 | **Function** | Domain-doctrine routing — route any question to the exact citable rule | Accounting · Regulatory · Compliance |
 
+## Experience — industries, use cases, technology
+
+**Industries** · Private Equity · Financial Services · Office of the CFO · Enterprise SaaS · Fund Administration · Accounting & Audit · RegTech · Real Estate
+
+**Use cases** · Agentic AI & multi-agent orchestration · Autonomous operations · Business-case & due diligence · Acquisition integration · Portfolio unification · Financial reporting & close · Compliance & regulatory checks · System migration & go-lives · Knowledge & doctrine retrieval · AI governance & safety · Zero-to-one delivery & scaling
+
+**Technology** · Claude / Anthropic API · Gemini · Vertex AI · Google ADK · RAG & vector memory · Mem0 · MCP tool orchestration · Supabase · PostgreSQL · Next.js · React · TypeScript · Node.js · Deno · Vercel · GitHub Actions · LLM evaluation & governance
+
 ## Point of view
 
 **Innovation is choosing the right problem.** Most companies solve the wrong problems faster.

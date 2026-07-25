@@ -1,0 +1,58 @@
+.wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2.5rem 3rem;
+}
+
+.group {
+  min-width: 0;
+}
+
+.axis {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--signal);
+  padding-block-end: 0.7rem;
+  border-block-end: 1px solid var(--rail);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--rail);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: var(--paper);
+  background: var(--abyss);
+  transition: border-color 0.25s var(--ease);
+}
+
+.tag:hover {
+  border-color: var(--signal);
+}
+
+/* Subtle per-axis accent so the three groups read as distinct at a glance. */
+.axis0 {
+  border-color: var(--signal-dim);
+}
+
+.axis1 {
+  border-color: var(--rail);
+}
+
+.axis2 {
+  border-color: color-mix(in srgb, var(--verified) 40%, var(--rail));
+}

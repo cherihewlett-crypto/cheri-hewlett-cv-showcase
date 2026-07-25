@@ -5,6 +5,7 @@ import Backdrop from '@/components/Backdrop';
 import Bridge from '@/components/Bridge';
 import TopBar from '@/components/TopBar';
 import Convergence from '@/components/Convergence';
+import Experience from '@/components/Experience';
 import Guardrail from '@/components/Guardrail';
 import HeroTitle from '@/components/HeroTitle';
 import MobileNav from '@/components/MobileNav';
@@ -20,6 +21,7 @@ import styles from './page.module.css';
 const SECTIONS = [
   { id: 'convergence', label: 'My moat' },
   { id: 'pov', label: 'How I think' },
+  { id: 'experience', label: 'Experience' },
   { id: 'systems', label: 'What I built' },
   { id: 'demo', label: 'See it work' },
   { id: 'work', label: 'Selected work' },
@@ -316,6 +318,20 @@ export default function Page() {
                 human.”
               </p>
             </Reveal>
+          </section>
+          {/* ---------------------------------------------------- systems */}
+          <section className="band" id="experience">
+            <h2 className="band__label">
+              <span>Experience</span>
+              <span>industries · use cases · technology</span>
+            </h2>
+            <Reveal>
+              <p className="prose" style={{ maxWidth: '58ch', marginBlockEnd: '2.5rem' }}>
+                Where I’ve worked, what I’ve built it for, and what I’ve built it with — the technologies verified
+                against the repositories and résumé, not padded.
+              </p>
+            </Reveal>
+            <Experience />
           </section>
           {/* ---------------------------------------------------- systems */}
           <section className="band" id="systems">
