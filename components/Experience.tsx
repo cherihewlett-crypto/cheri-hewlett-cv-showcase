@@ -72,10 +72,10 @@ export default function Experience() {
               <motion.li
                 key={tag}
                 className={`${styles.tag} ${styles['axis' + gi]}`}
-                initial={reduce ? false : { opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={reduce ? false : { opacity: 0, y: 14, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-8% 0px' }}
-                transition={{ duration: 0.35, delay: Math.min(i, 8) * 0.025, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4, delay: Math.min(i, 10) * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
                 {tag}
               </motion.li>
