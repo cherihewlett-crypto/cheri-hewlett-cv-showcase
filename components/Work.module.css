@@ -72,6 +72,27 @@
   color: var(--paper);
 }
 
+/* Industry framing — lets a reader in PE, financial services, or the office
+   of the CFO see instantly that the work applies to them. */
+.industries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.industry {
+  padding: 0.22rem 0.55rem;
+  border: 1px solid var(--rail);
+  border-radius: 999px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  color: var(--ice);
+}
+
 .body {
   margin: 0;
   max-width: 64ch;

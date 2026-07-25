@@ -17,6 +17,7 @@ type Kind = 'product' | 'function';
 const WORK: {
   kind: Kind;
   context: string;
+  industries: string[];
   title: string;
   body: string;
   value: string;
@@ -24,6 +25,7 @@ const WORK: {
   {
     kind: 'product',
     context: 'For a global fund administrator',
+    industries: ['Private Equity', 'Financial Services', 'Compliance', 'Due Diligence'],
     title: 'Autonomous business-case engine',
     body: 'Give it a business question; it returns an investment-grade case — researched across independent roles, cleared against compliance and regulation, survived a safety red-team, and audited for goal completion before it ships. A guard at every stage.',
     value: 'A defensible go / no-go, not a confident guess',
@@ -31,6 +33,7 @@ const WORK: {
   {
     kind: 'product',
     context: 'For a highly acquisitive software company',
+    industries: ['Private Equity', 'M&A Integration', 'Enterprise SaaS'],
     title: 'Acquisition integration & portfolio unification',
     body: 'Absorb acquisitions fast and turn a fragmented product portfolio into one seamless customer experience — the integration playbook, the common data and identity layer, and the sequencing that makes a roll-up compound instead of fragment.',
     value: 'Acquisitions that add capacity without adding chaos',
@@ -38,6 +41,7 @@ const WORK: {
   {
     kind: 'product',
     context: 'For an enterprise finance platform',
+    industries: ['Office of the CFO', 'Outsourced CFO', 'Financial Services'],
     title: 'Governed AI overlay',
     body: 'Add agentic, auditable assistance across an existing close-and-consolidation workflow without rebuilding it — routing, authority boundaries, and an audit trail layered over the system of record.',
     value: 'AI leverage on the platform you already run',
@@ -45,6 +49,7 @@ const WORK: {
   {
     kind: 'product',
     context: 'Independent platform',
+    industries: ['AI Platform', 'Agentic Systems'],
     title: 'heyEcho — multi-agent operating system',
     body: 'Persistent cross-session memory, governed tool use, registry-driven routing, and a verification layer — the platform the rest of this site runs on. My own IP, front to back.',
     value: 'An operating system for a team of agents',
@@ -52,6 +57,7 @@ const WORK: {
   {
     kind: 'function',
     context: 'Reusable capability',
+    industries: ['Compliance', 'Audit', 'AI Governance'],
     title: 'Truthful verification',
     body: 'Recompute whether something is actually done from live evidence instead of trusting a status field — and flag the gap between what was claimed and what the checks support.',
     value: 'Any workflow where “done” has to be true',
@@ -59,6 +65,7 @@ const WORK: {
   {
     kind: 'function',
     context: 'Reusable capability',
+    industries: ['Accounting', 'Regulatory', 'Compliance Checks'],
     title: 'Domain-doctrine routing',
     body: 'Route any question to the exact rule or standard that governs it — citable and re-verifiable back to source by someone who does not trust the model.',
     value: 'Law · clinical · policy · accounting',
@@ -86,6 +93,13 @@ export default function Work() {
               <span className={styles.context}>{w.context}</span>
             </div>
             <h3 className={styles.title}>{w.title}</h3>
+            <ul className={styles.industries} aria-label="Relevant industries">
+              {w.industries.map((ind) => (
+                <li className={styles.industry} key={ind}>
+                  {ind}
+                </li>
+              ))}
+            </ul>
             <p className={styles.body}>{w.body}</p>
             <p className={styles.value}>
               <span aria-hidden="true">→</span> {w.value}
