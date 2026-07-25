@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-07-23T22:21:41.689Z",
+  "generatedAt": "2026-07-25T00:46:39.857Z",
   "method": "Recomputed from git history across private production repositories. Authored commits exclude automated sync and merge commits. No source, paths, or proprietary detail are published.",
   "totals": {
     "systems": 4,
-    "authoredCommits": 6912,
+    "authoredCommits": 6916,
     "automatedCommits": 11954,
     "edgeFunctions": 131,
-    "migrations": 259,
+    "migrations": 261,
     "tests": 107,
     "ciGates": 11,
-    "mergedPullRequests": 1721,
+    "mergedPullRequests": 1725,
     "since": "2025-01-01"
   },
   "systems": [
@@ -17,17 +17,17 @@
       "id": "team-echo",
       "label": "Team Echo",
       "blurb": "Multi-agent operating system with persistent memory, governed tool use, and self-verifying status.",
-      "authoredCommits": 3469,
-      "totalCommits": 16218,
+      "authoredCommits": 3473,
+      "totalCommits": 16224,
       "automatedCommits": 11945,
       "firstCommit": "2025-01-01",
       "lastCommit": "2026-07-23",
       "counts": {
         "edge functions": 131,
-        "migrations": 259,
+        "migrations": 261,
         "CI gates": 11,
         "tests": 26,
-        "merged PRs": 1021
+        "merged PRs": 1025
       }
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       "id": "tiger-consolidate",
-      "label": "Consolidation Platform",
-      "blurb": "Financial consolidation and close engine built on the accounting doctrine corpus.",
+      "label": "Deterministic rules engine",
+      "blurb": "A computation engine for regulated, high-stakes numbers — the model plans, deterministic code computes, and every figure traces back to source. For work where a wrong number is a reportable event.",
       "authoredCommits": 1607,
       "totalCommits": 1642,
       "automatedCommits": 4,
@@ -60,8 +60,8 @@
     },
     {
       "id": "accounting-knowledge-base",
-      "label": "Accounting Doctrine KB",
-      "blurb": "Atomic US GAAP and IFRS rules with SOX-grade citability and auditor re-verifiability.",
+      "label": "Citable rules corpus",
+      "blurb": "Atomic domain rules with source-grade citability, re-verifiable by an expert who does not trust the model. The retrieval pattern for any rule-governed field.",
       "authoredCommits": 155,
       "totalCommits": 187,
       "automatedCommits": 1,

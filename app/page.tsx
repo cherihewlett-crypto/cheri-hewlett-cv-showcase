@@ -36,22 +36,22 @@ const SECTIONS = [
 const PORTABLE = [
   {
     name: 'AI entity matching and schema mapping',
-    from: 'Consolidation Platform',
+    from: 'Deterministic rules engine',
     body: 'Reconciling messy source structures against a target model. The same machinery applies to any migration, integration, or master-data problem.',
   },
   {
     name: 'Deterministic engine under model orchestration',
-    from: 'Consolidation Platform',
+    from: 'Deterministic rules engine',
     body: 'The model chooses mapping and sequencing; the arithmetic is deterministic code with a traceable path. This is the pattern that makes AI usable where a wrong number is reportable.',
   },
   {
     name: 'Citable, re-verifiable retrieval',
-    from: 'Accounting Doctrine KB',
+    from: 'Citable rules corpus',
     body: 'Atomic rules carrying their own citations, so an answer can be walked back to source by someone who does not trust the model. Portable to law, clinical, and policy domains.',
   },
   {
     name: 'Enterprise connector and activation layer',
-    from: 'Consolidation Platform',
+    from: 'Deterministic rules engine',
     body: 'Source-system connectors, import recognition, and SSO activation — the unglamorous surface area that decides whether enterprise software actually lands.',
   },
 ];

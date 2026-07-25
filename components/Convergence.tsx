@@ -28,7 +28,7 @@ const DIMENSIONS = [
     title: 'Finance, accounting, and the systems that run them',
     credential: 'CPA · MS Accounting · PwC and Deloitte · audit, close, consolidation, migration, change',
     proof:
-      'Financial close and consolidation, system migrations and go-lives, and the operating-model change around them — the work where a wrong number is a reportable event, not a bad suggestion. I turned that expertise into a library of rules that each cite their own source, so any answer can be checked back to the standard it came from.',
+      'The financial reporting, system migrations and go-lives, and operating-model change of the office of the CFO — the domain where a wrong number is a reportable event, not a bad suggestion. I turned that expertise into a library of rules that each cite their own source, so any answer can be checked back to the standard it came from.',
     common: 'Most technology leaders have to borrow this depth. I have lived it.',
   },
   {

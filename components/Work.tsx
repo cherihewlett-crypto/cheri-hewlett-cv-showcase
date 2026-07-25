@@ -39,12 +39,12 @@ const WORK: {
     value: 'Acquisitions that add capacity without adding chaos',
   },
   {
-    kind: 'product',
-    context: 'For an enterprise finance platform',
-    industries: ['Office of the CFO', 'Outsourced CFO', 'Financial Services'],
-    title: 'Governed AI overlay',
-    body: 'Add agentic, auditable assistance across an existing close-and-consolidation workflow without rebuilding it — routing, authority boundaries, and an audit trail layered over the system of record.',
-    value: 'AI leverage on the platform you already run',
+    kind: 'function',
+    context: 'Enterprise architecture pattern',
+    industries: ['Legacy Modernization', 'Enterprise Architecture', 'AI Governance'],
+    title: 'Governed agentic overlay',
+    body: 'Put governed, auditable AI assistance on top of software that already runs — request routing, fail-closed authority, and an audit trail layered over any existing system of record, without a rebuild. The pattern for adding agents to legacy enterprise systems.',
+    value: 'AI leverage on the systems you already own',
   },
   {
     kind: 'product',

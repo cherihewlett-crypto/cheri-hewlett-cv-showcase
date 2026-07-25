@@ -61,14 +61,17 @@ const SYSTEMS = [
   {
     id: 'tiger-consolidate',
     dir: 'tiger-consolidate',
-    label: 'Consolidation Platform',
-    blurb: 'Financial consolidation and close engine built on the accounting doctrine corpus.',
+    label: 'Deterministic rules engine',
+    // Framed as the reusable engineering capability, not a finance product —
+    // avoids reading as competitive to any employer's close/consolidation
+    // software while still proving the hard part.
+    blurb: 'A computation engine for regulated, high-stakes numbers — the model plans, deterministic code computes, and every figure traces back to source. For work where a wrong number is a reportable event.',
   },
   {
     id: 'accounting-knowledge-base',
     dir: 'accounting-knowledge-base',
-    label: 'Accounting Doctrine KB',
-    blurb: 'Atomic US GAAP and IFRS rules with SOX-grade citability and auditor re-verifiability.',
+    label: 'Citable rules corpus',
+    blurb: 'Atomic domain rules with source-grade citability, re-verifiable by an expert who does not trust the model. The retrieval pattern for any rule-governed field.',
   },
 ];
 
