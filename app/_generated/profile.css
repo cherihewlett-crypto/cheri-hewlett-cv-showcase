@@ -27,6 +27,33 @@ html { scroll-behavior: smooth; }
 section[id], [id][data-screen-label] { scroll-margin-top: 28px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+/* ---- page-by-page section scrolling ----
+   Snap to each section's start so scrolling lands cleanly at the top of a
+   section (no forced full-height voids). Proximity keeps tall sections — the
+   builds, especially — free to scroll internally. */
+html { scroll-snap-type: y proximity; scroll-padding-top: 10px; }
+#intro, #pov, #experience, #builds, #evidence, #speaking, #contact,
+#builds article { scroll-snap-align: start; scroll-margin-top: 10px; }
+
+/* ---- beliefs: clean 2x2, no orphan card ---- */
+@media (min-width: 700px) {
+  #pov > div[style*="repeat(auto-fit,minmax(280px,1fr))"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ---- intro: sits on one screen (pillars removed; icons moved to POV) ---- */
+#intro { padding-top: clamp(24px, 4vw, 44px) !important; padding-bottom: clamp(28px, 4vw, 48px) !important; }
+@media (min-width: 1000px) {
+  /* keep content clear of the fixed right-hand section rail */
+  [data-anim] > div { padding-right: clamp(52px, 6vw, 132px); }
+}
+
+/* ---- mobile: clear the fixed bottom section bar ---- */
+@media (max-width: 999px) {
+  [data-anim] { padding-bottom: 68px; }
+}
+
 /* generated hover states (from style-hover) */
 .dchv1:hover{background:#45e0b8}
 .dchv2:hover{border-color:#17b3c7;color:#17b3c7}

@@ -1,14 +1,37 @@
-[![Cheri Hewlett — from problem to solution through technology](https://cherihewlett.dev/opengraph-image)](https://cherihewlett.dev)
+[![Cheri Hewlett — progress belongs to the people willing to challenge what no longer works](https://cherihewlett.dev/opengraph-image)](https://cherihewlett.dev)
 
 # Cheri Hewlett
 
-**Technology & innovation executive · Builder · CPA · Veteran**
+**Technology & innovation executive · People builder · Operator · CPA · Veteran**
 
-I draw the bridge from problem to solution through technology — the right solution for the
-problems that return quantifiable value and deliver real impact. Not the newest thing. The thing
-that pays.
+> **Progress belongs to the people willing to challenge what no longer works.**
 
-### → **[View the full showcase → cherihewlett.dev](https://cherihewlett.dev)**
+I built my career by questioning accepted answers, looking beyond the boundaries of my role, and
+refusing to let hierarchy, politics, or bureaucracy stand between a meaningful problem and a better
+solution.
+
+Technology is moving faster than traditional organizations can respond. I help close that gap —
+modernizing systems, aligning people, and creating the conditions for ideas to move, decisions to
+be made, and impact to scale.
+
+### → **[View the full profile → cherihewlett.dev](https://cherihewlett.dev)**  ·  [Résumé → cherihewlett.dev/resume](https://cherihewlett.dev/resume)
+
+---
+
+## Point of view
+
+For thirty years the person who saw the problem and the person who could build the fix were two
+different people, and everything got lost in translation. That gap is closing. The new innovator is
+the domain expert who can build — and the constraint is no longer capability. It's judgment.
+
+- **Innovation is choosing the right problem.** Most companies are solving the wrong problems
+  faster. AI didn't fix that — it accelerated it.
+- **ROI is the problem solved, not the time saved.** The question is the caliber of quality the team
+  operates at afterward.
+- **Trust is the real moat.** Everyone asks whether AI *can* do the work. The better question is
+  whether we can prove it did it right.
+- **How you treat people is the strategy.** As AI absorbs execution, that becomes more of the job,
+  not less.
 
 ---
 
@@ -17,10 +40,9 @@ that pays.
 The site above makes claims about systems I have built. This repository contains the
 mechanism that checks them.
 
-Most portfolio sites state their numbers. This one recomputes them. On every build,
-[`scripts/collect-proof.mjs`](scripts/collect-proof.mjs) reads the private production
-repositories and emits [`public/proof.json`](public/proof.json) — the file the site
-renders from. Nothing on the page is hand-maintained.
+Most portfolio sites state their numbers. This one recomputes them. [`scripts/collect-proof.mjs`](scripts/collect-proof.mjs)
+reads the private production repositories and emits [`public/proof.json`](public/proof.json) — the
+file the site's Evidence section renders from. Nothing on the page is hand-typed.
 
 Two rules make the output worth trusting:
 
@@ -32,27 +54,24 @@ Two rules make the output worth trusting:
 
 If a repository cannot be read, its entry is omitted rather than estimated, and the
 [nightly workflow](.github/workflows/refresh-proof.yml) skips the run entirely rather
-than publishing partial totals.
-
-Nothing proprietary leaves the private repositories. The collector emits counts and
-dates only — never source, paths, commit messages, or schema detail.
+than publishing partial totals. Nothing proprietary leaves the private repositories — the
+collector emits counts and dates only, never source, paths, commit messages, or schema detail.
 
 ---
 
-## What is measured
+## Selected builds
 
-Four systems, all private, all running:
+The private repositories stay private, so the site rebuilds the real product screens clean — same
+layout, same states, illustrative data. Written hands-on:
 
-| System | The capability |
+| Build | What it does |
 |---|---|
-| **Team Echo** | Multi-agent operating system — persistent memory, governed tool use, self-verifying status |
-| **Innovation Hub** | Portfolio cockpit for prototype due diligence, roadmap prioritization, and time allocation |
-| **Deterministic rules engine** | A computation engine for regulated, high-stakes numbers — the model plans, deterministic code computes, every figure traceable to source |
-| **Citable rules corpus** | Atomic domain rules with source-grade citability, re-verifiable by an expert who does not trust the model |
-
-The site breaks these down further: the reusable functions and products behind them, the
-302-capability library and the agent team that operate them, the live guardrail demo, and the
-experience across industries, use cases, and technology.
+| **Intelligent Product Enablement** | Turns every shipped code change into the docs, release notes, training, and field briefing it needs — behind a governed human-approval path |
+| **Acquisition Integration Engine** | Compares capabilities across acquired technologies, flags the surviving implementation on evidence, and sequences the migration into one platform |
+| **Autonomous Implementor** | Carries an implementation from the customer's stated problem through process analysis, generated configuration, and verification against their own baseline |
+| **Roadmap Prioritization Engine** | Scores candidate investments on impact, fit, feasibility, and signal — weighted by confidence and re-ranked as evidence arrives |
+| **Compliance Knowledge Base** | Atomic rules that carry their own citations, so any answer can be walked back to the standard and the policy governing it |
+| **Multi-Dimensional Orchestrator** | One governed path for work entering by support case, use case, code change, or product area — registry-driven routing, fail-closed authority, verification against evidence |
 
 ---
 
@@ -68,13 +87,15 @@ To recompute the engineering record against local checkouts:
 REPO_ROOT=/path/to/your/checkouts node scripts/collect-proof.mjs
 ```
 
-Built with Next.js and Motion. Privacy-friendly analytics only — no cookies, no trackers.
+The two designed pages (`/` and `/resume`) are imported from Claude Design and regenerated by
+[`scripts/build-design.py`](scripts/build-design.py) from [`design-src/`](design-src) into
+`app/_generated/`. Built with Next.js. Privacy-friendly analytics only — no cookies, no trackers.
 
 ---
 
 ## Also here
 
-- [Résumé, plain text](resume/cheri-hewlett-cv.md)
+- [Résumé — web page](https://cherihewlett.dev/resume) · [plain text](resume/cheri-hewlett-cv.md)
 - [The GitHub profile README generator](scripts/build-profile-readme.mjs)
 
 ## Contact

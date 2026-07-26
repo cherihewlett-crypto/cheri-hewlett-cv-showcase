@@ -1,6 +1,18 @@
 import { proof } from '@/lib/proof';
+import SectionNav, { type NavSection } from '@/components/SectionNav';
 import { PROFILE_HTML } from './_generated/profile-body';
 import './_generated/profile.css';
+
+/** Sections in document order — drives the persistent scroll-spy nav. */
+const SECTIONS: NavSection[] = [
+  { id: 'intro', label: 'Intro' },
+  { id: 'pov', label: 'Point of view' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'builds', label: 'Selected builds' },
+  { id: 'evidence', label: 'Evidence' },
+  { id: 'speaking', label: 'Speaking' },
+  { id: 'contact', label: 'Contact' },
+];
 
 /**
  * Homepage — the "Universal Profile" design imported from Claude Design
@@ -21,5 +33,10 @@ function profileHtml(): string {
 }
 
 export default function Page() {
-  return <div dangerouslySetInnerHTML={{ __html: profileHtml() }} />;
+  return (
+    <>
+      <div dangerouslySetInnerHTML={{ __html: profileHtml() }} />
+      <SectionNav sections={SECTIONS} />
+    </>
+  );
 }

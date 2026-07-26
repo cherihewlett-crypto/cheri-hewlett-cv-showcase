@@ -89,90 +89,6 @@ a {
   border-radius: 2px;
 }
 
-/* ---------------------------------------------------------------- layout */
-
-.shell {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: var(--rail-w) minmax(0, 1fr);
-  max-width: 96rem;
-  margin: 0 auto;
-}
-
-.shell__main {
-  min-width: 0;
-  padding-inline: var(--gutter);
-  padding-block-end: 8rem;
-}
-
-.band {
-  padding-block: clamp(4.5rem, 9vw, 9rem);
-  border-block-start: 1px solid var(--rail-soft);
-}
-
-.band--flush {
-  border-block-start: 0;
-}
-
-.band__label {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  margin-block-end: 2.5rem;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: var(--step--1);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--signal);
-}
-
-.band__label span:last-child {
-  color: var(--ice);
-  letter-spacing: 0.08em;
-  opacity: 0.65;
-}
-
-.prose {
-  max-width: var(--measure);
-  color: var(--ice);
-}
-
-/* ------------------------------------------------------------ typography */
-
-.display {
-  margin: 0;
-  font-family: var(--font-display), ui-sans-serif, sans-serif;
-  font-weight: 700;
-  font-stretch: 75%;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-
-.display--hero {
-  font-size: var(--step-4);
-}
-
-.display--section {
-  font-size: var(--step-2);
-  line-height: 1;
-}
-
-.mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: var(--step--1);
-  letter-spacing: 0.06em;
-}
-
-.lede {
-  max-width: 46ch;
-  font-size: var(--step-1);
-  line-height: 1.4;
-  color: var(--paper);
-  text-wrap: pretty;
-}
-
 /* ---------------------------------------------------------- reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
@@ -186,17 +102,5 @@ a {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
-  }
-}
-
-/* ------------------------------------------------------------- responsive */
-
-@media (max-width: 60rem) {
-  :root {
-    --rail-w: 0;
-  }
-
-  .shell {
-    grid-template-columns: minmax(0, 1fr);
   }
 }
