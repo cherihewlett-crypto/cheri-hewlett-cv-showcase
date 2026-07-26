@@ -7,7 +7,7 @@ reach me via [LinkedIn](https://linkedin.com/in/cheri-hewlett).
 > As AI takes on more of the *what* and the *how*, leadership becomes even more about the *why*
 > and the *who*. The leaders who thrive won't simply be fluent in technology — they'll be deeply human.
 
-**Live engineering record:** [cherihewlett.dev](https://cherihewlett.dev)
+**Live engineering record:** [cherihewlett.dev](https://cherihewlett.dev) · **GitHub:** [github.com/cherihewlett-crypto](https://github.com/cherihewlett-crypto)
 — thousands of authored commits, 1,700+ merged pull requests, 302 catalogued reusable capabilities, four
 production systems. Recomputed from the repositories on every build, not typed in.
 
@@ -18,6 +18,8 @@ Technology and innovation executive who builds. CPA, U.S. Air Force veteran, and
 ## Core capabilities
 
 - AI product and platform strategy
+- developer platforms and API product strategy
+- data activation and developer experience
 - agentic AI and multi-agent orchestration
 - foundation models
 - RAG and vector memory systems
@@ -32,13 +34,15 @@ Technology and innovation executive who builds. CPA, U.S. Air Force veteran, and
 - customer advisory boards
 - partner ecosystem design
 
+**Technology:** Claude / Anthropic API · Gemini · Vertex AI · Google ADK · RAG & vector memory · Mem0 · MCP tool orchestration · Supabase · PostgreSQL · Next.js · React · TypeScript · Node.js · Deno · Vercel · GitHub Actions · LLM evaluation & governance
+
 ## Selected AI platform work
 
 ### heyEcho — Founder & Architect
 
-- Architected a multi-agent operating system with peer AI agents, persistent cross-session memory, and a governance layer
-- Production stack includes Supabase, Vercel, Mem0, Notion API, and MCP-based tool orchestration
-- Designed retrieval-augmented memory architecture with graph memory, domain-aware routing, contributor attribution, and audit logging
+- Architected a multi-agent operating system — a platform that activates data and tools for AI agents and developers through protocol-based interfaces (MCP), with registry-driven routing, fail-closed authority, and full audit logging
+- Built and operate 80+ edge-function API services with authentication, versioning, and lifecycle management — the developer-facing layer that turns data into agent and application outcomes
+- Designed retrieval-augmented memory architecture (graph memory, domain-aware routing, contributor attribution, audit logging) on Supabase, Vercel, Mem0, and Notion APIs
 - Invited speaker at Product Advisory Collective: *Building with Agentic AI: A Fintech Leader's Show & Tell*
 
 ## Professional experience
