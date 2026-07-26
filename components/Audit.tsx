@@ -23,13 +23,16 @@ const CHECK_FRAMES = ['reading git log', 'counting refs', 'excluding bots', 'rec
  * not plain numbers ("~220", "20 yrs") are left alone — animating an
  * approximation would imply a precision it does not have.
  */
-function useCountUp(target: string, run: boolean, ms = 900) {
+function useCountUp(target: string, run: boolean, reduce: boolean, ms = 900) {
   const numeric = Number(target.replace(/,/g, ''));
   const animatable = Number.isFinite(numeric) && numeric > 0 && /^[\d,]+$/.test(target);
-  const [shown, setShown] = useState(animatable ? 0 : numeric);
+  // When motion is reduced the count-up never runs, so the figure must start
+  // (and stay) at its true value rather than the animation's zero baseline —
+  // otherwise every verified number renders as 0 for reduced-motion readers.
+  const [shown, setShown] = useState(animatable && !reduce ? 0 : numeric);
 
   useEffect(() => {
-    if (!animatable || !run) return;
+    if (!animatable || reduce || !run) return;
     let frame = 0;
     const start = performance.now();
     const tick = (now: number) => {
@@ -40,7 +43,7 @@ function useCountUp(target: string, run: boolean, ms = 900) {
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [animatable, run, numeric, ms]);
+  }, [animatable, run, reduce, numeric, ms]);
 
   if (!animatable) return target;
   return shown.toLocaleString('en-US');
@@ -66,7 +69,7 @@ function Row({ claim, index, stillAt }: { claim: Claim; index: number; stillAt: 
   }, [index, reduce]);
 
   const verified = claim.state === 'verified';
-  const display = useCountUp(claim.value, settled && !reduce);
+  const display = useCountUp(claim.value, settled && !reduce, Boolean(reduce));
 
   return (
     <motion.li
