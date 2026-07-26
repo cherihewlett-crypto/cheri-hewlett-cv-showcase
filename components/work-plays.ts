@@ -93,6 +93,32 @@ export const ACQUISITION_PLAY: Play = {
   ],
 };
 
+// Autonomous product-enablement engine — signals to published content.
+// Anonymized: no employer, no product name, no people. The mechanism only.
+export const ENABLEMENT_PLAY: Play = {
+  label: 'Signals → knowledge pods → published content',
+  stages: [
+    {
+      key: 'Signals',
+      title: 'Signals in — normalized and scored',
+      body: 'Every source — support tickets, sales themes, field questions, and each product change — is normalized into one comparable insight envelope, then scored on impact, confidence, reach, and effort. Attention goes where the risk is, before anyone has to ask.',
+      guard: 'one comparable format',
+    },
+    {
+      key: 'Pods',
+      title: 'Joined into knowledge pods',
+      body: 'Related signals join by stable keys into dynamic knowledge pods — one holistic, living view instead of scattered, stale docs. Create once, link many; update once, and everything downstream stays in sync.',
+      guard: 'one source, always in sync',
+    },
+    {
+      key: 'Outputs',
+      title: 'Proportional content, governed publish',
+      body: 'The system decides exactly what each change needs, proportional to its impact — documentation and release notes for most, a video and a webinar for the high-impact few. Agents draft across the whole loop; a person reviews and approves before anything ships.',
+      guard: 'human-approved before publish',
+    },
+  ],
+};
+
 // heyEcho — the multi-agent operating system this site runs on. Her own IP.
 export const HEYECHO_PLAY: Play = {
   label: 'heyEcho — a request moving through the platform',

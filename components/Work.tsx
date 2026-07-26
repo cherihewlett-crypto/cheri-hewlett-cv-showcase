@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from 'motion/react';
 import Clickthrough from './Clickthrough';
-import { ACQUISITION_PLAY, BUSINESS_CASE_PLAY, HEYECHO_PLAY, type Play } from './work-plays';
+import { ACQUISITION_PLAY, BUSINESS_CASE_PLAY, ENABLEMENT_PLAY, HEYECHO_PLAY, type Play } from './work-plays';
 import styles from './Work.module.css';
 
 /**
@@ -47,6 +47,15 @@ const WORK: {
     body: 'Absorb acquisitions fast and turn a fragmented product portfolio into one seamless customer experience — the integration playbook, the common data and identity layer, and the sequencing that makes a roll-up compound instead of fragment.',
     value: 'Acquisitions that add capacity without adding chaos',
     play: ACQUISITION_PLAY,
+  },
+  {
+    kind: 'product',
+    context: 'For an enterprise SaaS product organization',
+    industries: ['Enterprise SaaS', 'Product Operations', 'Customer Enablement', 'Technical Documentation'],
+    title: 'Autonomous product-enablement engine',
+    body: 'Turns every product change into the documentation, release notes, and enablement content it needs — signals from support, sales, and the field normalized and scored, joined into living knowledge pods, then drafted into content proportional to impact behind a governed, human-approved publishing path.',
+    value: 'Product knowledge that lands the moment it ships',
+    play: ENABLEMENT_PLAY,
   },
   {
     kind: 'product',
