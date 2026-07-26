@@ -1,4 +1,5 @@
 import { proof } from '@/lib/proof';
+import ProfileContent from '@/components/ProfileContent';
 import SectionNav, { type NavSection } from '@/components/SectionNav';
 import { PROFILE_HTML } from './_generated/profile-body';
 import './_generated/profile.css';
@@ -35,7 +36,7 @@ function profileHtml(): string {
 export default function Page() {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: profileHtml() }} />
+      <ProfileContent html={profileHtml()} />
       <SectionNav sections={SECTIONS} />
     </>
   );
