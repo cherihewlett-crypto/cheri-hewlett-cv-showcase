@@ -101,7 +101,7 @@ export default function Convergence() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
       >
-        That combination is the whole argument. Everything else on this page is evidence for it.
+        That combination is who I am. Everything else on this page is where it comes from.
       </motion.p>
     </div>
   );

@@ -258,8 +258,7 @@ export default function Page() {
             </ul>
 
             <p className={styles.verdictLead}>
-              Any one of these is common. Two together makes a strong hire. All four in one person is the profile these
-              roles are written for — and rarely find.
+              Any one of these is common. Two together is unusual. All four in one person is rare.
             </p>
 
             <Audit claims={claims} stillAt={stillAt} />
@@ -289,7 +288,7 @@ export default function Page() {
               <p className="prose" style={{ maxWidth: '60ch', marginBlockEnd: '3rem' }}>
                 Turning a problem into a solution that returns value takes four things at once: the domain to see the
                 real problem, the judgment to choose the one worth solving, the engineering to build the answer, and the
-                leadership to carry it to impact. Most candidates bring two. Here is each, with what backs it.
+                leadership to carry it to impact. Most people bring two. Here is each, with what backs it.
               </p>
             </Reveal>
             <Bridge />
@@ -522,7 +521,7 @@ export default function Page() {
             </h2>
             <Reveal>
               <p className={styles.contactLede}>
-                Open to conversations about platform, product, and AI leadership roles.
+                The best place to reach me is LinkedIn.
               </p>
               <div className={styles.links}>
                 {/* Email is deliberately not published — LinkedIn is the contact route. */}
