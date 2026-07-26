@@ -13,7 +13,7 @@ production systems. Recomputed from the repositories on every build, not typed i
 
 ## Positioning
 
-Technology and innovation executive who builds. CPA, U.S. Air Force veteran, and builder with two decades across audit, advisory, and enterprise platform leadership. Draws the bridge from problem to solution through technology — choosing the problems that return quantifiable value, then building the right solution for each — while personally building agentic AI systems through an independent platform lab.
+Technology and innovation executive who builds. CPA, U.S. Air Force veteran, and platform leader with two decades across audit, advisory, and enterprise SaaS — the last four years AI-native: leading AI governance and agentic-workforce strategy in enterprise finance while personally architecting production multi-agent systems. Draws the bridge from problem to solution through technology — choosing the problems that return quantifiable value, then building the right solution for each.
 
 ## Core capabilities
 
