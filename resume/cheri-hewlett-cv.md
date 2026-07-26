@@ -13,7 +13,7 @@ Technology and innovation executive who builds — the last four years AI-native
 ## Selected impact
 
 - **Built and scaled a new platform line, concept to market** — full P&L across product, engineering, GTM, and customer success; triple-digit YoY organic growth, three consecutive years.
-- **Four production AI systems, designed and built hands-on** — thousands of authored commits, recomputed live from the repositories on every build, not commissioned and summarized.
+- **Four production AI systems, designed and built hands-on** — thousands of authored commits, checked against the repositories and preserved as a build-validated snapshot, not commissioned and summarized.
 - **Set AI governance and agentic-workforce strategy** across an enterprise platform; presented platform strategy and business performance to the board and investors.
 - **Twenty years in the office of the CFO** — CPA, PwC and Deloitte: the domain depth most technology leaders have to borrow.
 
@@ -43,7 +43,7 @@ Technology and innovation executive who builds — the last four years AI-native
 
 **heyEcho — Founder & Architect.** A multi-agent operating system: registry-driven routing, persistent cross-session memory, fail-closed authority, and a verification layer that recomputes status from live evidence. 80+ edge-function API services with authentication, versioning, and lifecycle management. Stack: Claude / Anthropic API, Supabase, Mem0, MCP tool orchestration, Next.js / TypeScript.
 
-*Live engineering record — recomputed from the private repositories on every build, never typed in:* [cherihewlett.dev](https://cherihewlett.dev) — thousands of authored commits, 1,700+ merged pull requests, 302 catalogued reusable capabilities, four production systems.
+*Verified engineering record — checked against the private repositories and preserved as a versioned snapshot:* [cherihewlett.dev](https://cherihewlett.dev) — thousands of authored commits, 1,700+ merged pull requests, 302 catalogued reusable capabilities, four production systems.
 
 ## Core expertise
 

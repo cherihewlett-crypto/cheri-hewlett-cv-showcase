@@ -6,8 +6,8 @@ Faithful 1:1 transform. Only removes the design-tool runtime:
   - <image-slot> custom element -> plain <img> to /media/*
   - style-hover="..." -> a generated .hv{n}:hover CSS rule + class
   - {{ animMode }} template var -> "running"
-Dynamic figures that the site recomputes each build are swapped for tokens
-(__DC_*__) the page component fills from proof.json.
+Dynamic figures from the checked-in, validated proof snapshot are swapped for
+tokens (__DC_*__) the page component fills from proof.json.
 """
 import re, os, sys, json, html as htmllib
 
@@ -135,7 +135,7 @@ body = prof.split("</helmet>", 1)[1].rsplit("</x-dc>", 1)[0].strip()
 body = body.replace("{{ animMode }}", "running")
 body = convert_image_slots(body)
 body = convert_hover(body)
-# dynamic figures (Evidence, 26px Archivo numbers) -> tokens
+# snapshot figures (Evidence, 26px Archivo numbers) -> tokens
 body = body.replace('line-height:1">6,916</span>', 'line-height:1">__DC_AUTHORED_COMMITS__</span>')
 body = body.replace('line-height:1">1,725</span>', 'line-height:1">__DC_MERGED_PRS__</span>')
 body = body.replace('line-height:1">131</span>',   'line-height:1">__DC_EDGE_FUNCTIONS__</span>')
@@ -243,7 +243,7 @@ HOMEPAGE_CSS = """
    builds, especially — free to scroll internally. */
 html { scroll-snap-type: y proximity; scroll-padding-top: 10px; }
 #intro, #pov, #experience, #builds, #evidence, #speaking, #contact,
-#builds article { scroll-snap-align: start; scroll-margin-top: 10px; }
+#builds article { scroll-snap-align: start; scroll-margin-top: 108px; }
 
 /* ---- beliefs: clean 2x2, no orphan card ---- */
 @media (min-width: 700px) {
