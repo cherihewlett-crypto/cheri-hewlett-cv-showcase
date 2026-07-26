@@ -1,0 +1,35 @@
+
+  doc-page:not(:defined) { visibility: hidden; }
+  body { margin: 0; }
+  a { color: #0e6d7c; }
+  a:hover { color: #04141e; }
+
+/* neutralise the site-chrome ambient layer on this design route */
+body::before { content: none !important; }
+/* clean section-to-section navigation: smooth anchor jumps with breathing room */
+html { scroll-behavior: smooth; }
+section[id], [id][data-screen-label] { scroll-margin-top: 28px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* résumé page chrome — screen only */
+.resume-nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  max-width: 8.5in; margin: 0 auto; padding: 14px 24px;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+  background: rgba(245,245,244,.85); backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid #e3ded7;
+}
+.resume-nav a { color: #0e6d7c; text-decoration: none; }
+.resume-nav a:hover { color: #04141e; }
+@media print { .resume-nav { display: none !important; } }
+
+/* The résumé is a real letter-width sheet (great for print/desktop). On
+   narrow screens it would overflow and clip, so a small inline script in the
+   page scales the sheet down (numeric `zoom`) to fit the viewport — the full
+   page stays visible and pinch-zoomable, with no sideways scrolling. Print is
+   unaffected. Here we just let the nav span the full width on mobile. */
+@media screen and (max-width: 900px) {
+  .resume-nav { max-width: none; }
+}
