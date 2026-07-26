@@ -62,7 +62,6 @@ const PERSON_LD = {
   sameAs: [
     'https://linkedin.com/in/cheri-hewlett',
     'https://github.com/cherihewlett-crypto',
-    'https://x.com/cheripromo',
   ],
   knowsAbout: [
     'Agentic AI',
