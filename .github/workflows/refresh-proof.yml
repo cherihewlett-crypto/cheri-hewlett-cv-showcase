@@ -58,6 +58,10 @@ jobs:
           GH_TOKEN: ${{ secrets.PRIVATE_REPO_READ }}
         run: node site/scripts/collect-proof.mjs
 
+      - name: Validate the public artifact
+        if: steps.sources.outputs.ready == 'true'
+        run: node site/scripts/validate-proof.mjs
+
       - name: Commit if the numbers moved
         if: steps.sources.outputs.ready == 'true'
         working-directory: site

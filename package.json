@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --port 4400",
-    "build": "next build",
+    "build": "npm run check:proof && next build",
+    "check:proof": "node scripts/validate-proof.mjs",
     "start": "next start",
-    "proof": "node scripts/collect-proof.mjs"
+    "proof": "node scripts/collect-proof.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

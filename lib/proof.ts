@@ -1,4 +1,5 @@
 import raw from '../public/proof.json';
+import { assertValidProof } from './proof-integrity';
 
 export type SystemProof = {
   id: string;
@@ -29,6 +30,7 @@ export type Proof = {
   systems: SystemProof[];
 };
 
+assertValidProof(raw);
 export const proof = raw as Proof;
 
 /**
