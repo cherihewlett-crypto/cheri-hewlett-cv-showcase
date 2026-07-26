@@ -23,9 +23,10 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeProofFile } from './proof-file.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SITE_ROOT = resolve(HERE, '..');
@@ -128,8 +129,7 @@ function mergedPullRequests(repo) {
 function measure(system) {
   const root = join(REPO_ROOT, system.dir);
   if (!existsSync(join(root, '.git'))) {
-    console.warn(`  skip ${system.id} — no checkout at ${root}`);
-    return null;
+    throw new Error(`Cannot measure ${system.id}: no checkout at ${root}. Existing proof.json was preserved.`);
   }
 
   const subjects = git(root, ['log', '--format=%s']).split('\n').filter(Boolean);
@@ -146,14 +146,24 @@ function measure(system) {
   const counts = {};
   for (const [label, rel] of Object.entries(system.counts ?? {})) {
     const n = countDir(root, rel);
-    if (n > 0) counts[label] = n;
+    if (n <= 0) {
+      throw new Error(
+        `Cannot measure ${system.id} ${label}: ${join(root, rel)} is missing or empty. Existing proof.json was preserved.`,
+      );
+    }
+    counts[label] = n;
   }
 
   const tests = countFiles(root, (name) => /(\.|_|-)(test|spec)\.[jt]sx?$/.test(name) || /^test_.*\.py$/.test(name));
   if (tests > 0) counts.tests = tests;
 
   const prs = mergedPullRequests(system.dir);
-  if (prs !== null) counts['merged PRs'] = prs;
+  if (prs === null) {
+    throw new Error(
+      `Cannot measure merged pull requests for ${system.id}. Check GitHub authentication. Existing proof.json was preserved.`,
+    );
+  }
+  counts['merged PRs'] = prs;
 
   return {
     id: system.id,
@@ -173,12 +183,7 @@ console.log(`Collecting proof from ${REPO_ROOT}`);
 const systems = SYSTEMS.map((s) => {
   console.log(`  reading ${s.id}`);
   return measure(s);
-}).filter(Boolean);
-
-if (systems.length === 0) {
-  console.error('No repositories found. Set REPO_ROOT to the directory containing the checkouts.');
-  process.exit(1);
-}
+});
 
 const sum = (pick) => systems.reduce((acc, s) => acc + pick(s), 0);
 const firstEver = systems.map((s) => s.firstCommit).sort()[0];
@@ -201,8 +206,7 @@ const proof = {
   systems,
 };
 
-mkdirSync(join(SITE_ROOT, 'public'), { recursive: true });
-writeFileSync(join(SITE_ROOT, 'public', 'proof.json'), `${JSON.stringify(proof, null, 2)}\n`);
+writeProofFile(join(SITE_ROOT, 'public', 'proof.json'), proof);
 
 console.log('\nWrote public/proof.json');
 console.table(
