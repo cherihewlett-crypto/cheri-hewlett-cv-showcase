@@ -1,4 +1,4 @@
-[![Cheri Hewlett — progress belongs to the people willing to challenge what no longer works](https://cherihewlett.dev/opengraph-image)](https://cherihewlett.dev)
+[![Cheri Hewlett operating model — from a meaningful problem to governed, verifiable impact](https://cherihewlett.dev/opengraph-image?visual=operating-model)](https://cherihewlett.dev)
 
 # Cheri Hewlett
 
