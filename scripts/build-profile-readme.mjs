@@ -30,7 +30,7 @@ const CAPABILITIES = 302;
 const badge = (label, value, color = '17b3c7') =>
   `![${label}](https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(value)}-${color}?style=flat-square)`;
 
-const readme = `[![Cheri Hewlett — progress belongs to the people willing to challenge what no longer works](${SITE}/opengraph-image)](${SITE})
+const readme = `[![Cheri Hewlett operating model — from a meaningful problem to governed, verifiable impact](${SITE}/opengraph-image?visual=operating-model)](${SITE})
 
 # Cheri Hewlett
 

@@ -11,6 +11,10 @@ const profileReadmeGenerator = readFileSync(
   new URL('../scripts/build-profile-readme.mjs', import.meta.url),
   'utf8',
 );
+const opengraphImage = readFileSync(
+  new URL('../app/opengraph-image.tsx', import.meta.url),
+  'utf8',
+);
 
 const builds = [
   ['build-product-enablement', '1. Intelligent Product Enablement'],
@@ -69,4 +73,18 @@ test('README surfaces describe a checked snapshot, never a live build-time refre
     assert.doesNotMatch(surface, /live evidence feed/i);
     assert.match(surface, /versioned (?:evidence |engineering )?snapshot/i);
   }
+});
+
+test('README banner is a durable operating-model diagram, not a stale metric card', () => {
+  assert.match(readme, /opengraph-image\?visual=operating-model/);
+  for (const stage of [
+    'Frame the problem',
+    'Apply judgment',
+    'Build the system',
+    'Govern + verify',
+    'Scale the impact',
+  ]) {
+    assert.match(opengraphImage, new RegExp(stage.replace('+', '\\+')));
+  }
+  assert.doesNotMatch(opengraphImage, /6,912|6,916|302 capabilities|production systems/);
 });
