@@ -40,22 +40,24 @@ the domain expert who can build — and the constraint is no longer capability. 
 The site above makes claims about systems I have built. This repository contains the
 mechanism that checks them.
 
-Most portfolio sites state their numbers. This one recomputes them. [`scripts/collect-proof.mjs`](scripts/collect-proof.mjs)
-reads the private production repositories and emits [`public/proof.json`](public/proof.json) — the
-file the site's Evidence section renders from. Nothing on the page is hand-typed.
+Most portfolio sites state their numbers without showing how they were established. This one keeps
+a versioned evidence snapshot. [`scripts/collect-proof.mjs`](scripts/collect-proof.mjs) can read the
+private production repositories and emit [`public/proof.json`](public/proof.json) — the file the
+site's Evidence section renders from.
 
 Two rules make the output worth trusting:
 
 - **Authored commits exclude automated work.** Sync, audit, and merge commits are
   filtered out. The raw commit count is roughly 2.3× higher and is never displayed.
-- **Claims are labelled by how they were established.** Figures recomputed from the
+- **Claims are labelled by how they were established.** Figures checked against the
   record render as *verified*. Facts no script can check render as *attested*. They are
   visually distinct, and the distinction is deliberate.
 
-If a repository cannot be read, its entry is omitted rather than estimated, and the
-[nightly workflow](.github/workflows/refresh-proof.yml) skips the run entirely rather
-than publishing partial totals. Nothing proprietary leaves the private repositories — the
-collector emits counts and dates only, never source, paths, commit messages, or schema detail.
+There is no scheduled or direct-to-production updater. Refreshes are run intentionally, reviewed
+like any other source change, and accepted only when every source is present and every displayed
+total is a positive, internally consistent value. If collection or validation fails, the checked-in
+last known-good snapshot remains untouched. Nothing proprietary leaves the private repositories —
+the collector emits counts and dates only, never source, paths, commit messages, or schema detail.
 
 ---
 

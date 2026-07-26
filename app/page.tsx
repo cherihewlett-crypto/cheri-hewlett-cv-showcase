@@ -21,9 +21,10 @@ const SECTIONS: NavSection[] = [
  * by scripts/build-design.py and rendered here verbatim so production is
  * identical to the built mockup.
  *
- * The only dynamic wiring is the Evidence table: three figures the site
- * recomputes from the engineering record on every build are injected from
- * proof.json here, so the page never drifts from the repositories.
+ * The only data wiring is the Evidence table: three figures from the
+ * checked-in engineering snapshot are injected from proof.json. The build
+ * validates that snapshot before rendering, preserving the last known-good
+ * non-zero values when a future measurement cannot be completed safely.
  */
 const n = (v: number) => v.toLocaleString('en-US');
 

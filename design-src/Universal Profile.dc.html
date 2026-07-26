@@ -24,6 +24,36 @@
   @keyframes settleIn { 0%,40% { opacity: 0; transform: translateY(4px); } 54%,100% { opacity: 1; transform: none; } }
   @keyframes riseRank { 0%,22% { transform: translateY(60px); } 58%,100% { transform: translateY(0); } }
   @keyframes fallRank { 0%,22% { transform: translateY(-30px); } 58%,100% { transform: translateY(0); } }
+  [data-build-nav] {
+    position:sticky;top:12px;z-index:45;
+    margin:0 0 clamp(34px,5vw,52px);padding:10px;
+    border:1px solid rgba(23,179,199,.32);border-radius:10px;
+    background:rgba(4,20,30,.92);
+    -webkit-backdrop-filter:saturate(140%) blur(12px);
+    backdrop-filter:saturate(140%) blur(12px);
+    box-shadow:0 18px 46px rgba(0,0,0,.3);
+  }
+  [data-build-nav-track] {
+    display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;
+    overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;
+    scroll-padding-inline:10px;-webkit-overflow-scrolling:touch;
+  }
+  [data-build-nav-track]::-webkit-scrollbar { display:none; }
+  [data-build-link] {
+    min-width:0;display:flex;align-items:center;gap:8px;padding:10px 11px;
+    border:1px solid #143a4b;border-radius:7px;color:#9ec6d2;
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.25;
+    letter-spacing:.04em;text-decoration:none;
+    transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;
+  }
+  [data-build-link] > span:first-child {
+    flex:0 0 auto;color:#17b3c7;font-size:9px;letter-spacing:.12em;
+  }
+  [data-build-link]:hover { border-color:#17b3c7;color:#f2f9fa;transform:translateY(-1px); }
+  [data-build-link][aria-current="location"] {
+    border-color:#17b3c7;background:#17b3c7;color:#04141e;
+  }
+  [data-build-link][aria-current="location"] > span:first-child { color:#04141e; }
   @media (max-width: 820px) {
     [data-screen-label="Hero"] { grid-template-columns: minmax(0,1fr) !important; }
     [data-screen-label="Selected builds"] article { min-width: 0; }
@@ -31,6 +61,9 @@
     [data-pillars] > div:nth-child(odd) { padding-left: 0; border-left: 0; }
     [data-appscreen] { overflow-x: auto !important; overflow-y: hidden; -webkit-overflow-scrolling: touch; width: 100%; max-width: 100%; }
     [data-appscreen] > div { min-width: 760px; }
+    [data-build-nav] { top:8px;margin-left:-10px;margin-right:-10px;padding:8px; }
+    [data-build-nav-track] { display:flex;gap:6px; }
+    [data-build-link] { flex:0 0 auto;min-width:154px;padding:9px 10px; }
   }
 </style>
 <script src="./image-slot.js"></script>
@@ -154,11 +187,22 @@
 <span>Selected builds</span>
 <span style="color:#9ec6d2;opacity:.65;letter-spacing:.08em">zero-to-one to global enterprise · written personally</span>
 </h2>
-<p style="color:#9ec6d2;max-width:60ch;margin:0 0 48px;text-wrap:pretty">The repositories are private, so these are the real screens rebuilt clean — same layout, same states, illustrative data.</p>
+<p style="color:#9ec6d2;max-width:64ch;margin:0 0 24px;text-wrap:pretty">Six animated product walkthroughs rebuilt from the real interfaces — same layouts and states, with illustrative data. Choose a build to move through the portfolio.</p>
+
+<nav data-build-nav aria-label="Selected builds">
+<div data-build-nav-track>
+<a data-build-link href="#build-product-enablement" aria-label="View Intelligent Product Enablement" aria-current="location"><span>01</span><span>Product enablement</span></a>
+<a data-build-link href="#build-acquisition-integration" aria-label="View Acquisition Integration Engine"><span>02</span><span>Acquisition</span></a>
+<a data-build-link href="#build-autonomous-implementor" aria-label="View Autonomous Implementor"><span>03</span><span>Implementation</span></a>
+<a data-build-link href="#build-roadmap-prioritization" aria-label="View Roadmap Prioritization Engine"><span>04</span><span>Roadmap</span></a>
+<a data-build-link href="#build-compliance-knowledge-base" aria-label="View Compliance Knowledge Base"><span>05</span><span>Compliance</span></a>
+<a data-build-link href="#build-multidimensional-orchestrator" aria-label="View Multi-Dimensional Orchestrator"><span>06</span><span>Orchestration</span></a>
+</div>
+</nav>
 
 <div style="display:grid;gap:clamp(48px,6vw,72px)">
 
-<article>
+<article id="build-product-enablement" data-build>
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:16px">
 <h3 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:80%;font-size:clamp(24px,3vw,32px);line-height:1.05;margin:0">Intelligent Product Enablement</h3>
 <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#17b3c7;margin:0">Code ships → the content keeps up</p>
@@ -248,7 +292,7 @@
 </div>
 </article>
 
-<article>
+<article id="build-acquisition-integration" data-build>
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:16px">
 <h3 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:80%;font-size:clamp(24px,3vw,32px);line-height:1.05;margin:0">Acquisition Integration Engine</h3>
 <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#17b3c7;margin:0">Capability comparison · survivor calls · migration plan</p>
@@ -369,7 +413,7 @@
 </div>
 </article>
 
-<article>
+<article id="build-autonomous-implementor" data-build>
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:16px">
 <h3 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:80%;font-size:clamp(24px,3vw,32px);line-height:1.05;margin:0">Autonomous Implementor</h3>
 <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#17b3c7;margin:0">Intake → process analysis → auto-configuration → ROI</p>
@@ -476,7 +520,7 @@
 </div>
 </article>
 
-<article>
+<article id="build-roadmap-prioritization" data-build>
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:16px">
 <h3 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:80%;font-size:clamp(24px,3vw,32px);line-height:1.05;margin:0">Roadmap Prioritization Engine</h3>
 <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#17b3c7;margin:0">Due diligence · prioritization · allocation</p>
@@ -570,7 +614,7 @@
 </div>
 </article>
 
-<article>
+<article id="build-compliance-knowledge-base" data-build>
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:16px">
 <h3 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:80%;font-size:clamp(24px,3vw,32px);line-height:1.05;margin:0">Compliance Knowledge Base</h3>
 <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#17b3c7;margin:0">Citable retrieval · provenance · re-verifiable</p>
@@ -650,7 +694,7 @@
 </div>
 </article>
 
-<article>
+<article id="build-multidimensional-orchestrator" data-build>
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:16px">
 <h3 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:80%;font-size:clamp(24px,3vw,32px);line-height:1.05;margin:0">Multi-Dimensional Orchestrator</h3>
 <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#17b3c7;margin:0">Registry routing · fail-closed authority · memory</p>
@@ -768,7 +812,7 @@
 <image-slot id="profile-avatar" shape="circle" fit="cover" src="media/avatar.png" style="width:120px;height:120px" placeholder="Drop the avatar"></image-slot>
 <figcaption style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#5f8592">The builder</figcaption>
 </figure>
-<p style="color:#9ec6d2;max-width:52ch;margin:0;flex:1 1 300px;text-wrap:pretty">Verified figures are recomputed from the repositories every time this page builds. Attested figures are career facts no script can check — labelled as such rather than dressed up as measurements.</p>
+<p style="color:#9ec6d2;max-width:56ch;margin:0;flex:1 1 300px;text-wrap:pretty">Verified figures are a checked, versioned snapshot of the engineering record. The build rejects blank, zero, partial, or regressed totals, so the last known-good numbers stay visible. Attested figures are career facts no script can check.</p>
 </div>
 <div style="display:grid;grid-template-columns:112px minmax(0,1fr) auto;gap:0 20px;font-size:15px">
 <div style="display:contents;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0e6d7c">
@@ -903,7 +947,7 @@
 </section>
 
 <footer style="padding-top:26px;border-top:1px solid #0f2e3d;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#5f8592">
-<span>Cheri Hewlett · Los Angeles, CA · engineering record recomputed on every build</span>
+<span>Cheri Hewlett · Los Angeles, CA · engineering record preserved as a verified snapshot</span>
 <a href="https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase">This site's source ↗</a>
 </footer>
 
