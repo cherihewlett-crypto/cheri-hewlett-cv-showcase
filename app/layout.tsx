@@ -28,6 +28,7 @@ const mono = IBM_Plex_Mono({
 // which social platforms require. Update this when a custom domain is attached.
 export const metadata: Metadata = {
   metadataBase: new URL('https://cherihewlett.dev'),
+  alternates: { canonical: '/' },
   title: 'Cheri Hewlett — Technology & innovation executive, builder',
   description:
     'I draw the bridge from problem to solution through technology — choosing the problems that return quantifiable value and deliver impact, then building the right solution for each. Technology and innovation executive with four production AI systems and the engineering record to check every claim against.',
