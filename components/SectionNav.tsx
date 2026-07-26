@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { scrollToSection } from '@/lib/section-navigation';
 import styles from './SectionNav.module.css';
 
 export type NavSection = { id: string; label: string };
@@ -37,8 +38,7 @@ export default function SectionNav({ sections }: { sections: NavSection[] }) {
 
   const go = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    if (typeof history !== 'undefined') history.replaceState(null, '', `#${id}`);
+    scrollToSection(id);
   };
 
   return (
