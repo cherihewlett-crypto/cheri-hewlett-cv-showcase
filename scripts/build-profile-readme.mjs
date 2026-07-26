@@ -1,13 +1,7 @@
 #!/usr/bin/env node
 /**
- * Generates the GitHub profile README from the same engineering record the
- * showcase site renders from.
- *
- * Visual + enriched: a branded banner (the deployed OG card), identity badges,
- * the recomputed proof table, native Mermaid diagrams (GitHub renders these) of
- * the four-capability moat and the idea-to-scale arc, the products/functions
- * with industry framing, point of view, background, and speaking. Written for
- * the recruiter's first five seconds and for machine scanners alike.
+ * Generates the public GitHub profile README from the same positioning and
+ * checked engineering snapshot used by cherihewlett.dev.
  *
  * Output: dist/profile-README.md, published to the account-named repo.
  * Usage: node scripts/build-profile-readme.mjs
@@ -21,131 +15,123 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
 
 const proof = JSON.parse(readFileSync(join(ROOT, 'public', 'proof.json'), 'utf8'));
-const t = proof.totals;
-const n = (v) => v.toLocaleString('en-US');
+const totals = proof.totals;
+const number = (value) => value.toLocaleString('en-US');
 
 const SITE = 'https://cherihewlett.dev';
 const LINKEDIN = 'https://linkedin.com/in/cheri-hewlett';
+const RESUME = `${SITE}/resume`;
+const SPEAKING = `${SITE}/#speaking`;
+const ONE_SHEET = `${SITE}/speaker-one-sheet.pdf`;
 const COLLECTOR =
   'https://github.com/cherihewlett-crypto/cheri-hewlett-cv-showcase/blob/main/scripts/collect-proof.mjs';
+const CONTRIBUTIONS = 16_983;
+const CAPABILITIES = 302;
 const badge = (label, value, color = '17b3c7') =>
   `![${label}](https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(value)}-${color}?style=flat-square)`;
 
-const readme = `[![Cheri Hewlett — from problem to solution through technology](${SITE}/opengraph-image)](${SITE})
+const readme = `[![Cheri Hewlett — progress belongs to the people willing to challenge what no longer works](${SITE}/opengraph-image)](${SITE})
 
 # Cheri Hewlett
 
-### Technology & innovation executive · Builder · CPA · Veteran
+### Technology & innovation executive · People builder · Operator · CPA · Veteran
 
 ${badge('Role', 'Technology & Innovation Exec')} ${badge('CPA', 'Certified', '0e6d7c')} ${badge('U.S. Air Force', 'Veteran', '45e0b8')} ${badge('Based', 'Los Angeles', '143a4b')}
 
-**I draw the bridge from problem to solution through technology — the right solution for the
-problems that return quantifiable value and deliver real impact. Not the newest thing. The thing
-that pays.**
+> **Progress belongs to the people willing to challenge what no longer works.**
 
-### → **[See the work, with the receipts →](${SITE})**
+### [Full profile](${SITE}) · [Résumé](${RESUME}) · [Speaking](${SPEAKING}) · [LinkedIn](${LINKEDIN})
 
----
+## About me
 
-## The record
+I built my career by questioning accepted answers, looking beyond the boundaries of my role, and
+refusing to let hierarchy, politics, or bureaucracy stand between a meaningful problem and a better
+solution.
 
-| ${n(t.authoredCommits)} | ${n(t.mergedPullRequests)} | 302 | ${n(t.edgeFunctions)} | ${n(t.migrations)} | ${n(t.systems)} |
-|:--:|:--:|:--:|:--:|:--:|:--:|
-| commits **written** | PRs **shipped** | reusable **capabilities** | live **services** | governed **migrations** | **production** systems |
+Technology is moving faster than traditional organizations can respond. I help close that gap —
+modernizing systems, aligning people, and creating the conditions for ideas to move, decisions to
+be made, and impact to scale.
 
-Every number is recomputed from private production repositories on each build — never typed in.
-Authored commits exclude ${n(t.automatedCommits)} automated sync and merge commits; counting those
-would inflate the figure ~2.3×. The [collector that produces these numbers](${COLLECTOR}) is public
-even though its inputs are not.
+## How I work
 
-## My moat — four capabilities, rarely in one person
-
-Turning a problem into a solution that returns value takes four things most teams split across four
-people. Most candidates bring two.
-
-\`\`\`mermaid
-flowchart LR
-    P([Problem worth solving])
-    P --> D[Domain<br/>see the real problem]
-    P --> J[Judgment<br/>choose the one worth solving]
-    P --> E[Engineering<br/>build the answer]
-    P --> L[Leadership<br/>carry it to impact]
-    D --> V([Quantifiable value])
-    J --> V
-    E --> V
-    L --> V
-\`\`\`
-
-## Idea to scale — I've operated at every stage
-
-The rare part of a 0-to-1 leader is having actually done every stage, not one or two.
-
-\`\`\`mermaid
-flowchart LR
-    A[Idea<br/>frame the problem] --> B[Prototype<br/>build in hours]
-    B --> C[Fund<br/>investment-grade case]
-    C --> D[Build<br/>ship the system]
-    D --> E[Launch<br/>enterprise go-live]
-    E --> F[Scale<br/>0 to global, full P&L]
-\`\`\`
-
-## What I'm building
-
-- **Team Echo** — a multi-agent operating system: registry-driven routing, persistent memory, fail-closed authority, and a verifier that recomputes status from live evidence rather than trusting it.
-- **Innovation Hub** — a portfolio cockpit for prototype due diligence and roadmap prioritization: evidence-based go/kill decisions, not whoever is loudest in the room.
-- **Deterministic rules engine** — a computation engine for regulated, high-stakes numbers: the model plans, deterministic code computes, every figure traceable to source.
-- **Citable rules corpus** — atomic domain rules with source-grade citability, re-verifiable by an expert who does not trust the model.
-
-## Selected work — products and functions
-
-Shown as a product where the whole thing is the deliverable, and as a reusable function where the
-capability stands on its own. Anonymized — real systems, client identifiers removed.
-
-| Kind | Deliverable | Where it lands |
-|---|---|---|
-| **Product** | Autonomous business-case engine — idea to a funded, compliance-cleared, safety-tested case | Private Equity · Financial Services · Due Diligence |
-| **Product** | Acquisition integration & portfolio unification — absorb M&A fast, one seamless experience | Private Equity · M&A · Enterprise SaaS |
-| **Function** | Governed agentic overlay — put audited AI over any legacy system of record, no rebuild | Legacy Modernization · AI Governance |
-| **Product** | heyEcho — a multi-agent operating system (this site runs on it) | AI Platform · Agentic Systems |
-| **Function** | Truthful verification — recompute "done" from evidence, not self-report | Compliance · Audit · AI Governance |
-| **Function** | Domain-doctrine routing — route any question to the exact citable rule | Accounting · Regulatory · Compliance |
-
-## Experience — industries, use cases, technology
-
-**Industries** · Private Equity · Financial Services · Office of the CFO · Enterprise SaaS · Fund Administration · Accounting & Audit · RegTech · Real Estate
-
-**Use cases** · Agentic AI & multi-agent orchestration · Autonomous operations · Business-case & due diligence · Acquisition integration · Portfolio unification · Financial reporting & close · Compliance & regulatory checks · System migration & go-lives · Knowledge & doctrine retrieval · AI governance & safety · Zero-to-one delivery & scaling
-
-**Technology** · Claude / Anthropic API · Gemini · Vertex AI · Google ADK · RAG & vector memory · Mem0 · MCP tool orchestration · Supabase · PostgreSQL · Next.js · React · TypeScript · Node.js · Deno · Vercel · GitHub Actions · LLM evaluation & governance
+- **People first.** I build people, create opportunity, and empower others to do more.
+- **Challenge the status quo.** I question what no longer works and push past politics, process,
+  and limits.
+- **Diverse perspectives.** Different experiences lead to stronger decisions and better outcomes.
+- **Human always.** Technology only matters when it expands human potential.
 
 ## Point of view
 
-**Innovation is choosing the right problem.** Most companies solve the wrong problems faster.
-**ROI is the problem solved, not the time saved.** **Trust is the real moat** — the question isn't
-"can AI do this," it's "can we prove it did it right." And **how you treat people is the strategy.**
+For thirty years the person who saw the problem and the person who could build the fix were two
+different people, and everything got lost in translation. That gap is closing. The new innovator is
+the domain expert who can build — and the constraint is no longer capability. It's judgment.
 
-## Background
+- **Innovation is choosing the right problem.** Most companies are solving the wrong problems
+  faster. AI didn't fix that — it accelerated it.
+- **ROI is the problem solved, not the time saved.** The question is the caliber of quality the team
+  operates at afterward.
+- **Trust is the real moat.** The better question is whether we can prove AI did the work right.
+- **How you treat people is the strategy.** As AI absorbs execution, that becomes more of the job,
+  not less.
 
-U.S. Air Force — mission first, people always. PwC and Deloitte. Founded a CPA firm from scratch.
-Built and managed a rental portfolio over a decade. Strategic advisor to Crux (London) on
-product-acquisition integration, and a board member of the G.R.O.W. Foundation. Rose from customer
-success to senior executive leadership at a publicly traded fintech. I've seen the product lifecycle
-from every seat — implementing, selling, supporting, and betting a company's transformation on the product.
+## Experience
 
-CPA (VA) · M.S. Accounting, Liberty University · B.S. Accounting & Computer Science, University of Maryland · U.S. Air Force Veteran · Los Angeles, CA
+- **SVP & Global Managing Director, Platform & Product Strategy.** Enterprise platform and product
+  strategy, AI governance, agentic-workforce integration, and board- and investor-level
+  communication. Previously built a financial-analytics platform line from concept to global
+  market with full P&L accountability.
+- **Every seat in the lifecycle.** Customer success, solutions consulting, product and business
+  transformation, and platform strategy — implementing, selling, supporting, and rebuilding
+  enterprise software.
+- **Air Force. Big Four. Founder. Operator.** U.S. Air Force veteran; PwC and Deloitte; founder of an
+  independent CPA firm; and owner-operator of a rental portfolio for a decade.
+- **Advisor and board member.** Strategic advisor to Crux on product-acquisition integration and
+  board member of the G.R.O.W. Foundation.
 
-## In public
+## Selected builds
 
-Speaker — BeyondTheBlack (main stage, five consecutive years) · BlackLine Investor Day · SAP Sapphire,
-Barcelona · LWT Summit · Product Advisory Collective. Podcast guest — *Sounds Accurate*, *The Go-Live Gap*. Writing on LinkedIn.
+The production repositories remain private. The [public portfolio](${SITE}/#builds) recreates the
+real product screens with illustrative data and client identifiers removed.
 
-## Elsewhere
+| Build | What it does |
+|---|---|
+| **Intelligent Product Enablement** | Turns shipped code into the documentation, release notes, training, and field briefing it needs behind a governed approval path |
+| **Acquisition Integration Engine** | Compares acquired capabilities, identifies the surviving implementation on evidence, and sequences migration into one platform |
+| **Autonomous Implementor** | Carries an implementation from the customer's problem through process analysis, generated configuration, and baseline verification |
+| **Roadmap Prioritization Engine** | Scores investments on impact, fit, feasibility, and signal, weighted by confidence and re-ranked as evidence arrives |
+| **Compliance Knowledge Base** | Stores atomic rules with citations so every answer can be traced to the governing standard and policy |
+| **Multi-Dimensional Orchestrator** | Routes work through one governed path with fail-closed authority and evidence-based verification |
 
-**[The full showcase →](${SITE})** · [LinkedIn](${LINKEDIN})
+## Evidence
+
+| Claim | What it represents | State |
+|---:|---|:---:|
+| **${number(CONTRIBUTIONS)}** | Contributions in the last year | Verified |
+| **${number(totals.authoredCommits)}** | Authored commits, excluding bots and merge commits | Verified |
+| **${number(totals.mergedPullRequests)}** | Pull requests written, reviewed, and merged | Verified |
+| **${number(totals.edgeFunctions)}** | Live production services | Verified |
+| **${number(CAPABILITIES)}** | Reusable capabilities catalogued and maintained | Verified |
+| **3 years** | Consecutive triple-digit YoY growth on a platform line built from zero | Attested |
+| **20 years** | Leading enterprise software, primarily in the Office of the CFO | Attested |
+
+Verified figures come from a checked, versioned snapshot of the engineering record. Refreshes are
+intentional and reviewed; the build rejects blank, zero, partial, inconsistent, or regressed data,
+so a failed measurement leaves the last known-good numbers intact. Authored commits exclude
+${number(totals.automatedCommits)} automated sync and merge commits. The
+[collector that produces the snapshot](${COLLECTOR}) is public, while its private inputs are not.
+
+## Speaking and writing
+
+Innovation, trustworthy AI, people-first leadership, resilience, and the career chapters that
+rarely make a résumé. Recent appearances include five consecutive years on the BeyondTheBlack main
+stage, BlackLine Investor Day, SAP Sapphire Barcelona, LWT Summit, and the Product Advisory
+Collective.
+
+[Speaking profile](${SPEAKING}) · [Speaker one-sheet](${ONE_SHEET}) · [LinkedIn](${LINKEDIN})
 
 ---
 
-<sub>Generated from the engineering record, not maintained by hand. Recomputed
+<sub>Generated from the versioned engineering snapshot checked
 ${new Date(proof.generatedAt).toLocaleDateString('en-US', { dateStyle: 'long' })}.</sub>
 `;
 

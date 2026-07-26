@@ -6,6 +6,8 @@
 
 > **Progress belongs to the people willing to challenge what no longer works.**
 
+## About me
+
 I built my career by questioning accepted answers, looking beyond the boundaries of my role, and
 refusing to let hierarchy, politics, or bureaucracy stand between a meaningful problem and a better
 solution.
@@ -14,92 +16,151 @@ Technology is moving faster than traditional organizations can respond. I help c
 modernizing systems, aligning people, and creating the conditions for ideas to move, decisions to
 be made, and impact to scale.
 
-### → **[View the full profile → cherihewlett.dev](https://cherihewlett.dev)**  ·  [Résumé → cherihewlett.dev/resume](https://cherihewlett.dev/resume)
-
----
-
-## Point of view
-
-For thirty years the person who saw the problem and the person who could build the fix were two
-different people, and everything got lost in translation. That gap is closing. The new innovator is
-the domain expert who can build — and the constraint is no longer capability. It's judgment.
-
-- **Innovation is choosing the right problem.** Most companies are solving the wrong problems
-  faster. AI didn't fix that — it accelerated it.
-- **ROI is the problem solved, not the time saved.** The question is the caliber of quality the team
-  operates at afterward.
-- **Trust is the real moat.** Everyone asks whether AI *can* do the work. The better question is
-  whether we can prove it did it right.
-- **How you treat people is the strategy.** As AI absorbs execution, that becomes more of the job,
-  not less.
-
----
+[Full profile](https://cherihewlett.dev) ·
+[Résumé](https://cherihewlett.dev/resume) ·
+[Speaking](https://cherihewlett.dev/#speaking) ·
+[LinkedIn](https://linkedin.com/in/cheri-hewlett)
 
 ## What this repository is
 
-The site above makes claims about systems I have built. This repository contains the
-mechanism that checks them.
+This is the diligence layer behind the profile: a public, privacy-safe view of selected systems,
+technical case studies, reusable engineering mechanisms, and the controls used to keep published
+claims trustworthy.
 
-Most portfolio sites state their numbers without showing how they were established. This one keeps
-a versioned evidence snapshot. [`scripts/collect-proof.mjs`](scripts/collect-proof.mjs) can read the
-private production repositories and emit [`public/proof.json`](public/proof.json) — the file the
-site's Evidence section renders from.
+The most likely first readers are hiring and executive leaders validating the résumé, followed by
+product and technical leaders evaluating how I think and build. The repository is organized so each
+can get to useful evidence quickly:
 
-Two rules make the output worth trusting:
-
-- **Authored commits exclude automated work.** Sync, audit, and merge commits are
-  filtered out. The raw commit count is roughly 2.3× higher and is never displayed.
-- **Claims are labelled by how they were established.** Figures checked against the
-  record render as *verified*. Facts no script can check render as *attested*. They are
-  visually distinct, and the distinction is deliberate.
-
-There is no scheduled or direct-to-production updater. Refreshes are run intentionally, reviewed
-like any other source change, and accepted only when every source is present and every displayed
-total is a positive, internally consistent value. If collection or validation fails, the checked-in
-last known-good snapshot remains untouched. Nothing proprietary leaves the private repositories —
-the collector emits counts and dates only, never source, paths, commit messages, or schema detail.
-
----
+| If you are looking for… | Start here |
+|---|---|
+| Executive scope and career context | [Résumé](https://cherihewlett.dev/resume) and [full profile](https://cherihewlett.dev) |
+| Products and zero-to-one systems | [Selected builds](#selected-builds) and the [deeper project brief](case-studies/selected-builds.md) |
+| Technical depth | [Case studies](#technical-case-studies) and the [public arsenal](#public-arsenal) |
+| Governance and operating discipline | [Repository controls](#governance-you-can-inspect) and [proof-integrity tests](test/proof-integrity.test.mjs) |
+| Speaking and thought leadership | [Speaking profile](https://cherihewlett.dev/#speaking) and [speaker one-sheet](https://cherihewlett.dev/speaker-one-sheet.pdf) |
 
 ## Selected builds
 
-The private repositories stay private, so the site rebuilds the real product screens clean — same
-layout, same states, illustrative data. Written hands-on:
+The production repositories remain private. The live portfolio rebuilds the real product screens
+with illustrative data and client identifiers removed; the project brief goes one level deeper into
+the problem, system design, governance, and skills demonstrated.
 
-| Build | What it does |
+| Build | Capability demonstrated | Explore |
+|---|---|---|
+| **Intelligent Product Enablement** | Developer-to-customer release pipeline with human approval before publication | [Demo](https://cherihewlett.dev/#build-product-enablement) · [Brief](case-studies/selected-builds.md#1-intelligent-product-enablement) |
+| **Acquisition Integration Engine** | Evidence-based capability comparison, survivor decisions, and dependency-sequenced migration | [Demo](https://cherihewlett.dev/#build-acquisition-integration) · [Brief](case-studies/selected-builds.md#2-acquisition-integration-engine) |
+| **Autonomous Implementor** | Customer problem to process analysis, configuration, approval, and measured ROI | [Demo](https://cherihewlett.dev/#build-autonomous-implementor) · [Brief](case-studies/selected-builds.md#3-autonomous-implementor) |
+| **Roadmap Prioritization Engine** | Confidence-weighted investment scoring that re-ranks as evidence changes | [Demo](https://cherihewlett.dev/#build-roadmap-prioritization) · [Brief](case-studies/selected-builds.md#4-roadmap-prioritization-engine) |
+| **Compliance Knowledge Base** | Atomic, citable rules with policy overlays and refusal when provenance is missing | [Demo](https://cherihewlett.dev/#build-compliance-knowledge-base) · [Brief](case-studies/selected-builds.md#5-compliance-knowledge-base) |
+| **Multi-Dimensional Orchestrator** | Registry routing, durable memory, fail-closed authority, escalation, and evidence-based verification | [Demo](https://cherihewlett.dev/#build-multidimensional-orchestrator) · [Brief](case-studies/selected-builds.md#6-multi-dimensional-orchestrator) |
+
+## Skills and expertise
+
+| Area | What the work demonstrates |
 |---|---|
-| **Intelligent Product Enablement** | Turns every shipped code change into the docs, release notes, training, and field briefing it needs — behind a governed human-approval path |
-| **Acquisition Integration Engine** | Compares capabilities across acquired technologies, flags the surviving implementation on evidence, and sequences the migration into one platform |
-| **Autonomous Implementor** | Carries an implementation from the customer's stated problem through process analysis, generated configuration, and verification against their own baseline |
-| **Roadmap Prioritization Engine** | Scores candidate investments on impact, fit, feasibility, and signal — weighted by confidence and re-ranked as evidence arrives |
-| **Compliance Knowledge Base** | Atomic rules that carry their own citations, so any answer can be walked back to the standard and the policy governing it |
-| **Multi-Dimensional Orchestrator** | One governed path for work entering by support case, use case, code change, or product area — registry-driven routing, fail-closed authority, verification against evidence |
+| **Executive and product leadership** | Platform strategy, zero-to-one product creation, full P&L ownership, roadmap investment, board communication, and global scaling |
+| **AI and systems architecture** | Multi-agent orchestration, registry-driven routing, durable memory, workflow automation, retrieval, and deterministic verification |
+| **Governance and safety** | Authority boundaries, human approval, fail-closed behavior, provenance, auditability, red-team testing, and separation of duties |
+| **Domain depth** | Enterprise SaaS, the Office of the CFO, accounting and compliance, acquisition integration, implementation, and customer adoption |
+| **Hands-on engineering** | Next.js, React, TypeScript, Node.js, data validation, test automation, build gates, and production deployment |
+| **Leadership and communication** | People-first operating models, cross-functional alignment, executive storytelling, speaking, and translating technical systems into business value |
 
----
+## Technical case studies
 
-## Running it yourself
+These public-safe briefs focus on architecture and operating patterns rather than repeating the
+profile:
 
-```bash
-npm install && npm run dev
+- [Selected builds — system design and governance](case-studies/selected-builds.md)
+- [AI operating system](case-studies/ai-operating-system.md)
+- [AI safety and governance engineering](case-studies/ai-safety-and-governance-engineering.md)
+- [Truthful verification systems](case-studies/truthful-verification-systems.md)
+- [Verification-first operations](case-studies/verification-first-operations.md)
+- [Workflow automation](case-studies/workflow-automation.md)
+
+## Public arsenal
+
+The private 302-capability library is not published. These reusable mechanisms are visible here and
+can be inspected directly:
+
+| Mechanism | Purpose | Source |
+|---|---|---|
+| **Proof integrity contract** | Rejects missing, blank, zero, inconsistent, partial, or regressed engineering totals | [`lib/proof-integrity.js`](lib/proof-integrity.js) |
+| **Atomic proof replacement** | Validates a candidate snapshot before replacing the last known-good artifact | [`scripts/proof-file.mjs`](scripts/proof-file.mjs) |
+| **Evidence collector** | Aggregates public-safe counts from authorized local repositories without emitting proprietary content | [`scripts/collect-proof.mjs`](scripts/collect-proof.mjs) |
+| **Independent build guard** | Revalidates the checked-in evidence snapshot before every production build | [`scripts/validate-proof.mjs`](scripts/validate-proof.mjs) |
+| **Design compiler** | Converts the approved source designs into versioned application artifacts | [`scripts/build-design.py`](scripts/build-design.py) |
+| **Accessible portfolio navigation** | Adds section navigation, scroll-spy behavior, reduced-motion handling, and the persistent build carousel | [`components/ProfileContent.tsx`](components/ProfileContent.tsx) · [`lib/section-navigation.ts`](lib/section-navigation.ts) |
+| **Negative-path test harness** | Proves invalid evidence is rejected and cannot overwrite the known-good snapshot | [`test/proof-integrity.test.mjs`](test/proof-integrity.test.mjs) |
+
+## Governance you can inspect
+
+This repository intentionally demonstrates a few lightweight but meaningful controls:
+
+- **Canonical source and generated output are separated.** Approved files in
+  [`design-src/`](design-src) generate the application artifacts in `app/_generated/`; generated
+  files are not treated as the authoring source.
+- **Evidence fails closed.** `npm run build` runs the proof validator first. Invalid data stops the
+  build instead of rendering blank or zero values.
+- **The last known-good snapshot is preserved.** Collection validates a temporary candidate before
+  atomic replacement; a failed refresh leaves [`public/proof.json`](public/proof.json) untouched.
+- **No unattended publication path exists.** Evidence refreshes are intentional and reviewed like
+  source changes; there is no scheduled updater pushing measurements directly to production.
+- **Private work stays private.** Public demos preserve workflows and decisions while using
+  illustrative data. The collector emits counts and dates—not source code, paths, commit messages,
+  customer information, or schemas.
+- **Claims carry a state.** Machine-checkable figures are labelled *verified*; career facts that
+  cannot be checked by code are labelled *attested*.
+- **Behavior is tested at the failure boundary.** The suite covers zero, blank, partial,
+  inconsistent, missing-source, and regression cases—not just the happy path.
+
+## Evidence snapshot
+
+| Claim | Meaning | State |
+|---:|---|:---:|
+| **16,983** | Contributions in the last year | Verified |
+| **6,916** | Authored commits, excluding bots and merge commits | Verified |
+| **1,725** | Pull requests written, reviewed, and merged | Verified |
+| **131** | Live production services | Verified |
+| **302** | Reusable capabilities catalogued and maintained | Verified |
+| **3 years** | Consecutive triple-digit YoY growth on a platform line built from zero | Attested |
+| **20 years** | Leading enterprise software, primarily in the Office of the CFO | Attested |
+
+The first five figures are a checked, versioned snapshot. If collection or validation fails, the
+published values remain on the last known-good non-zero totals.
+
+## Repository map
+
+```text
+app/             Next.js routes, metadata, and generated page artifacts
+case-studies/    Public-safe technical and operating-system briefs
+components/      Client behavior for navigation and portfolio interaction
+design-src/      Canonical profile and résumé designs
+lib/             Reusable navigation and proof-integrity contracts
+public/          Versioned evidence snapshot, images, and public PDFs
+resume/          Public-safe source résumé
+scripts/         Design compilation, evidence collection, validation, and README generation
+test/            Positive and negative-path verification
 ```
 
-To recompute the engineering record against local checkouts:
+## Run and verify
+
+```bash
+npm install
+npm test
+npm run build
+npm run dev
+```
+
+To recompute the engineering snapshot against authorized local checkouts:
 
 ```bash
 REPO_ROOT=/path/to/your/checkouts node scripts/collect-proof.mjs
 ```
 
-The two designed pages (`/` and `/resume`) are imported from Claude Design and regenerated by
-[`scripts/build-design.py`](scripts/build-design.py) from [`design-src/`](design-src) into
-`app/_generated/`. Built with Next.js. Privacy-friendly analytics only — no cookies, no trackers.
+## Links
 
----
-
-## Also here
-
-- [Résumé — web page](https://cherihewlett.dev/resume) · [plain text](resume/cheri-hewlett-cv.md)
-- [The GitHub profile README generator](scripts/build-profile-readme.mjs)
-
-## Contact
-
-- LinkedIn: <https://linkedin.com/in/cheri-hewlett>
+- [Full profile](https://cherihewlett.dev)
+- [Résumé — web](https://cherihewlett.dev/resume) · [PDF](https://cherihewlett.dev/Cheri_Hewlett_Resume.pdf) · [plain text](resume/cheri-hewlett-cv.md)
+- [Speaking and one-sheet](https://cherihewlett.dev/#speaking)
+- [LinkedIn](https://linkedin.com/in/cheri-hewlett)
+- [GitHub](https://github.com/cherihewlett-crypto)
